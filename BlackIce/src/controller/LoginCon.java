@@ -16,10 +16,12 @@ public class LoginCon implements ICommand{
 		
 		String moveURL = null;
 		
+		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
-
-		MemberDTO dto = new MemberDTO(email, pw);
+		String tel = request.getParameter("tel");
+		
+		MemberDTO dto = new MemberDTO(name, email, pw, tel);
 		MemberDAO dao = MemberDAO.getDAO();
 		MemberDTO info = dao.login(dto);
 
