@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+
+<style>
+
+.inbox_dgray {
+    width: 245px;
+    padding: 20px 20px 15px 20px;
+    background-color :lightgray;
+    margin-left: 9px;
+    margin-top: 9px;
+}
+</style>
+<body>
+
+
+<div id="left" class="left">
+			
+<script type="text/javascript" align="left">
+</script>
+
+	<!-- 		<div class="tab">
+				<ul>
+					<li id="btnDrivePath" alt="운전경로" class="on"><a href="javascript:doClickLeftNavi('btnDrivePath');"><br/>GIS<br/>분석</a></li>
+					<li id="btnAccidentRoad" alt="사고위험도로통계"><a href="javascript:doClickLeftNavi('btnAccidentRoad');"><br/>교통<br/>사고<br/>통계</a></li>
+				</ul>
+			</div> -->
+
+	<!-- Left navigation -->
+	<script type="text/javascript">
+	/** 왼쪽 네비게이션 클릭 처리 */
+	function doClickLeftNavi(paramID) {
+		doInitLeftNavi(paramID);
+		doInitMenuText();
+		$("#searchResultsShowHide").hide();
+
+		switch(paramID){
+		case "btnDrivePath":
+			doClickDrivePath(paramID);
+			break;
+		case "btnAccidentRoad":
+			doClickAccidentRoad(paramID);
+			actionMakeGraph($("#container"), "line");
+			$("#scope1").hide();
+			$("#scope2").hide();
+			$("#searchQ").hide();
+			break;
+		}
+		
+		/** 운전경로 */
+		function doClickDrivePath(paramClickedBtnID) {
+			doInitLeftNavi(paramClickedBtnID);
+			topMenuOn('menu','#menu4');
+			$('div.top_search').children().show();
+			$("#search1").hide();
+			$("#search2").show();
+			$("#divAnalysis").hide();
+			$("#topMenuAccidentRoad").hide();
+			$("#topMenuDriverPath").show();
+			$('#analysisContainer').hide();
+			$('#tableLayer').hide();
+			$("#searchDetailInfo").hide();
+			if (mapcontrolView == true)
+				$(".top .top_menu_wrap .controlBar").show();
+		}
+		
+		/** 위험도로분석 */
+		function doClickAccidentRoad(paramClickedBtnID) {
+			doInitLeftNavi(paramClickedBtnID);
+			$('div.top_search').children().hide();
+			$("#search1").show();
+			$("#search2").hide();
+			$("#divAnalysis").show();
+			$("#topMenuDriverPath").hide();
+			$("#topMenuAccidentRoad").show();
+			$('#analysisContainer').show();
+			$('#tableLayer').hide();
+			$("#searchDetailInfo").hide();
+			$(".top .top_menu_wrap .controlBar").hide();
+			pageLoad('epdo');
+			calAnalysisContainerSize();
+		}
+		
+		/** Init left navi button*/
+		function doInitLeftNavi(paramClickedBtnID) {
+			$("div.tab>ul>li").removeClass("on");
+			$("div.tab>ul>li#"+paramClickedBtnID).addClass("on");
+		}
+	}
+	</script>
+			<div id="subMenu" class="contents_wrap">
+				<div id="search1" class="static" style="display: none; height: 100%;">
+					
+
+<h1>조건설정</h1>
+<div id="divSelectConditionForAnalysis" class="inbox_dgray">
+	<table>
+		<tbody><tr>
+			<th><label for="searchYear">연도</label></th>
+			<td><select id="searchYear" name="year" style="width: 130px" class="dataSets">
+				<!-- option value="">:::선택하세요:::</option -->
+				
+					<option value="2011" selected="">2011</option>
+				
+					<option value="2012" selected="">2012</option>
+				
+					<option value="2013" selected="">2013</option>
+				
+					<option value="2014" selected="">2014</option>
+				
+					<option value="2015" selected="">2015</option>
+				
+					<option value="2016" selected="">2016</option>
+				
+			</select></td>
+		</tr>
+		<tr>
+			<th><label for="analysisSido">시도</label></th>
+			<td><select id="analysisSido" name="sido_id" onchange="selectSigungu('#analysisSido','#analysisSigungu')" style="width: 130px">
+					<option value="">:::시  도:::</option>
+					
+						<option value="11">서울특별시</option>
+					
+						<option value="26">부산광역시</option>
+					
+						<option value="27">대구광역시</option>
+					
+						<option value="28">인천광역시</option>
+					
+						<option value="29">광주광역시</option>
+					
+						<option value="30">대전광역시</option>
+					
+						<option value="31">울산광역시</option>
+					
+						<option value="36">세종특별자치시</option>
+					
+						<option value="41">경기도</option>
+					
+						<option value="42">강원도</option>
+					
+						<option value="43">충청북도</option>
+					
+						<option value="44">충청남도</option>
+					
+						<option value="45">전라북도</option>
+					
+						<option value="46">전라남도</option>
+					
+						<option value="47">경상북도</option>
+					
+						<option value="48">경상남도</option>
+					
+						<option value="50">제주도</option>
+					
+			</select></td>
+		</tr>
+		<tr>
+			<th><label for="analysisSigungu">시군구</label></th>
+			<td><select id="analysisSigungu" name="sigungu_id" class="dataSets" style="width: 130px">
+					<option value="">:::시군구:::</option>
+			</select></td>
+		</tr>
+	</tbody></table>
+	<div class="btn">
+		<a href="javascript:initSearch();" class="btn_skyblue">검색하기</a>
+	</div>
+</div>
+<div class="inbox_dgray_btm"></div>
+<!-- 정의 테이블 -->
+<div id="descriptor">
+	<div id="contents" class="inbox_dgray">
+		<p style="padding: 10px; color: white;"></p>
+	</div>
+	<div class="inbox_dgray_btm"></div>
+</div>
+				</div>
+				<div id="search2" class="search" style="height: 70%; width:18%; float:left;" >
+
+<h1>운전경로검색</h1>
+<fieldset class="inbox_dgray" margin-top = "-1px;" >
+	<input type="text" id="startPoint" name="startPoint" placeholder="출발" title="출발지 검색"><a onclick="javascript:startSearch();" style="cursor: pointer;"></a>
+	<div id="pass" style="">
+		<input type="text" id="passPoint" name="passPoint" placeholder="경유지1" title="경유지 검색"><a onclick="runSearchPassage('#passPoint', false);" style="cursor: pointer;"></a>
+		<div style=" margin-right: 20px" onclick="passClose('0')">
+			<img id="btn_passpoint" src="./resources/images/btn_passpoint.png" title="삭제" style="cursor:pointer;">			
+		</div>
+	</div>
+	
+	<div id="pass1" style="display: none">
+		<input type="text" id="passPoint1" name="passPoint1" placeholder="경유지2" title="경유지 검색"><a onclick="runSearchPassage('#passPoint1', false);" style="cursor: pointer;"></a>
+		<div style=" margin-right: 20px" onclick="passClose('1')">
+			<img id="btn_passpoint" src="./resources/images/btn_passpoint.png" title="삭제" style="cursor:pointer;">	
+		</div>
+	</div>
+	
+	<div id="pass2" style="display: none">
+		<input type="text" id="passPoint2" name="passPoint2" placeholder="경유지3" title="경유지 검색"><a onclick="runSearchPassage('#passPoint2', false);" style="cursor: pointer;"></a>
+		<div style=" margin-right: 20px" onclick="passClose('2')">
+			<img id="btn_passpoint" src="./resources/images/btn_passpoint.png" title="삭제" style="cursor:pointer;">	
+		</div>
+	</div>
+	
+	
+	<input type="text" id="endPoint" name="endPoint" placeholder="도착" title="도착지 검색"><a onclick="javascript:endSearch();" style="cursor: pointer;"></a> <a href="javascript:pointChange()" class="btn_change" style="cursor: pointer;"><img src="/TCFS/resources/images/btn_change.png" alt="바꿈"></a>
+	<a href="javascript:routePassAdd();" class="btn_gray" id="passBtn">경유지추가</a>
+	<a href="javascript:routeSearchInit();" class="btn_skyblue_driveroute" src="img/add.PNG">경로탐색</a>
+	<p class="cmt">
+		이동을 원하는상호, 지점명 또는주소를 입력하면<br>해당지점으로 이동하실 수 있습니다.
+	</p>
+	<p align="center">
+		<a href="javascript:displayTraffic();" id="displayRealTraffic" class="btn_gray" title="실시간 교통정보">실시간 교통정보</a>
+		<input type="image" src="img/color.PNG" alt="교통정보범례" style="height:35px;border:none;">
+	</p>
+</fieldset>
+<div class="inbox_dgray_btm"></div>
+<div id="routePath" class="result" style="display: none">
+	
+<script type="text/javascript">
+	
+	function routeTab(searchType){
+		routeLayer.removeAllFeatures();
+		weatherLayer.destroy();
+		weatherLayer = new Tmap.Layer.Markers( "weather layer" );//기상
+		map.addLayers([ weatherLayer ]);
+		
+		if(selectedLinkIdList && selectedLinkIdList.length > 0){
+			selectedLinkIdList = null;
+		}
+		$('#tableLayer').hide();
+		var result;
+		
+		$("li[id^=tab]").removeClass("on");
+		$("#tab"+searchType).addClass("on");
+		
+		if(searchType == 0){
+			result = xml1.features;
+			$("#routeList0").show();
+			$("#routeList1").hide();
+			$("#routeList2").hide();
+			$("#routeList3").hide();
+		}
+		if(searchType == 1){
+			result = xml2.features;
+			$("#routeList0").hide();
+			$("#routeList1").show();
+			$("#routeList2").hide();
+			$("#routeList3").hide();
+		}
+		if(searchType == 2){                                               
+			result = xml3.features;
+			$("#routeList0").hide();
+			$("#routeList1").hide();
+			$("#routeList2").show();
+			$("#routeList3").hide();
+		}
+		
+		result.forEach(function(d, i) {
+			
+			var size = new Tmap.Size(40, 50);
+			var offset = new Tmap.Pixel(-(size.w / 2), -size.h);
+			
+			//
+			if( d.properties.pointType === "S" ){
+				var start = new Tmap.Icon(context+"/resources/images/flag_start.png",size, offset);
+				var startPoint = d.geometry.coordinates;
+				var lat = new Tmap.LonLat(startPoint[0], startPoint[1]);
+				var markers = new Tmap.Marker(lat, start);
+		    	
+				weatherLayer.addMarker(markers);
+				
+			}
+			
+			if( d.properties.pointType === "E") {
+				var end = new Tmap.Icon(context+"/resources/images/flag_destination.png",size, offset);
+				var endPoint = d.geometry.coordinates;
+				var lat = new Tmap.LonLat(endPoint[0], endPoint[1]);
+				var markers = new Tmap.Marker(lat, end);
+			
+				weatherLayer.addMarker(markers);
+			}
+			
+			//
+			if( d.properties.name != ""){
+				var linePoint = [];
+				
+				var points = d.geometry.coordinates;
+				
+				points.forEach(function(pointd, pointi) {
+					//if( d.geometry.type != ""){
+						linePoint.push(new Tmap.Geometry.Point(pointd[0], pointd[1]));
+						oneLine.push(new Tmap.Geometry.Point(pointd[0], pointd[1]));
+						
+					//}
+				})
+				
+				lineString = new Tmap.Geometry.LineString(linePoint);
+
+				var style_bold = {strokeColor : "#00D8FF", strokeWidth : 8};
+				var lineFeature = new Tmap.Feature.Vector(lineString, null, style_bold);
+				
+				routeLayer.addFeatures([ lineFeature ]);
+			} 
+			
+		});
+		var LineStr = new Tmap.Geometry.LineString(oneLine);
+		
+		map.zoomToExtent(LineStr.getBounds());
+		var hasClass = $("#routeChk"+searchType).hasClass("on");
+		/*if(hasClass){
+			routeCheck("#routeChk"+searchType);
+		}*/
+		
+		
+	}
+</script>
+
+					<h1><img src="/TCFS/resources/images/bul2.png" alt="">찾기결과</h1>
+					<ul class="result_tab">
+						<li class="m1 on" id="tab0"><a href="javascript:routeTab(0)"></a></li><!-- 최적-->
+						<li class="m2" id="tab2"><a href="javascript:routeTab(2)"></a></li><!-- 최소-->
+						<li class="m3" id="tab1"><a href="javascript:routeTab(1)"></a></li><!-- 무료-->
+					</ul>
+					<div id="routeList0" style="padding:0px"></div>
+					<div id="routeList1" style="padding:0px;display: none;"></div>
+					<div id="routeList2" style="padding:0px;display: none;"></div> 
+					<div id="routeList3" style="padding:0px;display: none;"></div>
+</div>
+<div id="searchScope" class="legend_condition" style="display: none">
+	<h1>지도범례</h1>
+	<div class="inbox_gray">
+		<ul>
+			<li><p class="green"></p> <span><b>1. 안전</b></span></li>
+			<li><p class="yellow"></p> <span><b>2. 주의</b></span></li>
+			<li><p class="orange"></p> <span><b>3. 위험</b></span></li>
+			<li><p class="red"></p> <span><b>4. 심각</b></span></li>
+		</ul>
+	</div>
+	<div class="inbox_gray_btm"></div>
+</div>
+<script type="text/javascript">
+	function startSearch() {
+		$("#loading").show();
+		start = null;
+		runSearchStart('#startPoint', false);
+		$("#loading").hide();
+	}
+	function endSearch() {
+		$("#loading").show();
+		end = null;
+		runSearchEnd('#endPoint', true);
+		$("#loading").hide();
+	}
+	$(function() {
+		/*운전경로검색,top검색 enter입력시 */
+		$("#startPoint").on('keypress', function(evt) {
+			var keyCode = (evt.keyCode ? evt.keyCode : evet.which);
+			if (keyCode == '13') {
+				runSearchStart('#startPoint', false);
+			}
+		});
+		$("#passPoint").on('keypress', function(evt) {
+			var keyCode = (evt.keyCode ? evt.keyCode : evet.which);
+			if (keyCode == '13') {
+				runSearchPassage('#passPoint', null);
+			}
+		});
+		$("#passPoint1").on('keypress', function(evt) {
+			var keyCode = (evt.keyCode ? evt.keyCode : evet.which);
+			if (keyCode == '13') {
+				runSearchPassage('#passPoint1', null);
+			}
+		});
+		$("#passPoint2").on('keypress', function(evt) {
+			var keyCode = (evt.keyCode ? evt.keyCode : evet.which);
+			if (keyCode == '13') {
+				runSearchPassage('#passPoint2', null);
+			}
+		});
+		$("#endPoint").on('keypress', function(evt) {
+			var keyCode = (evt.keyCode ? evt.keyCode : evet.which);
+			if (keyCode == '13') {
+				runSearchEnd('#endPoint', true)
+			}
+		});
+	});
+</script></div>
+				<div id="searchQ" style="display: none;">
+					<h1>검색조건</h1>
+					<div class="legend_accident_tbl">
+						<div id="subDiv" class="inbox_gray">
+							<table>
+								<colgroup>
+									<col width="100px">
+									<col width="185px">
+								</colgroup>
+								<tbody><tr>
+									<th>검색조건</th>
+									<th>값</th>
+								</tr>
+							</tbody></table>
+							<table class="tbl2">
+								<colgroup>
+									<col width="100px">
+									<col width="185px">
+								</colgroup>
+								<tbody><tr>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody></table>
+						</div>
+						<div class="inbox_gray_btm tbl_line"></div>
+					</div>
+				</div>
+				
+				
+<script type="text/javascript">
+function doInitLeftLegend(pActiveLegendID){
+	
+	$('div.divLegend').hide();
+	
+	switch(pActiveLegendID){
+	case "#scope1":
+		$(pActiveLegendID).show();
+		break;
+	case "#scope2":
+		$(pActiveLegendID).show();
+		break;
+	case "#scope3":
+		$(pActiveLegendID).show();
+		break;
+	case "#scope4":
+		$(pActiveLegendID).show();
+		break;
+	case "#scope5":
+		$(pActiveLegendID).show();
+		break;
+	case "#scope6":
+		$(pActiveLegendID).show();
+		break;
+	case "#scope7":
+		$(pActiveLegendID).show();
+		break;
+	}
+}
+</script>
+				<div class="divLegend" id="scope1" style="display:none">
+					<div class="legend_condition">
+						<h1>지도범례</h1>
+						<div class="inbox_gray">
+							<ul>
+								<li><p class="green" alt="원활"></p><span><b>원활</b></span></li>
+								<li><p class="yellow" alt="지체"></p><span><b>지체</b></span></li>
+								<li><p class="red" alt="정체"></p><span><b>정체</b></span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="inbox_gray_btm"></div>
+					<div class="legend_accident_tbl">
+						<div class="inbox_gray">
+							<table>
+								<colgroup><col width="100px"><col width="122px"><col width="53px"></colgroup>
+								<tbody><tr>
+									<th>도로종류</th>
+									<th>속도</th>
+									<th class="th_last">등급</th>
+								</tr>
+							</tbody></table>
+							<table class="tbl2">
+								<colgroup><col width="100px"><col width="122px"><col width="53px"></colgroup>
+								<tbody><tr>
+									<td>도시고속도로</td>
+									<td>50km/h 이상</td>
+									<td class="last">원활</td>
+								</tr>
+								<tr>
+									<td>도시고속도로</td>
+									<td>30~50km/h</td>
+									<td class="last">지체</td>
+								</tr>
+								<tr>
+									<td>도시고속도로</td>
+									<td>30km/h 이하</td>
+									<td class="last">정체</td>
+								</tr>
+								<tr>
+									<td>도시 내 도로</td>
+									<td>20km/h 이상</td>
+									<td class="last">원활</td>
+								</tr>
+								<tr>
+									<td>도시 내 도로</td>
+									<td>10~20km/h</td>
+									<td class="last">지체</td>
+								</tr>
+								<tr>
+									<td>도시 내 도로</td>
+									<td>10km/h 이하</td>
+									<td class="last">정체</td>
+								</tr>
+							</tbody></table>
+						</div>
+						<div class="inbox_gray_btm tbl_line"></div>
+					</div>
+				</div>
+				<div class="divLegend" id="scope2" style="display:none">
+					<h1>지도범례</h1>
+					<div class="legend_accident_tbl">
+						<div id="aScope1" class="inbox_gray">
+							<table>
+								<colgroup><col width="91px"><col width="51px"><col width="86px"><col width="57px"></colgroup>
+								<tbody><tr>
+									<th class="last">사고종류</th>
+									<th>기호</th>
+									<th class="last">사고유형</th>
+									<th class="th_last">기호</th>
+								</tr>
+							</tbody></table>
+							<table class="tbl2">
+								<colgroup><col width="84px"><col width="51px"><col width="86px"><col width="50px"></colgroup>
+								<tbody><tr>
+									<td class="last">사망사고</td>
+									<td><img src="/TCFS/resources/images/mark1.png" alt="사망사고"></td>
+									<td class="last">차대사람</td>
+									<td class="last"><img src="/TCFS/resources/images/mark5.png" alt="차대사람"></td>
+								</tr>
+								<tr>
+									<td class="last">중상사고</td>
+									<td><img src="/TCFS/resources/images/mark2.png" alt="중상사고"></td>
+									<td class="last">차대차</td>
+									<td class="last"><img src="/TCFS/resources/images/mark6.png" alt=""></td>
+								</tr>
+								<tr>
+									<td class="last">경상사고</td>
+									<td><img src="/TCFS/resources/images/mark3.png" alt="경상사고"></td>
+									<td class="last">차량단독</td>
+									<td class="last"><img src="/TCFS/resources/images/mark7.png" alt=""></td>
+								</tr>
+								<tr class="last">
+									<td class="last">부상신고사고</td>
+									<td><img src="/TCFS/resources/images/mark4.png" alt="부상신고사고"></td>
+									<td class="last">건널목</td>
+									<td class="last"><img src="/TCFS/resources/images/mark8.png" alt=""></td>
+								</tr>
+							</tbody></table>
+						</div>
+						<div id="aScope2" class="inbox_gray" style="display:none">
+							<table>
+								<colgroup><col width="85px"><col width="200px"></colgroup>
+								<tbody><tr>
+									<th>단계</th>
+									<th>색깔</th>
+								</tr>
+							</tbody></table>
+							<table id="classT1" class="tbl2">
+								<colgroup><col width="85px"><col width="200px"></colgroup>
+								<tbody><tr>
+									<td>1단계</td>
+									<td style="background:#FF8C8C">&nbsp;</td>
+								</tr>
+								<tr>
+									<td>2단계</td>
+									<td style="background:#FF6E6E">&nbsp;</td>
+								</tr>
+								<tr>
+									<td>3단계</td>
+									<td style="background:#FF5A5A">&nbsp;</td>
+								</tr>
+								<tr>
+									<td>4단계</td>
+									<td style="background:#FF4646">&nbsp;</td>
+								</tr>
+								<tr class="last">
+									<td>5단계</td>
+									<td style="background:#FF0000">&nbsp;</td>
+								</tr>
+							</tbody></table>
+						</div>
+						<div class="inbox_gray_btm tbl_line"></div>
+					</div>
+				</div>
+				<div class="divLegend legend_condition" id="scope3" style="display: none">
+					<h1>지도범례</h1>
+						<div class="inbox_gray">
+							<ul>
+								<li><p class="green" alt="안전(40미만)"></p><span><b>안전(40미만)</b></span></li>
+								<li><p class="yellow" alt="주의(40~100)"></p><span><b>주의(40~100)</b></span></li>
+								<li><p class="orange" alt="위험(100~275)"></p><span><b>위험(100~275)</b></span></li>
+								<li><p class="red" alt="심각(275이상)"></p><span><b>심각(275이상)</b></span></li>
+							</ul>
+						</div>
+					<div class="inbox_gray_btm"></div>
+					<div id="subScope3" class="legend_accident_tbl" style="display:none">
+						<div class="inbox_gray">
+							<table>
+								<colgroup><col width="142px"><col width="143px"></colgroup>
+								<tbody><tr>
+									<th>기상</th>
+									<th class="th_last">가중치</th>
+								</tr>
+							</tbody></table>
+							<table class="tbl2">
+								<colgroup><col width="142px"><col width="143px"></colgroup>
+								<tbody><tr>
+									<td>맑음</td>
+									<td class="last">1.0</td>
+								</tr>
+								<tr>
+									<td>흐림</td>
+									<td class="last">1.25</td>
+								</tr>
+								<tr>
+									<td>비</td>
+									<td class="last">1.6</td>
+								</tr>
+								<tr>
+									<td>눈</td>
+									<td class="last">2.0</td>
+								</tr>
+							</tbody></table>
+						</div>
+						<div class="inbox_gray_btm tbl_line"></div>
+					</div>
+				</div>
+				<!-- 기상정보 지도범례 레이어 -->
+				<div class="divLegend" id="scope4" style="display: none">
+					<h1>지도범례</h1>
+					<div class="legend_accident_tbl">
+						<div class="inbox_gray">
+							<table>
+								<colgroup><col width="51px"><col width="91px"><col width="57px"><col width="86px"></colgroup>
+								<tbody><tr>
+									<th class="last">아이콘</th>
+									<th>설명</th>
+									<th class="last">아이콘</th>
+									<th class="th_last">설명</th>
+								</tr>
+							</tbody></table>
+							<table class="tbl2">
+								<colgroup><col width="51px"><col width="84px"><col width="50px"><col width="86px"></colgroup>
+								<tbody><tr>
+									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_01.png" alt="맑음"></td>
+									<td>맑음</td>
+									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_09.png" alt="비"></td>
+									<td class="last">비</td>
+								</tr>
+								<tr>
+									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_03.png" alt="구름조금"></td>
+									<td>구름조금</td>
+									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_11.png" alt="눈"></td>
+									<td class="last">눈</td>
+								</tr>
+								<tr>
+									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_05.png" alt="그름많음"></td>
+									<td>구름많음</td>
+									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_13.png" alt="비 또는 눈"></td>
+									<td class="last">비 또는 눈</td>
+								</tr>
+								<tr class="last">
+									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_07.png" alt="흐림"></td>
+									<td>흐림</td>
+									<td class="last"></td>
+									<td class="last"></td>
+								</tr>
+							</tbody></table>
+						</div>
+						<div class="inbox_gray_btm tbl_line"></div>
+					</div>
+				</div>
+				<!-- /기상정보 지도범례 레이어 -->
+				<div class="divLegend" id="scope5" style="display: none">
+					<h1>지도범례</h1>
+					<div class="legend_accident_tbl">
+						<div class="inbox_gray">
+							<table>
+								<colgroup><col width="51px"><col width="91px"><col width="57px"><col width="86px"></colgroup>
+								<tbody><tr>
+									<th class="last">아이콘</th>
+									<th>설명</th>
+									<th class="last">아이콘</th>
+									<th class="th_last">설명</th>
+								</tr>
+							</tbody></table>
+							<table class="tbl2">
+								<colgroup><col width="51px"><col width="84px"><col width="50px"><col width="86px"></colgroup>
+								<tbody><tr>
+									<td class="last"><img src="/TCFS/resources/images/s_icon1.png" alt="사고"></td>
+									<td>사고</td>
+									<td class="last"><img src="/TCFS/resources/images/s_icon2.png" alt="공사"></td>
+									<td class="last">공사</td>
+								</tr>
+								<tr>
+									<td class="last"><img src="/TCFS/resources/images/s_icon3.png" alt="행사"></td>
+									<td>행사</td>
+									<td class="last"><img src="/TCFS/resources/images/s_icon4.png" alt="기상"></td>
+									<td class="last">기상</td>
+								</tr>
+								<tr>
+									<td class="last"><img src="/TCFS/resources/images/s_icon5.png" alt="통제"></td>
+									<td>통제</td>
+									<td class="last"><img src="/TCFS/resources/images/s_icon6.png" alt="가타"></td>
+									<td class="last">기타</td>
+								</tr>
+							</tbody></table>
+						</div>
+						<div class="inbox_gray_btm tbl_line"></div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- 사이드 메뉴 닫기 열기 -->
+			<div id="btn_left" class="btn_left_toggle">
+				<a href="#">
+					<img id="imgToggle" onclick="javascript:left_toggle();" alt="검색창닫힘" title="검색창닫힘" src="img/open.PNG">
+				</a>
+			</div>
+			<!--<div class="btn_left_toggle on"><a href="#"></a></div>-->
+			<!-- /사이드 메뉴 닫기 열기 -->
+		</div>
+
+
+<p align = "right">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13051.96410446545!2d126.84491073932001!3d35.13189748399266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357189711659eb09%3A0xd4d5827f14fe9656!2z6rSR7KO86rSR7Jet7IucIOyEnOq1rCDquIjtmLjrj5k!5e0!3m2!1sko!2skr!4v1583911031241!5m2!1sko!2skr" width="1400" height="820" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+</iframe>
+</p>
+
+
+
+
+</body>
+</html>
