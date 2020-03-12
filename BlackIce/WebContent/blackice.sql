@@ -1,6 +1,6 @@
 drop table BI_member;
 create table BI_member(
-    yourname varchar2(20),
+    name varchar2(20),
 	email varchar2(20),
 	pw varchar2(20),
 	tel varchar2(20)

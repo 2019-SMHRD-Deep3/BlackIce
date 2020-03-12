@@ -22,7 +22,7 @@ public class JoinCon implements ICommand {
 		MemberDAO dao = MemberDAO.getDAO();
 		dao.join(dto);
 
-		moveURL = "index.jsp";
+		moveURL = "Mainpage.jsp";
 
 		return moveURL;
 	}

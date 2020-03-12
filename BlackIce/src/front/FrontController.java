@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import controller.JoinCon;
 import controller.LoginCon;
 
-@WebServlet("/FrontController")
+@WebServlet("*.do")
 public class FrontController extends HttpServlet {
 
 	private HashMap<String, ICommand> map = new HashMap<String, ICommand>();

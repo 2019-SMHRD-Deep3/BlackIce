@@ -16,12 +16,10 @@ public class LoginCon implements ICommand{
 		
 		String moveURL = null;
 		
-		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
-		String tel = request.getParameter("tel");
 		
-		MemberDTO dto = new MemberDTO(name, email, pw, tel);
+		MemberDTO dto = new MemberDTO(email, pw);
 		MemberDAO dao = MemberDAO.getDAO();
 		MemberDTO info = dao.login(dto);
 
@@ -29,9 +27,8 @@ public class LoginCon implements ICommand{
 			HttpSession session = request.getSession();
 			session.setAttribute("info", info);
 		}
-		moveURL = "index.html";
-		
-		
+		moveURL = "Mainpage.jsp";
+		System.out.println(info);
 		return moveURL;
 	}
 }

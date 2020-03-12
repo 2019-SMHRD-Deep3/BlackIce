@@ -63,7 +63,7 @@ public class MemberDAO {
 		try {
 			getConnection();
 
-			String sql = "insert into web_member values(?,?,?,?)";
+			String sql = "insert into bi_member values(?,?,?,?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getName());
 			psmt.setString(2, dto.getEmail());
@@ -94,10 +94,10 @@ public class MemberDAO {
 		try {
 			getConnection();
 
-			String sql = "select * from web_member where email = ? and pw = ?";
+			String sql = "select * from bi_member where email = ? and pw = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(2, dto.getEmail());
-			psmt.setString(3, dto.getPw());
+			psmt.setString(1, dto.getEmail());
+			psmt.setString(2, dto.getPw());
 
 			rs = psmt.executeQuery();
 
@@ -115,6 +115,7 @@ public class MemberDAO {
 			close();
 		}
 
+		System.out.println(info);
 		return info;
 
 	}
@@ -126,7 +127,7 @@ public class MemberDAO {
 		try {
 			getConnection();
 
-			String sql = "update web_member set name = ?, pw = ?, tel = ? where email = ?";
+			String sql = "update bi_member set name = ?, pw = ?, tel = ? where email = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getName());
 			psmt.setString(4, dto.getEmail());
