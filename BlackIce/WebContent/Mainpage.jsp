@@ -1,5 +1,5 @@
 <%@page import="model.MemberDTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <!--
 	Aerial by HTML5 UP
@@ -9,13 +9,24 @@
 <html>
 <head>
 <title>Aerial by HTML5 UP</title>
-<meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+
+<title>hover effect button</title>
+
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html;">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
+
+<link rel="stylesheet" href="style.css">
+
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
+
+
+
+
+
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -23,25 +34,163 @@
 .login {
 	position: absolute;
 	top: -220px;
-	right: -10px;
-	font-size: 30px;
+	right: -50px;
+	font-size: 25px;
 }
 
-/* .btn--shockwave.is-active[data-v-e2fcb7d8]:before {
-	content: "";
+.search {
 	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+	top: 160%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 155px; /* 원 너비 */
+	height: 155px; /* 원 높이*/
+	background-color: #6fc0e3; /* 큰 원 색 */
+	border: 8px solid white; /* 테두리 */
+	border-radius: 75px;
+	text-decoration: none;
+	text-align: center; /* 텍스트 수평 중앙 */
+	line-height: 145px; /* 텍스트 수직 중앙 */
+	font-size: 25px;
+	color: white; /* 글씨 색 */
+	font-weight: bold;
+	transition: .5s; /* 변환 시간 */
+}
+
+search:hover {
+	color: red; /* 후버할때 색깔  */
+}
+
+search:before { /* 클릭시  */
+	content: '';
+	position: absolute; /*절대적 위치로 배치*/
+	top: -0.1%;
+	left: -0.1%;
+	border-radius: 75px; /* 클릭시 테두리 모서리  */
+	background-color: #fff; /* 클릭시  배경색*/
+	width: 101%;
+	height: 101%;
+	z-index: -1; /* 클릭시 배경색에 가리는 글씨 보이도록함 */
+	transition: .5s; /* 변환 시간 */
+	transform: scale(0);
+}
+
+search:hover:before {
+	color: red; /* 후버시 텍스트 컬러*/
+	transform: scale(1);
+}
+
+.help-tip { /* ?부분 */
+	position: absolute;
+	top: 40px;
+	left: 30px;
+	text-align: center;
+	background-color: #BCDBEA;
 	border-radius: 50%;
-	-webkit-animation: shockwave-data-v-e2fcb7d8 1s ease-out .5s infinite;
-	animation: shockwave-data-v-e2fcb7d8 1s ease-out .5s infinite;
-} */
+	width: 24px;
+	height: 24px;
+	font-size: 14px;
+	line-height: 26px;
+	cursor: default;
+}
+
+.help-tip:before {
+	content: '?';
+	font-weight: bold;
+	color: #fff;
+}
+
+.help-tip:hover p {
+	display: block;
+	transform-origin: 10% 0%;
+	webkit-animation: fadeIn 0.3s ease-in-out;
+	animation: fadeIn 0.3s ease-in-out;
+}
+
+.help-tip p { /* 말풍선 바디 */
+	display: none;
+	text-align: left;
+	background-color: rgba(0, 0, 0, 0.3);
+	/* padding: 30%;
+ */
+	width: 310px;
+	height: 400px; 
+	position : absolute;
+	border-radius: 3px;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+	right: -320px;
+	top: -1px; color : #FFF;
+	font-size: 13px;
+	line-height: 1.4;
+	color: #FFF;
+	position: absolute;
+}
+
+.help-tip p:before { /* 말풍선꼬리부분 */
+	position: absolute;
+	content: '';
+	width: 0;
+	height: 0;
+	border: 3px solid transparent;
+	border-bottom-color: rgba(0, 0, 0, 0.2);
+	right: px;
+	top: -13px;
+}
+
+.help-tip p:after {
+	width: 50%;
+	height: 40px;
+	content: '';
+	position: absolute;
+	top: -10px;
+	left: 0;
+}
+
+@
+-webkit-keyframes fadeIn { 0% {
+	opacity: 0;
+	transform: scale(0.6);
+}
+
+100%
+{
+opacity
+:
+100%;
+
+
+		
+transform
+:
+ 
+scale
+(1);
+
+
+	
+}
+}
+@
+keyframes fadeIn { 0% {
+	opacity: 0;
+}
+100%
+{
+opacity
+:
+50%;
+ 
+}
+}
+​
 </style>
 </head>
 
+
+
+
 <body class="is-preload">
+
 
 	<%
 		MemberDTO info = (MemberDTO) session.getAttribute("info");
@@ -60,7 +209,7 @@
 			<!-- Header -->
 			<header id="header" style="top: -10%;">
 				<%
-				System.out.println(info);
+					System.out.println(info);
 					if (info == null) {
 				%>
 				<a class=login href="/BlackIce/Login.jsp">LOGIN</a>
@@ -71,52 +220,76 @@
 				<%
 					}
 				%>
-				<h1>���ξ������</h1>
+
+				<h1>도로안전사고</h1>
 				<br>
 				<p style="font-size: 15px;">
-					����õ���� ���α����� �̸� �����ص帳�ϴ�<br>�������� ������ å�����帮�ڽ��ϴ�<br>
+					위험천만한 도로교통사고 미리 예측해드립니다<br>여러분의 안전을 책임져드리겠습니다<br>
 				</p>
 				<nav>
 					<ul>
-						<input type="text" name="name" class="Name" placeholder="���">
-						<input type="text" name="name" class="Name" placeholder="����">
+						<input type="text" name="name" class="Name" placeholder="출발">
+						<input type="text" name="name" class="Name" placeholder="도착">
 					</ul>
 				</nav>
 
-				<div class="layer" style="position: absolute; top: 80%; left: 50%; width: 100px; margin: 200px 0 0 -60px;">
-					<button data-v-e2fcb7d8="" class="btn btn--shockwave is-active" style="color: rgb(255, 255, 255); -webkit-text-fill-color: rgb(255, 255, 255);">
-						<img data-v-e2fcb7d8="" src="assets/css/images/searchbutton.822d5585.png" class="searchbtn" style="position: absolute; width: 11rem; left: -30px; top: -60px"> "ġ ��ġ�� ����"
-						<!--  -->
-					</button>
-				</div>
+
+				<body>
+					<a class=search href="#">위치 검색</a>
+				</body>
+
+
+
 			</header>
 
 			<!-- Footer -->
 			<footer id="footer">
-				<span class="copyright">&copy; Untitled. Design: <ahref="http://html5up.net">HTML5 UP</a></span>
+				<span class="copyright">&copy; Road safety accident<ahref="http://html5up.net"> </a></span>
 			</footer>
 
 		</div>
-	</div>
 
 
 
 
 
-	<script>
-		window.onload = function() {
-			document.body.classList.remove('is-preload');
-		}
-		window.ontouchmove = function() {
-			return false;
-		}
-		window.onorientationchange = function() {
-			document.body.scrollTop = 0;
-		}
-	</script>
+
+		<script>
+			window.onload = function() {
+				document.body.classList.remove('is-preload');
+			}
+			window.ontouchmove = function() {
+				return false;
+			}
+			window.onorientationchange = function() {
+				document.body.scrollTop = 0;
+			}
+		</script>
 
 
 
+		<div class="help-tip">
 
+			<p>
+				내가 가는 곳에 블랙아이스가 있을까?<br>
+				 도로안전사고 방지를 위해 결빙 구간을 예측해드립니다.<br>
+				  출발지와 도착지를 입력해주세요.<br>
+				<br>
+				 내가 가는 곳에 블랙아이스가 있을까?<br>
+				 도로안전사고 방지를 위해 결빙 구간을 예측해드립니다.<br>
+				 출발지와 도착지를 입력해주세요.<br>
+				<br>
+				 내가 가는 곳에 블랙아이스가 있을까?<br>
+				 도로안전사고 방지를 위해 결빙 구간을 예측해드립니다.<br>
+				 출발지와 도착지를 입력해주세요.<br>
+				<br>
+				 내가 가는 곳에 블랙아이스가 있을까?<br>
+				 도로안전사고 방지를 위해 결빙 구간을 예측해드립니다.<br>
+				 출발지와 도착지를 입력해주세요.<br>
+			</p>
+
+		</div>
+		
+		
 </body>
 </html>

@@ -103,6 +103,22 @@ a{color:inherit;text-decoration:none}
 .login-form .group .button{
 	background:#1161ee;
 }
+
+ .login-form .group .button:hover{
+	background:#FF00BF;
+	
+}
+/* .login-form .group .button:before{
+	background:#FF00BF;
+}
+
+.login-form .group .button:hover:before {
+	color: red; 후버시 텍스트 컬러
+	transform: scale(1);
+	
+}
+  */
+
 .login-form .group label .icon{
 	width:15px;
 	height:15px;
@@ -111,6 +127,8 @@ a{color:inherit;text-decoration:none}
 	display:inline-block;
 	background:rgba(255,255,255,.1);
 }
+
+
 .login-form .group label .icon:before,
 .login-form .group label .icon:after{
 	content:'';
