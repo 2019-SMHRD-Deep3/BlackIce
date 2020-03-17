@@ -45,52 +45,50 @@
 			<!-- Login -->
 			<div class="login-wrap" style="position: absolute; top: 15%; left: 50%; transform: translateX(-50%);">
 				<div class="login-html">
-					<input id="tab-1" type="radio" name="tab" class="sign-in" checked>
-					<label for="tab-1" class="tab"><b>Sign In</b></b></label>
-					<input id="tab-2" type="radio" name="tab" class="for-pwd">
-					<label for="tab-2" class="tab"><b>Sign Up</b></label>
+					<input id="tab-1" type="radio" name="tab" class="sign-in" checked> <label for="tab-1" class="tab"><b>Sign In</b></b></label> <input id="tab-2" type="radio" name="tab" class="for-pwd"> <label for="tab-2" class="tab"><b>Sign Up</b></label>
 					<div class="login-form">
 						<div class="sign-in-htm">
 							<br> <br>
 							<form action="LoginService.do" method="post">
 								<div class="group">
-									<label for="user" class="label">Username or Email</label>
-									<input name="email" id="user" type="text" class="input">
+									<label for="user" class="label">Username or Email</label> <input name="email" id="user" type="text" class="input">
 								</div>
 								<br> <br>
 								<div class="group">
-									<label for="pass" class="label">Password</label>
-									<input name="pw" id="pass" type="password" class="input" data-type="password">
+									<label for="pass" class="label">Password</label> <input name="pw" id="pass" type="password" class="input" data-type="password">
 								</div>
 								<br> <br> <br>
 								<div class="group">
 									<input type="submit" class="button" value="Sign In">
 								</div>
+
+
+								
+
+
 								<div class="hr"></div>
 							</form>
 						</div>
 						<div class="for-pwd-htm">
 							<form action="JoinService.do" method="post">
 								<div class="group">
-									<label for="user" class="label">Name</label>
-									<input name="name" id="user" type="text" class="input">
+									<label for="user" class="label">Name</label> <input name="name" id="user" type="text" class="input">
 								</div>
 								<div class="group">
-									<label for="user" class="label">Email</label>
-									<input name="email" id="user" type="text" class="input">
+									<label for="user" class="label">Email</label> <input name="email" id="user" type="text" class="input">
 								</div>
 								<div class="group">
-									<label for="user" class="label">Password</label>
-									<input name="pw" id="user" type="text" class="input">
+									<label for="user" class="label">Password</label> <input name="pw" id="user" type="text" class="input">
 								</div>
 								<div class="group">
-									<label for="user" class="label">Phone Number</label>
-									<input name="tel" id="user" type="text" class="input">
+									<label for="user" class="label">Phone Number</label> <input name="tel" id="user" type="text" class="input">
 								</div>
 								<br>
 								<div class="group">
 									<input type="submit" class="button" value="Sign Up">
 								</div>
+
+											
 								<div class="hr"></div>
 							</form>
 						</div>
@@ -103,8 +101,9 @@
 
 			<!-- Footer -->
 			<footer id="footer">
-				<span class="copyright">&copy; Untitled. Design: <ahref="http://html5up.net">HTML5 UP</a></span>
+				<span class="copyright">&copy; Road safety accident<ahref="http://html5up.net"> </a></span>
 			</footer>
+
 
 		</div>
 	</div>

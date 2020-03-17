@@ -146,45 +146,27 @@ search:hover:before {
 	left: 0;
 }
 
-@
--webkit-keyframes fadeIn { 0% {
-	opacity: 0;
-	transform: scale(0.6);
+@-webkit-keyframes fadeIn { 
+	0% {
+		opacity: 0;
+		transform: scale(0.6);
+	}
+	
+	100% {
+		opacity:100%;
+		transform:scale(1);
+	}
 }
 
-100%
-{
-opacity
-
-
-:
-
-
-100%;
-transform
-
-:
-
-scale
-
-
-(1);
+@keyframes wrapper { 
+	0% {
+		opacity:0;
+	}
+    100%{
+        opacity:100%;
+    }
 }
-}
-@
-keyframes fadeIn { 0% {
-	opacity: 0;
-}
-100%
-{
-opacity
 
-
-:
-
-50%;
-}
-}
 </style>
 </head>
 

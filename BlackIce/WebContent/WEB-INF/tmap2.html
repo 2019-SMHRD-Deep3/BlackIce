@@ -1,0 +1,71 @@
+</script>
+<body onload="initTmap();">
+	<fieldset style="width: 340px; height: 110px;&gt;
+	&lt;div align="center">
+		<div style="margin-bottom: 5px;">
+			<b></b><input type="text" class="text_custom" id="searchKeyword"
+				name="searchKeyword" value="서울시청">
+			<button id="btn_select_s" class="button">검색</button>
+
+			<br>
+		</div>
+		<div>
+			<b> </b><input type="text" class="text_custom1" id="searchKeyword1"
+				name="searchKeyword1" value="광화문">
+			<button id="btn_select_e" class="button">검색</button>
+		</div>
+
+		<div class="ft_area">
+			<div class="ft_select_wrap">
+				<div align="center" class="ft_select" style="margin-top: 7px;">
+
+					<select id="selectLevel">
+						<option value="0">교통최적+추천</option>
+						<option value="1">교통최적+무료우선</option>
+						<option value="2">교통최적+최소시간</option>
+						<option value="3">교통최적+초보</option>
+						<option value="4" selected="selected">교통최적+고속도로우선</option>
+						<option value="10">최단거리+유/무료</option>
+						<option value="12">이륜차도로우선</option>
+					</select> <select id="year">
+						<option value="N" selected="selected">교통정보 표출 옵션</option>
+						<option value="Y">Y</option>
+						<option value="N">N</option>
+					</select> <br>
+					<div align="center" style="margin-top: 5px;">
+						<button id="btn_select" class="button2">경로탐색</button>
+						<button id="btn_reset" class="button3">초기화</button>
+					</div>
+
+					
+				</div>
+			</div>
+		</div>
+		<div class="map_act_btn_wrap clear_box"></div>
+		<div class="clear"></div>
+		</div>
+	</fieldset>
+
+	<div>
+		<div style="width: 25%; float: left;">
+			<div class="title" style="width: 372px; height: 40px;">
+				<strong><h2 align="center">Search Results</h2></strong>
+			</div>
+			<div class="rst_wrap">
+				<div class="rst mCustomScrollbar"
+					style="overflow: auto; width: 383px; height: 738px;">
+					<!-- 항상 스크롤을 표시하고 싶을 때는 auto를 scroll로 변경 -->
+					<ul id="searchResult" name="searchResult"
+						style="font-family: notosanskr, 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', sans-serif;">
+						<!-- <li>검색결과</li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="map_div" class="map_wrap"
+			style="float: left; position: absolute; left: 380px; top: 8px;"></div>
+	</div>
+	<p id="result"></p>
+</body>
+</html>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 
 <style>
 
-/* ¸Ş´º¹Ù ¹è°æ  */
-/* ¸Ş´º¹Ù ÀüÃ¼ ¹è°æ Æ² */
+/* ë©”ë‰´ë°” ë°°ê²½  */
+/* ë©”ë‰´ë°” ì „ì²´ ë°°ê²½ í‹€ */
 .inbox_dgray {
 	width: 245px;
 	padding: 22px 22px 18px 22px;
@@ -21,7 +21,7 @@ element.style {
 	cursor: pointer;
 }
 
-/* ¸Ş´º¹Ù ±Û¾¾ Å©±â , ±Û¾¾Ã¼ */
+/* ë©”ë‰´ë°” ê¸€ì”¨ í¬ê¸° , ê¸€ì”¨ì²´ */
 body, html {
 	padding: 0;
 	margin: 0;
@@ -33,7 +33,7 @@ body, html {
 	height: 100%;
 }
 
-/* µ¸º¸±â  */
+/* ë‹ë³´ê¸°  */
 .search input+a {
 	display: inline-block;
 	width: 28px;
@@ -43,14 +43,14 @@ body, html {
 	background: url("img/zoom.PNG") no-repeat;
 	position: absolute;
 }
-/* °æÀ¯,°æ·Î¹öÆ° Å¬¸¯½Ã */
+/* ê²½ìœ ,ê²½ë¡œë²„íŠ¼ í´ë¦­ì‹œ */
 a:hover {
 	text-decoration: none;
 	color: #0265CB;
 	font-weight: bold;
 }
 
-/* °æÀ¯Áö, °æ·ÎÅ½»ö ¹öÆ° */
+/* ê²½ìœ ì§€, ê²½ë¡œíƒìƒ‰ ë²„íŠ¼ */
 .btn_gray {
 	display: inline-block;
 	width: 120px;
@@ -75,17 +75,17 @@ a:hover {
 
 .search .btn_change {
 	position: absolute;
-	right: -40px;
+	right: 83%;
 	top: -19px;
 	margin: 0;
 }
-/* »èÁ¦ ¹öÆ° */
+/* ì‚­ì œ ë²„íŠ¼ */
 img {
 	position: absolute;
 	right: 1480px;
 	top: 110px;
 }
-/* ÀÌµ¿À» ¿øÇÏ´Â »óÈ£, ÁöÁ¡¸í~ ¾Õ µ¿±×¶ó¹Ì ¸¶Å© */
+/* ì´ë™ì„ ì›í•˜ëŠ” ìƒí˜¸, ì§€ì ëª…~ ì• ë™ê·¸ë¼ë¯¸ ë§ˆí¬ */
 .cmt {
 	padding-left: 25px;
 	padding-top: 8px;
@@ -95,7 +95,7 @@ img {
 	line-height: 17px;
 }
 
-/* ÀüÃ¼ ¸Ş´º¹ÙÆ² ¼Ó¼º */
+/* ì „ì²´ ë©”ë‰´ë°”í‹€ ì†ì„± */
 fieldset {
 	display: block;
 	margin-inline-start: 1px;
@@ -112,7 +112,7 @@ fieldset {
 	border-bottom-color: gray;
 }
 
-/* ¿îÀü°æ·Î°Ë»ö */
+/* ìš´ì „ê²½ë¡œê²€ìƒ‰ */
 .left .contents_wrap h1 {
 	color: #efefef;
 	text-shadow: 1px 1px 2px #000;
@@ -135,14 +135,14 @@ fieldset {
 
 		<!-- 		<div class="tab">
 				<ul>
-					<li id="btnDrivePath" alt="¿îÀü°æ·Î" class="on"><a href="javascript:doClickLeftNavi('btnDrivePath');"><br/>GIS<br/>ºĞ¼®</a></li>
-					<li id="btnAccidentRoad" alt="»ç°íÀ§Çèµµ·ÎÅë°è"><a href="javascript:doClickLeftNavi('btnAccidentRoad');"><br/>±³Åë<br/>»ç°í<br/>Åë°è</a></li>
+					<li id="btnDrivePath" alt="ìš´ì „ê²½ë¡œ" class="on"><a href="javascript:doClickLeftNavi('btnDrivePath');"><br/>GIS<br/>ë¶„ì„</a></li>
+					<li id="btnAccidentRoad" alt="ì‚¬ê³ ìœ„í—˜ë„ë¡œí†µê³„"><a href="javascript:doClickLeftNavi('btnAccidentRoad');"><br/>êµí†µ<br/>ì‚¬ê³ <br/>í†µê³„</a></li>
 				</ul>
 			</div> -->
 
 		<!-- Left navigation -->
 		<script type="text/javascript">
-			/** ¿ŞÂÊ ³×ºñ°ÔÀÌ¼Ç Å¬¸¯ Ã³¸® */
+			/** ì™¼ìª½ ë„¤ë¹„ê²Œì´ì…˜ í´ë¦­ ì²˜ë¦¬ */
 			function doClickLeftNavi(paramID) {
 				doInitLeftNavi(paramID);
 				doInitMenuText();
@@ -161,7 +161,7 @@ fieldset {
 					break;
 				}
 
-				/** ¿îÀü°æ·Î */
+				/** ìš´ì „ê²½ë¡œ */
 				function doClickDrivePath(paramClickedBtnID) {
 					doInitLeftNavi(paramClickedBtnID);
 					topMenuOn('menu', '#menu4');
@@ -178,7 +178,7 @@ fieldset {
 						$(".top .top_menu_wrap .controlBar").show();
 				}
 
-				/** À§Çèµµ·ÎºĞ¼® */
+				/** ìœ„í—˜ë„ë¡œë¶„ì„ */
 				function doClickAccidentRoad(paramClickedBtnID) {
 					doInitLeftNavi(paramClickedBtnID);
 					$('div.top_search').children().hide();
@@ -206,14 +206,14 @@ fieldset {
 			<div id="search1" class="static" style="display: none; height: 100%;">
 
 
-				<h1>Á¶°Ç¼³Á¤</h1>
+				<h1>ì¡°ê±´ì„¤ì •</h1>
 				<div id="divSelectConditionForAnalysis" class="inbox_dgray">
 					<table>
 						<tbody>
 							<tr>
-								<th><label for="searchYear">¿¬µµ</label></th>
+								<th><label for="searchYear">ì—°ë„</label></th>
 								<td><select id="searchYear" name="year" style="width: 130px" class="dataSets">
-										<!-- option value="">:::¼±ÅÃÇÏ¼¼¿ä:::</option -->
+										<!-- option value="">:::ì„ íƒí•˜ì„¸ìš”:::</option -->
 
 										<option value="2011" selected="">2011</option>
 
@@ -230,60 +230,60 @@ fieldset {
 								</select></td>
 							</tr>
 							<tr>
-								<th><label for="analysisSido">½Ãµµ</label></th>
+								<th><label for="analysisSido">ì‹œë„</label></th>
 								<td><select id="analysisSido" name="sido_id" onchange="selectSigungu('#analysisSido','#analysisSigungu')" style="width: 130px">
-										<option value="">:::½Ã µµ:::</option>
+										<option value="">:::ì‹œ ë„:::</option>
 
-										<option value="11">¼­¿ïÆ¯º°½Ã</option>
+										<option value="11">ì„œìš¸íŠ¹ë³„ì‹œ</option>
 
-										<option value="26">ºÎ»ê±¤¿ª½Ã</option>
+										<option value="26">ë¶€ì‚°ê´‘ì—­ì‹œ</option>
 
-										<option value="27">´ë±¸±¤¿ª½Ã</option>
+										<option value="27">ëŒ€êµ¬ê´‘ì—­ì‹œ</option>
 
-										<option value="28">ÀÎÃµ±¤¿ª½Ã</option>
+										<option value="28">ì¸ì²œê´‘ì—­ì‹œ</option>
 
-										<option value="29">±¤ÁÖ±¤¿ª½Ã</option>
+										<option value="29">ê´‘ì£¼ê´‘ì—­ì‹œ</option>
 
-										<option value="30">´ëÀü±¤¿ª½Ã</option>
+										<option value="30">ëŒ€ì „ê´‘ì—­ì‹œ</option>
 
-										<option value="31">¿ï»ê±¤¿ª½Ã</option>
+										<option value="31">ìš¸ì‚°ê´‘ì—­ì‹œ</option>
 
-										<option value="36">¼¼Á¾Æ¯º°ÀÚÄ¡½Ã</option>
+										<option value="36">ì„¸ì¢…íŠ¹ë³„ìì¹˜ì‹œ</option>
 
-										<option value="41">°æ±âµµ</option>
+										<option value="41">ê²½ê¸°ë„</option>
 
-										<option value="42">°­¿øµµ</option>
+										<option value="42">ê°•ì›ë„</option>
 
-										<option value="43">ÃæÃ»ºÏµµ</option>
+										<option value="43">ì¶©ì²­ë¶ë„</option>
 
-										<option value="44">ÃæÃ»³²µµ</option>
+										<option value="44">ì¶©ì²­ë‚¨ë„</option>
 
-										<option value="45">Àü¶óºÏµµ</option>
+										<option value="45">ì „ë¼ë¶ë„</option>
 
-										<option value="46">Àü¶ó³²µµ</option>
+										<option value="46">ì „ë¼ë‚¨ë„</option>
 
-										<option value="47">°æ»óºÏµµ</option>
+										<option value="47">ê²½ìƒë¶ë„</option>
 
-										<option value="48">°æ»ó³²µµ</option>
+										<option value="48">ê²½ìƒë‚¨ë„</option>
 
-										<option value="50">Á¦ÁÖµµ</option>
+										<option value="50">ì œì£¼ë„</option>
 
 								</select></td>
 							</tr>
 							<tr>
-								<th><label for="analysisSigungu">½Ã±º±¸</label></th>
+								<th><label for="analysisSigungu">ì‹œêµ°êµ¬</label></th>
 								<td><select id="analysisSigungu" name="sigungu_id" class="dataSets" style="width: 130px">
-										<option value="">:::½Ã±º±¸:::</option>
+										<option value="">:::ì‹œêµ°êµ¬:::</option>
 								</select></td>
 							</tr>
 						</tbody>
 					</table>
 					<div class="btn">
-						<a href="javascript:initSearch();" class="btn_skyblue">°Ë»öÇÏ±â</a>
+						<a href="javascript:initSearch();" class="btn_skyblue">ê²€ìƒ‰í•˜ê¸°</a>
 					</div>
 				</div>
 				<div class="inbox_dgray_btm"></div>
-				<!-- Á¤ÀÇ Å×ÀÌºí -->
+				<!-- ì •ì˜ í…Œì´ë¸” -->
 				<div id="descriptor">
 					<div id="contents" class="inbox_dgray">
 						<p style="padding: 10px; color: white;"></p>
@@ -293,15 +293,15 @@ fieldset {
 			</div>
 			<div id="search2" class="search" style="height: 70%; width: 18%; float: left;">
 
-				<h1 align="center">¿îÀü°æ·Î°Ë»ö</h1>
+				<h1 align="center">ìš´ì „ê²½ë¡œê²€ìƒ‰</h1>
 				<fieldset class="inbox_dgray" style="width: 500;">
-					<input type="text" id="startPoint" name="startPoint" placeholder="Ãâ¹ß" title="Ãâ¹ßÁö °Ë»ö">
+					<input type="text" id="startPoint" name="startPoint" placeholder="ì¶œë°œ" title="ì¶œë°œì§€ ê²€ìƒ‰">
 					<a onclick="javascript:startSearch();" style="cursor: pointer;"></a>
 					<div id="pass" style="">
-						<input type="text" id="passPoint" name="passPoint" placeholder="°æÀ¯Áö1" title="°æÀ¯Áö °Ë»ö">
+						<input type="text" id="passPoint" name="passPoint" placeholder="ê²½ìœ ì§€1" title="ê²½ìœ ì§€ ê²€ìƒ‰">
 						<a onclick="runSearchPassage('#passPoint', false);" style="cursor: pointer;"></a>
 						<div style="margin-right: 10px" onclick="passClose('0')">
-							<img id="btn_passpoint" src="img/xx.PNG" title="»èÁ¦" style="cursor: pointer;" style="align:right;">
+							<img id="btn_passpoint" src="img/xx.PNG" title="ì‚­ì œ" style="cursor: pointer;" style="align:right;">
 							<style>
 img {
 	position: absolute;
@@ -311,41 +311,41 @@ img {
 					</div>
 
 					<div id="pass1" style="display: none">
-						<input type="text" id="passPoint1" name="passPoint1" placeholder="°æÀ¯Áö2" title="°æÀ¯Áö °Ë»ö">
+						<input type="text" id="passPoint1" name="passPoint1" placeholder="ê²½ìœ ì§€2" title="ê²½ìœ ì§€ ê²€ìƒ‰">
 						<a onclick="runSearchPassage('#passPoint1', false);" style="cursor: pointer;"></a>
 						<div style="margin-right: 10px" onclick="passClose('1')">
-							<img id="btn_passpoint" src="img/xx.PNG" title="»èÁ¦" style="cursor: pointer;">
+							<img id="btn_passpoint" src="img/xx.PNG" title="ì‚­ì œ" style="cursor: pointer;">
 						</div>
 					</div>
 
 					<div id="pass2" style="display: none">
-						<input type="text" id="passPoint2" name="passPoint2" placeholder="°æÀ¯Áö3" title="°æÀ¯Áö °Ë»ö">
+						<input type="text" id="passPoint2" name="passPoint2" placeholder="ê²½ìœ ì§€3" title="ê²½ìœ ì§€ ê²€ìƒ‰">
 						<a onclick="runSearchPassage('#passPoint2', false);" style="cursor: pointer;"></a>
 						<div style="margin-right: 10px" onclick="passClose('2')">
-							<img id="btn_passpoint" src="img/xx.PNG" title="»èÁ¦" style="cursor: pointer;">
+							<img id="btn_passpoint" src="img/xx.PNG" title="ì‚­ì œ" style="cursor: pointer;">
 						</div>
 					</div>
 
 
-					<input type="text" id="endPoint" name="endPoint" placeholder="µµÂø" title="µµÂøÁö °Ë»ö">
+					<input type="text" id="endPoint" name="endPoint" placeholder="ë„ì°©" title="ë„ì°©ì§€ ê²€ìƒ‰">
 					<a onclick="javascript:endSearch();" style="cursor: pointer;"></a>
 					<a href="javascript:pointChange()" class="btn_change" style="cursor: pointer;">
-						<img style="margin-top: 1px;" src="img/change.PNG" alt="¹Ù²Ş">
+						<img style="margin-top: 1px;" src="img/change.PNG" alt="ë°”ê¿ˆ">
 					</a>
 
 					<style align="right"></style>
 
 
 					<div>
-						<a href="javascript:routePassAdd();" class="btn_gray" id="passBtn">°æÀ¯ÁöÃß°¡</a>
-						<a href="javascript:routeSearchInit();" class="btn_skyblue_driveroute" style="float: right;">°æ·ÎÅ½»ö</a>
+						<a href="javascript:routePassAdd();" class="btn_gray" id="passBtn">ê²½ìœ ì§€ì¶”ê°€</a>
+						<a href="javascript:routeSearchInit();" class="btn_skyblue_driveroute" style="float: right;">ê²½ë¡œíƒìƒ‰</a>
 					</div>
 
 					<p class="cmt" style="font-size: 10px;">
-						ÀÌµ¿À» ¿øÇÏ´Â»óÈ£, ÁöÁ¡¸í ¶Ç´ÂÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¸é<br>ÇØ´çÁöÁ¡À¸·Î ÀÌµ¿ÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù.
+						ì´ë™ì„ ì›í•˜ëŠ”ìƒí˜¸, ì§€ì ëª… ë˜ëŠ”ì£¼ì†Œë¥¼ ì…ë ¥í•˜ë©´<br>í•´ë‹¹ì§€ì ìœ¼ë¡œ ì´ë™í•˜ì‹¤ ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 					</p>
 					<p align="center">
-						<input type="image" src="img/color.PNG" alt="±³ÅëÁ¤º¸¹ü·Ê" style="height: 35px; border: none;">
+						<input type="image" src="img/color.PNG" alt="êµí†µì •ë³´ë²”ë¡€" style="height: 35px; border: none;">
 					</p>
 				</fieldset>
 				<div class="inbox_dgray_btm"></div>
@@ -356,7 +356,7 @@ img {
 							routeLayer.removeAllFeatures();
 							weatherLayer.destroy();
 							weatherLayer = new Tmap.Layer.Markers(
-									"weather layer");//±â»ó
+									"weather layer");//ê¸°ìƒ
 							map.addLayers([ weatherLayer ]);
 
 							if (selectedLinkIdList
@@ -445,7 +445,6 @@ img {
 																		pointd[1]));
 														oneLine
 																.push(new Tmap.Geometry.Point(
-																		pointd[0],
 																		pointd[1]));
 
 														//}
@@ -481,15 +480,15 @@ img {
 
 					<h1>
 						<img src="/TCFS/resources/images/bul2.png" alt="">
-						Ã£±â°á°ú
+						ì°¾ê¸°ê²°ê³¼
 					</h1>
 					<ul class="result_tab">
 						<li class="m1 on" id="tab0"><a href="javascript:routeTab(0)"></a></li>
-						<!-- ÃÖÀû-->
+						<!-- ìµœì -->
 						<li class="m2" id="tab2"><a href="javascript:routeTab(2)"></a></li>
-						<!-- ÃÖ¼Ò-->
+						<!-- ìµœì†Œ-->
 						<li class="m3" id="tab1"><a href="javascript:routeTab(1)"></a></li>
-						<!-- ¹«·á-->
+						<!-- ë¬´ë£Œ-->
 					</ul>
 					<div id="routeList0" style="padding: 0px"></div>
 					<div id="routeList1" style="padding: 0px; display: none;"></div>
@@ -497,13 +496,13 @@ img {
 					<div id="routeList3" style="padding: 0px; display: none;"></div>
 				</div>
 				<div id="searchScope" class="legend_condition" style="display: none">
-					<h1>Áöµµ¹ü·Ê</h1>
+					<h1>ì§€ë„ë²”ë¡€</h1>
 					<div class="inbox_gray">
 						<ul>
-							<li><p class="green"></p> <span><b>1. ¾ÈÀü</b></span></li>
-							<li><p class="yellow"></p> <span><b>2. ÁÖÀÇ</b></span></li>
-							<li><p class="orange"></p> <span><b>3. À§Çè</b></span></li>
-							<li><p class="red"></p> <span><b>4. ½É°¢</b></span></li>
+							<li><p class="green"></p> <span><b>1. ì•ˆì „</b></span></li>
+							<li><p class="yellow"></p> <span><b>2. ì£¼ì˜</b></span></li>
+							<li><p class="orange"></p> <span><b>3. ìœ„í—˜</b></span></li>
+							<li><p class="red"></p> <span><b>4. ì‹¬ê°</b></span></li>
 						</ul>
 					</div>
 					<div class="inbox_gray_btm"></div>
@@ -522,7 +521,7 @@ img {
 						$("#loading").hide();
 					}
 					$(function() {
-						/*¿îÀü°æ·Î°Ë»ö,top°Ë»ö enterÀÔ·Â½Ã */
+						/*ìš´ì „ê²½ë¡œê²€ìƒ‰,topê²€ìƒ‰ enterì…ë ¥ì‹œ */
 						$("#startPoint").on(
 								'keypress',
 								function(evt) {
@@ -572,7 +571,7 @@ img {
 				</script>
 			</div>
 			<div id="searchQ" style="display: none;">
-				<h1>°Ë»öÁ¶°Ç</h1>
+				<h1>ê²€ìƒ‰ì¡°ê±´</h1>
 				<div class="legend_accident_tbl">
 					<div id="subDiv" class="inbox_gray">
 						<table>
@@ -582,8 +581,8 @@ img {
 							</colgroup>
 							<tbody>
 								<tr>
-									<th>°Ë»öÁ¶°Ç</th>
-									<th>°ª</th>
+									<th>ê²€ìƒ‰ì¡°ê±´</th>
+									<th>ê°’</th>
 								</tr>
 							</tbody>
 						</table>
@@ -657,12 +656,12 @@ img {
 			</script>
 			<div class="divLegend" id="scope1" style="display: none">
 				<div class="legend_condition">
-					<h1>Áöµµ¹ü·Ê</h1>
+					<h1>ì§€ë„ë²”ë¡€</h1>
 					<div class="inbox_gray">
 						<ul>
-							<li><p class="green" alt="¿øÈ°"></p> <span><b>¿øÈ°</b></span></li>
-							<li><p class="yellow" alt="ÁöÃ¼"></p> <span><b>ÁöÃ¼</b></span></li>
-							<li><p class="red" alt="Á¤Ã¼"></p> <span><b>Á¤Ã¼</b></span></li>
+							<li><p class="green" alt="ì›í™œ"></p> <span><b>ì›í™œ</b></span></li>
+							<li><p class="yellow" alt="ì§€ì²´"></p> <span><b>ì§€ì²´</b></span></li>
+							<li><p class="red" alt="ì •ì²´"></p> <span><b>ì •ì²´</b></span></li>
 						</ul>
 					</div>
 				</div>
@@ -677,9 +676,9 @@ img {
 							</colgroup>
 							<tbody>
 								<tr>
-									<th>µµ·ÎÁ¾·ù</th>
-									<th>¼Óµµ</th>
-									<th class="th_last">µî±Ş</th>
+									<th>ë„ë¡œì¢…ë¥˜</th>
+									<th>ì†ë„</th>
+									<th class="th_last">ë“±ê¸‰</th>
 								</tr>
 							</tbody>
 						</table>
@@ -691,34 +690,34 @@ img {
 							</colgroup>
 							<tbody>
 								<tr>
-									<td>µµ½Ã°í¼Óµµ·Î</td>
-									<td>50km/h ÀÌ»ó</td>
-									<td class="last">¿øÈ°</td>
+									<td>ë„ì‹œê³ ì†ë„ë¡œ</td>
+									<td>50km/h ì´ìƒ</td>
+									<td class="last">ì›í™œ</td>
 								</tr>
 								<tr>
-									<td>µµ½Ã°í¼Óµµ·Î</td>
+									<td>ë„ì‹œê³ ì†ë„ë¡œ</td>
 									<td>30~50km/h</td>
-									<td class="last">ÁöÃ¼</td>
+									<td class="last">ì§€ì²´</td>
 								</tr>
 								<tr>
-									<td>µµ½Ã°í¼Óµµ·Î</td>
-									<td>30km/h ÀÌÇÏ</td>
-									<td class="last">Á¤Ã¼</td>
+									<td>ë„ì‹œê³ ì†ë„ë¡œ</td>
+									<td>30km/h ì´í•˜</td>
+									<td class="last">ì •ì²´</td>
 								</tr>
 								<tr>
-									<td>µµ½Ã ³» µµ·Î</td>
-									<td>20km/h ÀÌ»ó</td>
-									<td class="last">¿øÈ°</td>
+									<td>ë„ì‹œ ë‚´ ë„ë¡œ</td>
+									<td>20km/h ì´ìƒ</td>
+									<td class="last">ì›í™œ</td>
 								</tr>
 								<tr>
-									<td>µµ½Ã ³» µµ·Î</td>
+									<td>ë„ì‹œ ë‚´ ë„ë¡œ</td>
 									<td>10~20km/h</td>
-									<td class="last">ÁöÃ¼</td>
+									<td class="last">ì§€ì²´</td>
 								</tr>
 								<tr>
-									<td>µµ½Ã ³» µµ·Î</td>
-									<td>10km/h ÀÌÇÏ</td>
-									<td class="last">Á¤Ã¼</td>
+									<td>ë„ì‹œ ë‚´ ë„ë¡œ</td>
+									<td>10km/h ì´í•˜</td>
+									<td class="last">ì •ì²´</td>
 								</tr>
 							</tbody>
 						</table>
@@ -727,7 +726,7 @@ img {
 				</div>
 			</div>
 			<div class="divLegend" id="scope2" style="display: none">
-				<h1>Áöµµ¹ü·Ê</h1>
+				<h1>ì§€ë„ë²”ë¡€</h1>
 				<div class="legend_accident_tbl">
 					<div id="aScope1" class="inbox_gray">
 						<table>
@@ -739,10 +738,10 @@ img {
 							</colgroup>
 							<tbody>
 								<tr>
-									<th class="last">»ç°íÁ¾·ù</th>
-									<th>±âÈ£</th>
-									<th class="last">»ç°íÀ¯Çü</th>
-									<th class="th_last">±âÈ£</th>
+									<th class="last">ì‚¬ê³ ì¢…ë¥˜</th>
+									<th>ê¸°í˜¸</th>
+									<th class="last">ì‚¬ê³ ìœ í˜•</th>
+									<th class="th_last">ê¸°í˜¸</th>
 								</tr>
 							</tbody>
 						</table>
@@ -755,27 +754,27 @@ img {
 							</colgroup>
 							<tbody>
 								<tr>
-									<td class="last">»ç¸Á»ç°í</td>
-									<td><img src="/TCFS/resources/images/mark1.png" alt="»ç¸Á»ç°í"></td>
-									<td class="last">Â÷´ë»ç¶÷</td>
-									<td class="last"><img src="/TCFS/resources/images/mark5.png" alt="Â÷´ë»ç¶÷"></td>
+									<td class="last">ì‚¬ë§ì‚¬ê³ </td>
+									<td><img src="/TCFS/resources/images/mark1.png" alt="ì‚¬ë§ì‚¬ê³ "></td>
+									<td class="last">ì°¨ëŒ€ì‚¬ëŒ</td>
+									<td class="last"><img src="/TCFS/resources/images/mark5.png" alt="ì°¨ëŒ€ì‚¬ëŒ"></td>
 								</tr>
 								<tr>
-									<td class="last">Áß»ó»ç°í</td>
-									<td><img src="/TCFS/resources/images/mark2.png" alt="Áß»ó»ç°í"></td>
-									<td class="last">Â÷´ëÂ÷</td>
+									<td class="last">ì¤‘ìƒì‚¬ê³ </td>
+									<td><img src="/TCFS/resources/images/mark2.png" alt="ì¤‘ìƒì‚¬ê³ "></td>
+									<td class="last">ì°¨ëŒ€ì°¨</td>
 									<td class="last"><img src="/TCFS/resources/images/mark6.png" alt=""></td>
 								</tr>
 								<tr>
-									<td class="last">°æ»ó»ç°í</td>
-									<td><img src="/TCFS/resources/images/mark3.png" alt="°æ»ó»ç°í"></td>
-									<td class="last">Â÷·®´Üµ¶</td>
+									<td class="last">ê²½ìƒì‚¬ê³ </td>
+									<td><img src="/TCFS/resources/images/mark3.png" alt="ê²½ìƒì‚¬ê³ "></td>
+									<td class="last">ì°¨ëŸ‰ë‹¨ë…</td>
 									<td class="last"><img src="/TCFS/resources/images/mark7.png" alt=""></td>
 								</tr>
 								<tr class="last">
-									<td class="last">ºÎ»ó½Å°í»ç°í</td>
-									<td><img src="/TCFS/resources/images/mark4.png" alt="ºÎ»ó½Å°í»ç°í"></td>
-									<td class="last">°Ç³Î¸ñ</td>
+									<td class="last">ë¶€ìƒì‹ ê³ ì‚¬ê³ </td>
+									<td><img src="/TCFS/resources/images/mark4.png" alt="ë¶€ìƒì‹ ê³ ì‚¬ê³ "></td>
+									<td class="last">ê±´ë„ëª©</td>
 									<td class="last"><img src="/TCFS/resources/images/mark8.png" alt=""></td>
 								</tr>
 							</tbody>
@@ -789,8 +788,8 @@ img {
 							</colgroup>
 							<tbody>
 								<tr>
-									<th>´Ü°è</th>
-									<th>»ö±ò</th>
+									<th>ë‹¨ê³„</th>
+									<th>ìƒ‰ê¹”</th>
 								</tr>
 							</tbody>
 						</table>
@@ -801,23 +800,23 @@ img {
 							</colgroup>
 							<tbody>
 								<tr>
-									<td>1´Ü°è</td>
+									<td>1ë‹¨ê³„</td>
 									<td style="background: #FF8C8C">&nbsp;</td>
 								</tr>
 								<tr>
-									<td>2´Ü°è</td>
+									<td>2ë‹¨ê³„</td>
 									<td style="background: #FF6E6E">&nbsp;</td>
 								</tr>
 								<tr>
-									<td>3´Ü°è</td>
+									<td>3ë‹¨ê³„</td>
 									<td style="background: #FF5A5A">&nbsp;</td>
 								</tr>
 								<tr>
-									<td>4´Ü°è</td>
+									<td>4ë‹¨ê³„</td>
 									<td style="background: #FF4646">&nbsp;</td>
 								</tr>
 								<tr class="last">
-									<td>5´Ü°è</td>
+									<td>5ë‹¨ê³„</td>
 									<td style="background: #FF0000">&nbsp;</td>
 								</tr>
 							</tbody>
@@ -827,13 +826,13 @@ img {
 				</div>
 			</div>
 			<div class="divLegend legend_condition" id="scope3" style="display: none">
-				<h1>Áöµµ¹ü·Ê</h1>
+				<h1>ì§€ë„ë²”ë¡€</h1>
 				<div class="inbox_gray">
 					<ul>
-						<li><p class="green" alt="¾ÈÀü(40¹Ì¸¸)"></p> <span><b>¾ÈÀü(40¹Ì¸¸)</b></span></li>
-						<li><p class="yellow" alt="ÁÖÀÇ(40~100)"></p> <span><b>ÁÖÀÇ(40~100)</b></span></li>
-						<li><p class="orange" alt="À§Çè(100~275)"></p> <span><b>À§Çè(100~275)</b></span></li>
-						<li><p class="red" alt="½É°¢(275ÀÌ»ó)"></p> <span><b>½É°¢(275ÀÌ»ó)</b></span></li>
+						<li><p class="green" alt="ì•ˆì „(40ë¯¸ë§Œ)"></p> <span><b>ì•ˆì „(40ë¯¸ë§Œ)</b></span></li>
+						<li><p class="yellow" alt="ì£¼ì˜(40~100)"></p> <span><b>ì£¼ì˜(40~100)</b></span></li>
+						<li><p class="orange" alt="ìœ„í—˜(100~275)"></p> <span><b>ìœ„í—˜(100~275)</b></span></li>
+						<li><p class="red" alt="ì‹¬ê°(275ì´ìƒ)"></p> <span><b>ì‹¬ê°(275ì´ìƒ)</b></span></li>
 					</ul>
 				</div>
 				<div class="inbox_gray_btm"></div>
@@ -846,8 +845,8 @@ img {
 							</colgroup>
 							<tbody>
 								<tr>
-									<th>±â»ó</th>
-									<th class="th_last">°¡ÁßÄ¡</th>
+									<th>ê¸°ìƒ</th>
+									<th class="th_last">ê°€ì¤‘ì¹˜</th>
 								</tr>
 							</tbody>
 						</table>
@@ -858,19 +857,19 @@ img {
 							</colgroup>
 							<tbody>
 								<tr>
-									<td>¸¼À½</td>
+									<td>ë§‘ìŒ</td>
 									<td class="last">1.0</td>
 								</tr>
 								<tr>
-									<td>Èå¸²</td>
+									<td>íë¦¼</td>
 									<td class="last">1.25</td>
 								</tr>
 								<tr>
-									<td>ºñ</td>
+									<td>ë¹„</td>
 									<td class="last">1.6</td>
 								</tr>
 								<tr>
-									<td>´«</td>
+									<td>ëˆˆ</td>
 									<td class="last">2.0</td>
 								</tr>
 							</tbody>
@@ -879,9 +878,9 @@ img {
 					<div class="inbox_gray_btm tbl_line"></div>
 				</div>
 			</div>
-			<!-- ±â»óÁ¤º¸ Áöµµ¹ü·Ê ·¹ÀÌ¾î -->
+			<!-- ê¸°ìƒì •ë³´ ì§€ë„ë²”ë¡€ ë ˆì´ì–´ -->
 			<div class="divLegend" id="scope4" style="display: none">
-				<h1>Áöµµ¹ü·Ê</h1>
+				<h1>ì§€ë„ë²”ë¡€</h1>
 				<div class="legend_accident_tbl">
 					<div class="inbox_gray">
 						<table>
@@ -893,10 +892,10 @@ img {
 							</colgroup>
 							<tbody>
 								<tr>
-									<th class="last">¾ÆÀÌÄÜ</th>
-									<th>¼³¸í</th>
-									<th class="last">¾ÆÀÌÄÜ</th>
-									<th class="th_last">¼³¸í</th>
+									<th class="last">ì•„ì´ì½˜</th>
+									<th>ì„¤ëª…</th>
+									<th class="last">ì•„ì´ì½˜</th>
+									<th class="th_last">ì„¤ëª…</th>
 								</tr>
 							</tbody>
 						</table>
@@ -909,26 +908,26 @@ img {
 							</colgroup>
 							<tbody>
 								<tr>
-									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_01.png" alt="¸¼À½"></td>
-									<td>¸¼À½</td>
-									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_09.png" alt="ºñ"></td>
-									<td class="last">ºñ</td>
+									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_01.png" alt="ë§‘ìŒ"></td>
+									<td>ë§‘ìŒ</td>
+									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_09.png" alt="ë¹„"></td>
+									<td class="last">ë¹„</td>
 								</tr>
 								<tr>
-									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_03.png" alt="±¸¸§Á¶±İ"></td>
-									<td>±¸¸§Á¶±İ</td>
-									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_11.png" alt="´«"></td>
-									<td class="last">´«</td>
+									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_03.png" alt="êµ¬ë¦„ì¡°ê¸ˆ"></td>
+									<td>êµ¬ë¦„ì¡°ê¸ˆ</td>
+									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_11.png" alt="ëˆˆ"></td>
+									<td class="last">ëˆˆ</td>
 								</tr>
 								<tr>
-									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_05.png" alt="±×¸§¸¹À½"></td>
-									<td>±¸¸§¸¹À½</td>
-									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_13.png" alt="ºñ ¶Ç´Â ´«"></td>
-									<td class="last">ºñ ¶Ç´Â ´«</td>
+									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_05.png" alt="ê·¸ë¦„ë§ìŒ"></td>
+									<td>êµ¬ë¦„ë§ìŒ</td>
+									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_13.png" alt="ë¹„ ë˜ëŠ” ëˆˆ"></td>
+									<td class="last">ë¹„ ë˜ëŠ” ëˆˆ</td>
 								</tr>
 								<tr class="last">
-									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_07.png" alt="Èå¸²"></td>
-									<td>Èå¸²</td>
+									<td class="last"><img src="/TCFS/resources/images/icon_weather/s_07.png" alt="íë¦¼"></td>
+									<td>íë¦¼</td>
 									<td class="last"></td>
 									<td class="last"></td>
 								</tr>
@@ -938,9 +937,9 @@ img {
 					<div class="inbox_gray_btm tbl_line"></div>
 				</div>
 			</div>
-			<!-- /±â»óÁ¤º¸ Áöµµ¹ü·Ê ·¹ÀÌ¾î -->
+			<!-- /ê¸°ìƒì •ë³´ ì§€ë„ë²”ë¡€ ë ˆì´ì–´ -->
 			<div class="divLegend" id="scope5" style="display: none">
-				<h1>Áöµµ¹ü·Ê</h1>
+				<h1>ì§€ë„ë²”ë¡€</h1>
 				<div class="legend_accident_tbl">
 					<div class="inbox_gray">
 						<table>
@@ -952,10 +951,10 @@ img {
 							</colgroup>
 							<tbody>
 								<tr>
-									<th class="last">¾ÆÀÌÄÜ</th>
-									<th>¼³¸í</th>
-									<th class="last">¾ÆÀÌÄÜ</th>
-									<th class="th_last">¼³¸í</th>
+									<th class="last">ì•„ì´ì½˜</th>
+									<th>ì„¤ëª…</th>
+									<th class="last">ì•„ì´ì½˜</th>
+									<th class="th_last">ì„¤ëª…</th>
 								</tr>
 							</tbody>
 						</table>
@@ -968,22 +967,22 @@ img {
 							</colgroup>
 							<tbody>
 								<tr>
-									<td class="last"><img src="/TCFS/resources/images/s_icon1.png" alt="»ç°í"></td>
-									<td>»ç°í</td>
-									<td class="last"><img src="/TCFS/resources/images/s_icon2.png" alt="°ø»ç"></td>
-									<td class="last">°ø»ç</td>
+									<td class="last"><img src="/TCFS/resources/images/s_icon1.png" alt="ì‚¬ê³ "></td>
+									<td>ì‚¬ê³ </td>
+									<td class="last"><img src="/TCFS/resources/images/s_icon2.png" alt="ê³µì‚¬"></td>
+									<td class="last">ê³µì‚¬</td>
 								</tr>
 								<tr>
-									<td class="last"><img src="/TCFS/resources/images/s_icon3.png" alt="Çà»ç"></td>
-									<td>Çà»ç</td>
-									<td class="last"><img src="/TCFS/resources/images/s_icon4.png" alt="±â»ó"></td>
-									<td class="last">±â»ó</td>
+									<td class="last"><img src="/TCFS/resources/images/s_icon3.png" alt="í–‰ì‚¬"></td>
+									<td>í–‰ì‚¬</td>
+									<td class="last"><img src="/TCFS/resources/images/s_icon4.png" alt="ê¸°ìƒ"></td>
+									<td class="last">ê¸°ìƒ</td>
 								</tr>
 								<tr>
-									<td class="last"><img src="/TCFS/resources/images/s_icon5.png" alt="ÅëÁ¦"></td>
-									<td>ÅëÁ¦</td>
-									<td class="last"><img src="/TCFS/resources/images/s_icon6.png" alt="°¡Å¸"></td>
-									<td class="last">±âÅ¸</td>
+									<td class="last"><img src="/TCFS/resources/images/s_icon5.png" alt="í†µì œ"></td>
+									<td>í†µì œ</td>
+									<td class="last"><img src="/TCFS/resources/images/s_icon6.png" alt="ê°€íƒ€"></td>
+									<td class="last">ê¸°íƒ€</td>
 								</tr>
 							</tbody>
 						</table>
@@ -994,15 +993,15 @@ img {
 
 		</div>
 
-		<!-- »çÀÌµå ¸Ş´º ´İ±â ¿­±â -->
+		<!-- ì‚¬ì´ë“œ ë©”ë‰´ ë‹«ê¸° ì—´ê¸° -->
 		<div id="btn_left" class="btn_left_toggle">
 			<a href="#"></a>
 		</div>
 		<!--<div class="btn_left_toggle on"><a href="#"></a></div>-->
-		<!-- /»çÀÌµå ¸Ş´º ´İ±â ¿­±â -->
+		<!-- /ì‚¬ì´ë“œ ë©”ë‰´ ë‹«ê¸° ì—´ê¸° -->
 	</div>
 	
-	<!----------- ÁÖ¼®  -------------->
+	<!----------- ì£¼ì„  -------------->
 	
 	
 
@@ -1010,7 +1009,7 @@ img {
 	<p align="right">
 		<iframe
 			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13051.96410446545!2d126.84491073932001!3d35.13189748399266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357189711659eb09%3A0xd4d5827f14fe9656!2z6rSR7KO86rSR7Jet7IucIOyEnOq1rCDquIjtmLjrj5k!5e0!3m2!1sko!2skr!4v1583911031241!5m2!1sko!2skr"
-			width="1415" height="830" frameborder="0" style="border: 0;" allowfullscreen="" aria-hidden="false" tabindex="0"> </iframe>
+			width="1455" height="830" frameborder="0" style="border: 0;" allowfullscreen="" aria-hidden="false" tabindex="0"> </iframe>
 	</p>
 
 
