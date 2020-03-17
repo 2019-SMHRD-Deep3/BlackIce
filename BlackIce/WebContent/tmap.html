@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<script src="assets/js/123.js"></script>
+<link rel="stylesheet" href="assets/css/NewFile.css" />
 <style>
 html, body {
 	height: 100%;
@@ -22,24 +23,29 @@ html, body {
 }
 
 .button {
-	width: 55px;
-	height: 40px;
+	width: 30px;
+	height: 20px;
 	font-family: 'Roboto', sans-serif;
 	font-size: 15px;
 	text-transform: uppercase;
 	letter-spacing: 2.5px;
 	font-weight: 500;
 	color: #000;
-	background-color: #E6E6E6;
+	background-color: white;
 	border: none;
 	border-radius: 15px;
 	transition: all 0.3s ease 0s;
 	cursor: pointer;
 	outline: none;
+	position: ;
+    right: 48px;
+    top: 10px;
+    border: 1px solid white;
+}
 }
 
 .button:hover {
-	background-color: #2c7ef2;
+	background-color: #FBFBFB; 
 	color: #fff;
 	transform: translateY(-7px);
 }
@@ -73,7 +79,7 @@ html, body {
 }
 
 .button2:hover {
-	background-color: #2c7ef2; color : #fff;
+	background-color: #c7d0f8; color : #fff;
 	transform: translateY(-7px);
 	color: #fff;
 }
@@ -103,7 +109,7 @@ html, body {
 }
 
 .button3:hover {
-	background-color: #2c7ef2;
+	background-color:#c7d0f8;
 	color: #fff;
 	transform: translateY(-7px);
 }
@@ -205,24 +211,10 @@ body {
 }
 
 .menu > ol > li:nth-child(7) {
-  --accent-color:#3c3c3c;
-  --gradient-color:#3c3c3c;
+  --accent-color: #D8B5FF;
+  --gradient-color: #1EAE98;
 }
 
-.menu > ol > li:nth-child(8) {
-  --accent-color:#3c3c3c;
-  --gradient-color: #3c3c3c;
-}
-
-.menu > ol > li:nth-child(9) {
-  --accent-color: #3c3c3c;
-  --gradient-color: #3c3c3c;
-}
-
-.menu > ol > li:nth-child(10) {
-  --accent-color: #3c3c3c;
-  --gradient-color:#3c3c3c;
-}
 
 
 .menu > ol > li a {
@@ -362,12 +354,41 @@ body {
 }
 @media (min-width: 775px) {
   .menu > ol > li {
-    width: 180px;
+    width: 275px;
   }
   .menu > ol > li a:not(:last-child):before {
     right: 25px;
   }
 }
+
+
+select { -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
+-moz-appearance: none; 
+appearance: none; 
+background: url(이미지 경로) no-repeat 95% 50%; /* 화살표 모양의 이미지 */ 
+
+} 
+
+
+/* IE 10, 11의 네이티브 화살표 숨기기 */ 
+select::-ms-expand { display: none; 
+
+}
+
+select { width: 175px; /* 원하는 너비설정 */
+ padding: .4em .5em; /* 여백으로 높이 설정 */
+  font-family: inherit; /* 폰트 상속 */
+  font-size: 12px;
+   background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; /* 네이티브 화살표 대체 */
+    border: 1px solid lightgrey;
+     border-radius: 6px; /* iOS 둥근모서리 제거 */
+      -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
+      -moz-appearance: none; appearance: none; 
+      
+      }
+
+
+
 
 /* .to {
     background: #333333;
@@ -447,8 +468,8 @@ element.style {
 		// 1. 지도 띄우기
 		map = new Tmapv2.Map("map_div", {
 			center : new Tmapv2.LatLng(37.570028, 126.986072),
-			width : "75%",
-			height : "800px",
+			width : "80%",
+			height : "840px",
 			zoom : 15,
 			zoomControl : true,
 			scrollwheel : true
@@ -865,6 +886,11 @@ element.style {
 			
 			marker_s.setMap(null);
 			marker_e.setMap(null);
+			
+			mp_s_lat = null;
+			mp_s_lon = null; 
+			mp_e_lat = null;
+			mp_e_lon = null;
 		});
 	}
 
@@ -1059,7 +1085,18 @@ element.style {
 		resultMarkerArr = [];
 		resultdrawArr = [];
 	}
+	
+	
+	
 </script>
+
+
+<script>
+
+
+
+</script>
+
 
 	<!-- <div class="to">
     <div class="toto">
@@ -1070,80 +1107,80 @@ element.style {
   </div>
  -->
  
+
+
+
+<body onload="initTmap();" style = "background: whitesmoke;" >
+
  <nav class="menu" style="width: 1665px;">
-  <ol style="margin-bottom:0px; width:129%;">
-    <li class="menu-item"><a href="#0">블랙아이스</a></li>
-    <li class="menu-item"><a href="#0">포트홀</a></li>
+  <ol style="margin-bottom:0px; width:126%;  margin-top: 1px; " >
+    <li class="menu-item"><a href="#0" align="center">블랙아이스</a></li>
+    <li class="menu-item"><a href="#0" align="center">포트홀</a></li>
     <li class="menu-item">
-      <a href="#0">낙석</a>
+      <a href="#0" align="center">낙석</a>
      
     </li>
     <li class="menu-item">
-      <a href="#0">블랙아이스</a>
+      <a href="#0" align="center">블랙아이스</a>
    
     </li>
-    <li class="menu-item"><a href="#0">블랙아이스</a>
+    <li class="menu-item" ><a href="#0" align="center">블랙아이스</a>
       
     </li>
-    <li class="menu-item"><a href="#0" style = "color:#3c3c3c;">블랙아이스</a></li>
-    <li class="menu-item"><a href="#0" style = "color:#3c3c3c;">블랙아이스</a></li>
-    <li class="menu-item"><a href="#0" style = "color:#3c3c3c;">블랙아이스</a></li>
-    <li class="menu-item"><a href="#0" style = "color:#3c3c3c;">블랙아이스</a></li>
-    <li class="menu-item"><a href="#0" style = "color:#3c3c3c;">블랙아이스</a></li>
-  	<li class="menu-item"><a href="#0" style = "color:#3c3c3c;">블랙아이스</a></li>
-
+    <li class="menu-item"><a href="#0" style = "color:#FBFBFB" align="center">블랙아이스</a></li>
+    <li class="menu-item"><a href="#0" style = "color:#FBFBFB" align="center">LOGIN</a></li>
+    
   </ol>
   
   
 </nav>
 
 
-<body onload="initTmap();">
-	<fieldset style="width: 330px; height: 200px; margin-left: 5%;">
-		<div align="center" style="margin-top: 10px;">
+	<fieldset style="width: 376px; height: 239px; margin-top: 1px;">
+		<div align="center" style="margin-top: 15px; border-radius: 4px; margin-right: -36px; margin-bottom: -14px;">
 			<span _ngcontent-ecn-c90="" class="icon_route start ng-star-inserted"></span>
-			<b></b><input
-				style="border-radius: 5px; width: 227px; height: 30px; font-size: 15px;"
-				type="text" class="text_custom" id="searchKeyword" 
-				name="searchKeyword"  placeholder="출발지 입력">
-				
-			<button id="btn_select_s" class="button">검색</button>
+			
+			<input  type="text" placeholder="출발지 입력" class="field"></input>
+			<button id="btn_select_s" class="button"><img src = "img/zoomm.PNG" style = "width:29px;"></button>
+  			
+		<span _ngcontent-ecn-c90="" class="icon_route start ng-star-inserted"></span>
+			<input type="text" placeholder="도착지 입력" class="field"></input>
+			<button id="btn_select_s" class="button"><img src = "img/zoomm.PNG" style = "width:29px;"></button>
+			
+
+			
 
 			<br>
-		</div>
-		<div align="center" style="margin-bottom: 20px;">
-			<b> </b><input
-				style="border-radius: 5px; width: 227px; height: 30px; font-size: 15px;"
-				type="text" class="text_custom1" id="searchKeyword1"
-				name="searchKeyword1"  placeholder="도착지 입력">
-			<button id="btn_select_e" class="button">검색</button>
+		
 		</div>
 
-		<div class="ft_area">
-			<div class="ft_select_wrap">
-				<div align="center" class="ft_select"
-					style="margin-top: 20px; border-radius: 5px; width: 227px; height: 30px; font-size: 15px;">
-
-					<select id="selectLevel">
-						<option value="0">교통최적+추천</option>
-						<option value="1">교통최적+무료우선</option>
-						<option value="2">교통최적+최소시간</option>
-						<option value="3">교통최적+초보</option>
-						<option value="4" selected="selected">교통최적+고속도로우선</option>
-						<option value="10">최단거리+유/무료</option>
-						<option value="12">이륜차도로우선</option>
-					</select> <select id="year">
-						<option value="N" selected="selected">교통정보 표출 옵션</option>
-						<option value="Y">Y</option>
-						<option value="N">N</option>
-					</select> <br>
-					<div align="center" style="margin-top: 30px; margin:auto; margin-right: -40%;">
-						<button id="btn_select" class="button2">경로탐색</button>
-						<button id="btn_reset" class="button3">초기화</button>
+				<div class="ft_select"
+					style="    margin-top: 39px; margin-bottom: -11px;border-radius: 5px; height: 30px; font-size: 15px; display: inline-block;
+}">
+					<div style="display:inline;">
+						<select id="selectLevel" style = "width: 181px;">
+							<option value="0">교통최적+추천</option>
+							<option value="1">교통최적+무료우선</option>
+							<option value="2">교통최적+최소시간</option>
+							<option value="3">교통최적+초보</option>
+							<option value="4" selected="selected">교통최적+고속도로우선</option>
+							<option value="10">최단거리+유/무료</option>
+							<option value="12">이륜차도로우선</option>
+						</select> 
+					</div>
+					<div style="display:inline;">
+						<select id="year" style = "width:163px;">
+							<option value="N" selected="selected">교통정보 표출 옵션</option>
+							<option value="Y">Y</option>
+							<option value="N">N</option>
+						</select>
 					</div>
 				</div>
-			</div>
-		</div>
+				<div align="center" style="padding: 20px; margin-top: 10px; margin-right: 0; font-color:gray;">
+						<button id="btn_select" class="button2">경로탐색</button>
+						<button id="btn_reset" class="button3">초기화</button>
+				</div>
+
 		<div class="map_act_btn_wrap clear_box"></div>
 		<div class="clear"></div>
 		</div>
@@ -1151,8 +1188,9 @@ element.style {
 
 	<div>
 		<div style="width: 25%; float: left; margin-left: 4%;">
-			<div class="title" style="width: 372px; height: 40px;">
-				<strong><h2 align="center">Search Results</h2></strong>
+			<div align="center" class="title" style="width: 219px; height: 40px; font: 400 13.3333px Arial;">
+				<strong><h2 style = "align:center; color:gray;">검색 결과</h2></strong><br>
+			
 			</div>
 			<div class="rst_wrap">
 				<div class="rst mCustomScrollbar"
@@ -1167,7 +1205,7 @@ element.style {
 		</div>
 
 		<div id="map_div" class="map_wrap"
-			style="float: right; position: absolute; right: 0px; top: 7%; margin-right: 0%;"></div>
+			style="float: right; position: absolute; right: 0px; top: 6%; margin-right: 0%;"></div>
 	</div>
 	<p id="result"></p>
 	
