@@ -130,6 +130,9 @@ html, body {
 * {
   box-sizing: border-box;
 }
+
+/* 탭 바탕 - 블랙 */
+
 :root {
   --accent-color: #45494E;
   --gradient-color: #FBFBFB;
@@ -143,7 +146,7 @@ a:focus:after {
 }
 a:after {
   content: "";
-  background: #FBFBFB;
+  /* background: #FBFBFB; */
   position: absolute;
   bottom: 5px;
   left: 15px;
@@ -173,6 +176,9 @@ body {
   transition: 0.5s;
   
 }
+
+/* 제일 위에 메뉴바 색깔 */
+
 .menu > ol > li:nth-child(1) {
   --accent-color: #FDA085;
   --gradient-color: #F6D365;
@@ -197,6 +203,28 @@ body {
   --accent-color: #DDD600;
   --gradient-color: #FE90AF;
 }
+
+.menu > ol > li:nth-child(7) {
+  --accent-color:#3c3c3c;
+  --gradient-color:#3c3c3c;
+}
+
+.menu > ol > li:nth-child(8) {
+  --accent-color:#3c3c3c;
+  --gradient-color: #3c3c3c;
+}
+
+.menu > ol > li:nth-child(9) {
+  --accent-color: #3c3c3c;
+  --gradient-color: #3c3c3c;
+}
+
+.menu > ol > li:nth-child(10) {
+  --accent-color: #3c3c3c;
+  --gradient-color:#3c3c3c;
+}
+
+
 .menu > ol > li a {
   color: #FBFBFB;
   display: block;
@@ -295,7 +323,7 @@ body {
   .menu > ol {
     display: block;
     max-width: none;
-    text-align: center;
+    text-align: right;
   }
   .menu > ol > li {
     border-top: 5px solid var(--accent-color);
@@ -420,539 +448,421 @@ element.style {
 		map = new Tmapv2.Map("map_div", {
 			center : new Tmapv2.LatLng(37.570028, 126.986072),
 			width : "75%",
-			height : "93%",
-
+			height : "800px",
 			zoom : 15,
 			zoomControl : true,
 			scrollwheel : true
 		});
 
 		// 2. POI 통합 검색 API 요청
-		$("#btn_select_s")
-				.click(
-						function() {
-							var searchKeyword = $('#searchKeyword').val();
+		$("#btn_select_s").click(function(){
+			var searchKeyword = $('#searchKeyword').val();
+			
+			$.ajax({
+				method : "GET",
+				url : "https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result",
+				async : false,
+				data : {
+					"appKey" : "l7xx2620a113105b43f0b794ad5533b36999",
+					"searchKeyword" : searchKeyword,
+					"resCoordType" : "EPSG3857",
+					"reqCoordType" : "WGS84GEO",
+					"count" : 20 // 최대 검색 개수 200개
+				},
+				success : function(response) {
+					var resultpoisData = response.searchPoiInfo.pois.poi;
+					
+					// 기존 마커, 팝업 제거
+					if (markerArr_s.length > 0) {
+						for ( var i in markerArr_s) {
+							markerArr_s[i].setMap(null);
+						}
+					}
+					var innerHtml = ""; // Search Reulsts 결과값 노출 위한 변수
+					var positionBounds = new Tmapv2.LatLngBounds(); // 맵에 결과물 확인 하기 위한 LatLngBounds객체 생성
+					
+					for ( var k in resultpoisData) {
+						var noorLat = Number(resultpoisData[k].noorLat); // 중심점 위도 좌표
+						var noorLon = Number(resultpoisData[k].noorLon); // 중심점 경도 좌표
+						var name = resultpoisData[k].name; // 시설물 명칭
+						var telNo = resultpoisData[k].telNo; // 전화번호
+						var upperAddrName = resultpoisData[k].upperAddrName; // 표출 주소 대분류명
+						var middleAddrName = resultpoisData[k].middleAddrName; // 표출 주소 중분류명
+						var lowerAddrName = resultpoisData[k].lowerAddrName; // 표출 주소 소분류명
+						var detailAddrName = resultpoisData[k].detailAddrName; // 표출 주소 세분류명
+						var mlClass = resultpoisData[k].mlClass; // 산/대지구분(구주소)
+						var firstNo = resultpoisData[k].firstNo; // 본번
+						var secondNo = resultpoisData[k].secondNo; // 부번
+						var roadName = resultpoisData[k].roadName; // 도로명에 해당하는 명칭
+						var firstBuildNo = resultpoisData[k].firstBuildNo; // 건물번호1(새주소)
+						var secondBuildNo = resultpoisData[k].secondBuildNo; // 건물번호2(새주소)
+						var radius = resultpoisData[k].radius; // 거리(요청좌표에서 떨어진 거리)단위:km
+						var bizName = resultpoisData[k].bizName; // 대표 업종명
+						var upperBizName = resultpoisData[k].upperBizName; // 업종 대분류명
+						var middleBizName = resultpoisData[k].middleBizName; // 업종 중분류 명
+						var lowerBizName = resultpoisData[k].lowerBizName; // 업종 소분류명
+						var detailBizName = resultpoisData[k].detailBizName; // 업종 상세분류명
+						var rpFlag = resultpoisData[k].rpFlag; // RP_FLAG는 길안내 요청에 필요한 값입니다. - 길안내 목적지 설정 시, 여기서 받은 rpFlag 값을 설정해야 합니다.
+						var parkFlag = resultpoisData[k].parkFlag; // 주차 가능유무입니다. - 0: 주차 불가능 - 1: 주차 가능 - null: 정보없음
+						var detailInfoFlag = resultpoisData[k].detailInfoFlag; // POI 상세정보 유무입니다. 해당 필드가 1로 설정되어 있으면, POI 상세정보 API를 이용하여 상세 정보를 조회할 수 있습니다. - 0: 없음 - 1: 있음 - null: 정보없음
+						var desc = resultpoisData[k].desc; // 소개정보
+						
+						var pointCng = new Tmapv2.Point(noorLon, noorLat);
+						var projectionCng = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(pointCng);
+						
+						var lat = projectionCng._lat;
+						var lon = projectionCng._lng;
+						
+						var markerPosition = new Tmapv2.LatLng(lat, lon);
+						
+						/* marker = new Tmapv2.Marker({
+						position : markerPosition,
+						//icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_a.png",
+						icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png",
+						iconSize : new Tmapv2.Size(24, 38),
+						title : name,
+						map:map
+						}); */
+						
+						innerHtml += "<li id="+k+" value="+lat+","+lon+"><span><b>" + name + "</b><br>" + "주소 : " + upperAddrName + " " + middleAddrName
+									+ " " + lowerAddrName + " " + detailAddrName + "(" + roadName + " " + firstBuildNo + ")" + "<br>업종 : " + middleBizName
+									+ "-" + lowerBizName + "<br>전화번호 : " + telNo + "</span></li><br>";
+						//<img src='http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png' style='vertical-align:middle;'/> : 검색결과 앞부분에 마커 이미지 표현하고자 할 때 span태그 앞에 넣기
+					}
+					
+					$("#searchResult").html(innerHtml); // searchResult 결과값 노출
+					// map.panToBounds(positionBounds);	// 확장된 bounds의 중심으로 이동시키기
+					// map.zoomOut();
+					
+					for ( var k in resultpoisData) {
+						$("#searchResult #" + k).hover(function() {
+							$(this).css("background", "#D8D8D8");
+							}, function() {
+							$(this).css("background", "");
+							}
+						);
+						$("#searchResult #" + k).click(function() {
+							for ( var i in markerArr_s) {
+								markerArr_s[i].setMap(null);
+							}
+							var mp_s = $(this).attr("value");
+							mp_s_lat = mp_s.split(",")[0];
+							mp_s_lon = mp_s.split(",")[1];
+							var mp_s_name = $(this).find('b').text();
+							
+							map.panTo(new Tmapv2.LatLng(mp_s_lat, mp_s_lon));
+							
+							// 시작
+							marker_s = new Tmapv2.Marker({
+								position : new Tmapv2.LatLng(mp_s_lat, mp_s_lon),
+								icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
+								iconSize : new Tmapv2.Size(24, 38),
+								title : mp_s_name,
+								map : map
+								});
+							markerArr_s.push(marker_s);
+							positionBounds.extend(markerPosition); // LatLngBounds의 객체 확장
+							}
+						);
+					}
+				},
+				error : function(request, status, error) {console.log("code:" + request.status + "\n" + "message:" + request.responseText
+						+ "\n" + "error:" + error);
+				}
+			});
+		});
 
-							$
-									.ajax({
-										method : "GET",
-										url : "https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result",
-										async : false,
-										data : {
-											"appKey" : "l7xx2620a113105b43f0b794ad5533b36999",
-											"searchKeyword" : searchKeyword,
-											"resCoordType" : "EPSG3857",
-											"reqCoordType" : "WGS84GEO",
-											"count" : 20
-										// 최대 검색 개수 200개
-										},
-										success : function(response) {
-											var resultpoisData = response.searchPoiInfo.pois.poi;
-
-											// 기존 마커, 팝업 제거
-											if (markerArr_s.length > 0) {
-												for ( var i in markerArr_s) {
-													markerArr_s[i].setMap(null);
-												}
-											}
-											var innerHtml = ""; // Search Reulsts 결과값 노출 위한 변수
-											var positionBounds = new Tmapv2.LatLngBounds(); // 맵에 결과물 확인 하기 위한 LatLngBounds객체 생성
-
-											for ( var k in resultpoisData) {
-												var noorLat = Number(resultpoisData[k].noorLat); // 중심점 위도 좌표
-												var noorLon = Number(resultpoisData[k].noorLon); // 중심점 경도 좌표
-												var name = resultpoisData[k].name; // 시설물 명칭
-												var telNo = resultpoisData[k].telNo; // 전화번호
-												var upperAddrName = resultpoisData[k].upperAddrName; // 표출 주소 대분류명
-												var middleAddrName = resultpoisData[k].middleAddrName; // 표출 주소 중분류명
-												var lowerAddrName = resultpoisData[k].lowerAddrName; // 표출 주소 소분류명
-												var detailAddrName = resultpoisData[k].detailAddrName; // 표출 주소 세분류명
-												var mlClass = resultpoisData[k].mlClass; // 산/대지구분(구주소)
-												var firstNo = resultpoisData[k].firstNo; // 본번
-												var secondNo = resultpoisData[k].secondNo; // 부번
-												var roadName = resultpoisData[k].roadName; // 도로명에 해당하는 명칭
-												var firstBuildNo = resultpoisData[k].firstBuildNo; // 건물번호1(새주소)
-												var secondBuildNo = resultpoisData[k].secondBuildNo; // 건물번호2(새주소)
-												var radius = resultpoisData[k].radius; // 거리(요청좌표에서 떨어진 거리)단위:km
-												var bizName = resultpoisData[k].bizName; // 대표 업종명
-												var upperBizName = resultpoisData[k].upperBizName; // 업종 대분류명
-												var middleBizName = resultpoisData[k].middleBizName; // 업종 중분류 명
-												var lowerBizName = resultpoisData[k].lowerBizName; // 업종 소분류명
-												var detailBizName = resultpoisData[k].detailBizName; // 업종 상세분류명
-												var rpFlag = resultpoisData[k].rpFlag; // RP_FLAG는 길안내 요청에 필요한 값입니다. - 길안내 목적지 설정 시, 여기서 받은 rpFlag 값을 설정해야 합니다.
-												var parkFlag = resultpoisData[k].parkFlag; // 주차 가능유무입니다. - 0: 주차 불가능 - 1: 주차 가능 - null: 정보없음
-												var detailInfoFlag = resultpoisData[k].detailInfoFlag; // POI 상세정보 유무입니다. 해당 필드가 1로 설정되어 있으면, POI 상세정보 API를 이용하여 상세 정보를 조회할 수 있습니다. - 0: 없음 - 1: 있음 - null: 정보없음
-												var desc = resultpoisData[k].desc; // 소개정보
-
-												var pointCng = new Tmapv2.Point(
-														noorLon, noorLat);
-												var projectionCng = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
-														pointCng);
-
-												var lat = projectionCng._lat;
-												var lon = projectionCng._lng;
-
-												var markerPosition = new Tmapv2.LatLng(
-														lat, lon);
-
-												/* marker = new Tmapv2.Marker({
-												position : markerPosition,
-												//icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_a.png",
-												icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png",
-												iconSize : new Tmapv2.Size(24, 38),
-												title : name,
-												map:map
-												}); */
-
-												innerHtml += "<li id="+k+" value="+lat+","+lon+"><span><b>"
-														+ name
-														+ "</b><br>"
-														+ "주소 : "
-														+ upperAddrName
-														+ " "
-														+ middleAddrName
-														+ " "
-														+ lowerAddrName
-														+ " "
-														+ detailAddrName
-														+ "("
-														+ roadName
-														+ " "
-														+ firstBuildNo
-														+ ")"
-														+ "<br>업종 : "
-														+ middleBizName
-														+ "-"
-														+ lowerBizName
-														+ "<br>전화번호 : "
-														+ telNo
-														+ "</span></li><br>";
-												//<img src='http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png' style='vertical-align:middle;'/> : 검색결과 앞부분에 마커 이미지 표현하고자 할 때 span태그 앞에 넣기
-											}
-
-											$("#searchResult").html(innerHtml); // searchResult 결과값 노출
-											// map.panToBounds(positionBounds);	// 확장된 bounds의 중심으로 이동시키기
-											// map.zoomOut();
-
-											for ( var k in resultpoisData) {
-												$("#searchResult #" + k)
-														.hover(
-																function() {
-																	$(this)
-																			.css(
-																					"background",
-																					"#D8D8D8");
-																},
-																function() {
-																	$(this)
-																			.css(
-																					"background",
-																					"");
-																});
-												$("#searchResult #" + k)
-														.click(
-																function() {
-																	for ( var i in markerArr_s) {
-																		markerArr_s[i]
-																				.setMap(null);
-																	}
-																	var mp_s = $(
-																			this)
-																			.attr(
-																					"value");
-																	mp_s_lat = mp_s
-																			.split(",")[0];
-																	mp_s_lon = mp_s
-																			.split(",")[1];
-																	var mp_s_name = $(
-																			this)
-																			.find(
-																					'b')
-																			.text();
-
-																	// 시작
-																	marker_s = new Tmapv2.Marker(
-																			{
-																				position : new Tmapv2.LatLng(
-																						mp_s_lat,
-																						mp_s_lon),
-																				icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
-																				iconSize : new Tmapv2.Size(
-																						24,
-																						38),
-																				title : mp_s_name,
-																				map : map
-																			});
-																	markerArr_s
-																			.push(marker_s);
-																	positionBounds
-																			.extend(markerPosition); // LatLngBounds의 객체 확장
-																});
-											}
-										},
-										error : function(request, status, error) {
-											console.log("code:"
-													+ request.status + "\n"
-													+ "message:"
-													+ request.responseText
-													+ "\n" + "error:" + error);
-										}
-									});
-						});
-
-		$("#btn_select_e")
-				.click(
-						function() {
-							var searchKeyword = $('#searchKeyword1').val();
-
-							$
-									.ajax({
-										method : "GET",
-										url : "https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result",
-										async : false,
-										data : {
-											"appKey" : "l7xx2620a113105b43f0b794ad5533b36999",
-											"searchKeyword" : searchKeyword,
-											"resCoordType" : "EPSG3857",
-											"reqCoordType" : "WGS84GEO",
-											"count" : 20
-										// 최대 검색 개수 200개
-										},
-										success : function(response) {
-											var resultpoisData = response.searchPoiInfo.pois.poi;
-
-											// 기존 마커, 팝업 제거
-											if (markerArr_e.length > 0) {
-												for ( var i in markerArr_e) {
-													markerArr_e[i].setMap(null);
-												}
-											}
-											var innerHtml = ""; // Search Reulsts 결과값 노출 위한 변수
-											var positionBounds = new Tmapv2.LatLngBounds(); // 맵에 결과물 확인 하기 위한 LatLngBounds객체 생성
-
-											for ( var k in resultpoisData) {
-												var noorLat = Number(resultpoisData[k].noorLat); // 중심점 위도 좌표
-												var noorLon = Number(resultpoisData[k].noorLon); // 중심점 경도 좌표
-												var name = resultpoisData[k].name; // 시설물 명칭
-												var telNo = resultpoisData[k].telNo; // 전화번호
-												var upperAddrName = resultpoisData[k].upperAddrName; // 표출 주소 대분류명
-												var middleAddrName = resultpoisData[k].middleAddrName; // 표출 주소 중분류명
-												var lowerAddrName = resultpoisData[k].lowerAddrName; // 표출 주소 소분류명
-												var detailAddrName = resultpoisData[k].detailAddrName; // 표출 주소 세분류명
-												var mlClass = resultpoisData[k].mlClass; // 산/대지구분(구주소)
-												var firstNo = resultpoisData[k].firstNo; // 본번
-												var secondNo = resultpoisData[k].secondNo; // 부번
-												var roadName = resultpoisData[k].roadName; // 도로명에 해당하는 명칭
-												var firstBuildNo = resultpoisData[k].firstBuildNo; // 건물번호1(새주소)
-												var secondBuildNo = resultpoisData[k].secondBuildNo; // 건물번호2(새주소)
-												var radius = resultpoisData[k].radius; // 거리(요청좌표에서 떨어진 거리)단위:km
-												var bizName = resultpoisData[k].bizName; // 대표 업종명
-												var upperBizName = resultpoisData[k].upperBizName; // 업종 대분류명
-												var middleBizName = resultpoisData[k].middleBizName; // 업종 중분류 명
-												var lowerBizName = resultpoisData[k].lowerBizName; // 업종 소분류명
-												var detailBizName = resultpoisData[k].detailBizName; // 업종 상세분류명
-												var rpFlag = resultpoisData[k].rpFlag; // RP_FLAG는 길안내 요청에 필요한 값입니다. - 길안내 목적지 설정 시, 여기서 받은 rpFlag 값을 설정해야 합니다.
-												var parkFlag = resultpoisData[k].parkFlag; // 주차 가능유무입니다. - 0: 주차 불가능 - 1: 주차 가능 - null: 정보없음
-												var detailInfoFlag = resultpoisData[k].detailInfoFlag; // POI 상세정보 유무입니다. 해당 필드가 1로 설정되어 있으면, POI 상세정보 API를 이용하여 상세 정보를 조회할 수 있습니다. - 0: 없음 - 1: 있음 - null: 정보없음
-												var desc = resultpoisData[k].desc; // 소개정보
-
-												var pointCng = new Tmapv2.Point(
-														noorLon, noorLat);
-												var projectionCng = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
-														pointCng);
-
-												var lat = projectionCng._lat;
-												var lon = projectionCng._lng;
-
-												var markerPosition = new Tmapv2.LatLng(
-														lat, lon);
-
-												/* marker = new Tmapv2.Marker({
-												position : markerPosition,
-												//icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_a.png",
-												icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png",
-												iconSize : new Tmapv2.Size(24, 38),
-												title : name,
-												map:map
-												}); */
-
-												innerHtml += "<li id="+k+" value="+lat+","+lon+"><span><b>"
-														+ name
-														+ "</b><br>"
-														+ "주소 : "
-														+ upperAddrName
-														+ " "
-														+ middleAddrName
-														+ " "
-														+ lowerAddrName
-														+ " "
-														+ detailAddrName
-														+ "("
-														+ roadName
-														+ " "
-														+ firstBuildNo
-														+ ")"
-														+ "<br>업종 : "
-														+ middleBizName
-														+ "-"
-														+ lowerBizName
-														+ "<br>전화번호 : "
-														+ telNo
-														+ "</span></li><br>";
-												// <img src='http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png' style='vertical-align:middle;'/> : 검색결과 앞부분에 마커 이미지 표현하고자 할 때 span태그 앞에 넣기
-											}
-
-											$("#searchResult").html(innerHtml); // searchResult 결과값 노출, 기존 내용을 없애고 필요한 html구문을 생성함
-											// map.panToBounds(positionBounds);	// 확장된 bounds의 중심으로 이동시키기
-											// map.zoomOut();
-
-											for ( var k in resultpoisData) {
-												$("#searchResult #" + k)
-														.hover(
-																function() {
-																	$(this)
-																			.css(
-																					"background",
-																					"#D8D8D8");
-																},
-																function() {
-																	$(this)
-																			.css(
-																					"background",
-																					"");
-																});
-												$("#searchResult #" + k)
-														.click(
-																function() {
-																	for ( var i in markerArr_e) {
-																		markerArr_e[i]
-																				.setMap(null);
-																	}
-																	var mp_e = $(
-																			this)
-																			.attr(
-																					"value");
-																	mp_e_lat = mp_e
-																			.split(",")[0];
-																	mp_e_lon = mp_e
-																			.split(",")[1];
-																	var mp_e_name = $(
-																			this)
-																			.find(
-																					'b')
-																			.text();
-
-																	//도착
-																	marker_e = new Tmapv2.Marker(
-																			{
-																				position : new Tmapv2.LatLng(
-																						mp_e_lat,
-																						mp_e_lon),
-																				icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
-																				iconSize : new Tmapv2.Size(
-																						24,
-																						38),
-																				title : mp_e_name,
-																				map : map
-																			});
-																	markerArr_e
-																			.push(marker_e);
-																	positionBounds
-																			.extend(markerPosition); // LatLngBounds의 객체 확장
-																});
-											}
-										},
-										error : function(request, status, error) {
-											console.log("code:"
-													+ request.status + "\n"
-													+ "message:"
-													+ request.responseText
-													+ "\n" + "error:" + error);
-										}
-									});
-						});
+		$("#btn_select_e").click(function() {
+			var searchKeyword = $('#searchKeyword1').val();
+			
+			$.ajax({
+				method : "GET",
+				url : "https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result",
+				async : false,
+				data : {
+					"appKey" : "l7xx2620a113105b43f0b794ad5533b36999",
+					"searchKeyword" : searchKeyword,
+					"resCoordType" : "EPSG3857",
+					"reqCoordType" : "WGS84GEO",
+					"count" : 20 // 최대 검색 개수 200개
+					},
+				success : function(response) {
+					var resultpoisData = response.searchPoiInfo.pois.poi;
+					
+					// 기존 마커, 팝업 제거
+					if (markerArr_e.length > 0) {
+						for ( var i in markerArr_e) {
+							markerArr_e[i].setMap(null);
+						}
+					}
+					var innerHtml = ""; // Search Reulsts 결과값 노출 위한 변수
+					var positionBounds = new Tmapv2.LatLngBounds(); // 맵에 결과물 확인 하기 위한 LatLngBounds객체 생성
+					
+					for ( var k in resultpoisData) {
+						var noorLat = Number(resultpoisData[k].noorLat); // 중심점 위도 좌표
+						var noorLon = Number(resultpoisData[k].noorLon); // 중심점 경도 좌표
+						var name = resultpoisData[k].name; // 시설물 명칭
+						var telNo = resultpoisData[k].telNo; // 전화번호
+						var upperAddrName = resultpoisData[k].upperAddrName; // 표출 주소 대분류명
+						var middleAddrName = resultpoisData[k].middleAddrName; // 표출 주소 중분류명
+						var lowerAddrName = resultpoisData[k].lowerAddrName; // 표출 주소 소분류명
+						var detailAddrName = resultpoisData[k].detailAddrName; // 표출 주소 세분류명
+						var mlClass = resultpoisData[k].mlClass; // 산/대지구분(구주소)
+						var firstNo = resultpoisData[k].firstNo; // 본번
+						var secondNo = resultpoisData[k].secondNo; // 부번
+						var roadName = resultpoisData[k].roadName; // 도로명에 해당하는 명칭
+						var firstBuildNo = resultpoisData[k].firstBuildNo; // 건물번호1(새주소)
+						var secondBuildNo = resultpoisData[k].secondBuildNo; // 건물번호2(새주소)
+						var radius = resultpoisData[k].radius; // 거리(요청좌표에서 떨어진 거리)단위:km
+						var bizName = resultpoisData[k].bizName; // 대표 업종명
+						var upperBizName = resultpoisData[k].upperBizName; // 업종 대분류명
+						var middleBizName = resultpoisData[k].middleBizName; // 업종 중분류 명
+						var lowerBizName = resultpoisData[k].lowerBizName; // 업종 소분류명
+						var detailBizName = resultpoisData[k].detailBizName; // 업종 상세분류명
+						var rpFlag = resultpoisData[k].rpFlag; // RP_FLAG는 길안내 요청에 필요한 값입니다. - 길안내 목적지 설정 시, 여기서 받은 rpFlag 값을 설정해야 합니다.
+						var parkFlag = resultpoisData[k].parkFlag; // 주차 가능유무입니다. - 0: 주차 불가능 - 1: 주차 가능 - null: 정보없음
+						var detailInfoFlag = resultpoisData[k].detailInfoFlag; // POI 상세정보 유무입니다. 해당 필드가 1로 설정되어 있으면, POI 상세정보 API를 이용하여 상세 정보를 조회할 수 있습니다. - 0: 없음 - 1: 있음 - null: 정보없음
+						var desc = resultpoisData[k].desc; // 소개정보
+						
+						var pointCng = new Tmapv2.Point(noorLon, noorLat);
+						var projectionCng = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(pointCng);
+						
+						var lat = projectionCng._lat;
+						var lon = projectionCng._lng;
+						
+						var markerPosition = new Tmapv2.LatLng(lat, lon);
+						
+						/* marker = new Tmapv2.Marker({
+						position : markerPosition,
+						//icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_a.png",
+						icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png",
+						iconSize : new Tmapv2.Size(24, 38),
+						title : name,
+						map:map
+						}); */
+						
+						innerHtml += "<li id="+k+" value="+lat+","+lon+"><span><b>" + name + "</b><br>" + "주소 : " + upperAddrName + " " + middleAddrName
+									+ " " + lowerAddrName + " " + detailAddrName + "(" + roadName + " " + firstBuildNo + ")" + "<br>업종 : " + middleBizName
+									+ "-" + lowerBizName + "<br>전화번호 : " + telNo + "</span></li><br>";
+						// <img src='http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png' style='vertical-align:middle;'/> : 검색결과 앞부분에 마커 이미지 표현하고자 할 때 span태그 앞에 넣기
+					}
+					
+					$("#searchResult").html(innerHtml); // searchResult 결과값 노출, 기존 내용을 없애고 필요한 html구문을 생성함
+					// map.panToBounds(positionBounds);	// 확장된 bounds의 중심으로 이동시키기
+					// map.zoomOut();
+					
+					for ( var k in resultpoisData) {
+						$("#searchResult #" + k).hover(function() {
+							$(this).css("background", "#D8D8D8");
+							}, function() {
+							$(this).css("background", "");
+							}
+						);
+						$("#searchResult #" + k).click(function() {
+							for ( var i in markerArr_e) {
+								markerArr_e[i].setMap(null);
+							}
+							var mp_e = $(this).attr("value");
+							mp_e_lat = mp_e.split(",")[0];
+							mp_e_lon = mp_e.split(",")[1];
+							var mp_e_name = $(this).find('b').text();
+							
+							map.panTo(new Tmapv2.LatLng(mp_e_lat, mp_e_lon));
+							
+							//도착
+							marker_e = new Tmapv2.Marker({
+								position : new Tmapv2.LatLng(mp_e_lat, mp_e_lon),
+								icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
+								iconSize : new Tmapv2.Size(24, 38),
+								title : mp_e_name,
+								map : map
+								});
+							markerArr_e.push(marker_e);
+							positionBounds.extend(markerPosition); // LatLngBounds의 객체 확장
+							}
+						);
+					}
+				},
+				error : function(request, status, error) {console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+				}
+			});
+		});
 
 		// 3. 경로탐색 API 사용요청
-		$("#btn_select")
-				.click(
-						function() {
-							//기존 맵에 있던 정보들 초기화
-							resettingMap();
-
-							var searchOption = $("#selectLevel").val();
-							var trafficInfochk = $("#year").val();
-
-							//JSON TYPE EDIT [S]
-							$
-									.ajax({
-										type : "POST",
-										url : "https://apis.openapi.sk.com/tmap/routes?version=1&format=json&callback=result",
-										async : false,
-										data : {
-											"appKey" : "l7xx2620a113105b43f0b794ad5533b36999",
-											"startX" : mp_s_lon,
-											"startY" : mp_s_lat,
-											"endX" : mp_e_lon,
-											"endY" : mp_e_lat,
-											"reqCoordType" : "WGS84GEO",
-											"resCoordType" : "EPSG3857",
-											"searchOption" : searchOption,
-											"trafficInfo" : trafficInfochk
-										},
-										success : function(response) {
-											var resultData = response.features;
-											var tDistance = "총 거리 : "
-													+ (resultData[0].properties.totalDistance / 1000)
-															.toFixed(1) + "km,";
-											var tTime = " 총 시간 : "
-													+ (resultData[0].properties.totalTime / 60)
-															.toFixed(0) + "분,";
-											var tFare = " 총 요금 : "
-													+ resultData[0].properties.totalFare
-													+ "원,";
-											var taxiFare = " 예상 택시 요금 : "
-													+ resultData[0].properties.taxiFare
-													+ "원";
-
-											$("#result").text(
-													tDistance + tTime + tFare
-															+ taxiFare);
-
-											//교통정보 표출 옵션값을 체크
-											if (trafficInfochk == "Y") {
-												for ( var i in resultData) { //for문 [S]
-													var geometry = resultData[i].geometry;
-													var properties = resultData[i].properties;
-
-													if (geometry.type == "LineString") {
-														//교통 정보도 담음
-														chktraffic
-																.push(geometry.traffic);
-														var sectionInfos = [];
-														var trafficArr = geometry.traffic;
-
-														for ( var j in geometry.coordinates) {
-															// 경로들의 결과값들을 포인트 객체로 변환 
-															var latlng = new Tmapv2.Point(
-																	geometry.coordinates[j][0],
-																	geometry.coordinates[j][1]);
-															// 포인트 객체를 받아 좌표값으로 변환
-															var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
-																	latlng);
-
-															sectionInfos
-																	.push(convertPoint);
-														}
-
-														drawLine(sectionInfos,
-																trafficArr);
-													} else {
-														var markerImg = "";
-														var pType = "";
-
-														if (properties.pointType == "S") { //출발지 마커
-															markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png";
-															pType = "S";
-														} else if (properties.pointType == "E") { //도착지 마커
-															markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_e.png";
-															pType = "E";
-														} else { //각 포인트 마커
-															markerImg = "http://topopen.tmap.co.kr/imgs/point.png";
-															pType = "P"
-														}
-
-														// 경로들의 결과값들을 포인트 객체로 변환 
-														var latlon = new Tmapv2.Point(
-																geometry.coordinates[0],
-																geometry.coordinates[1]);
-														// 포인트 객체를 받아 좌표값으로 다시 변환
-														var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
-																latlon);
-
-														var routeInfoObj = {
-															markerImage : markerImg,
-															lng : convertPoint._lng,
-															lat : convertPoint._lat,
-															pointType : pType
-														};
-
-														// 마커 추가
-														// addMarkers(routeInfoObj);
-													}
-												}//for문 [E]
-											} else {
-												for ( var i in resultData) { //for문 [S]
-													var geometry = resultData[i].geometry;
-													var properties = resultData[i].properties;
-
-													if (geometry.type == "LineString") {
-														for ( var j in geometry.coordinates) {
-															// 경로들의 결과값들을 포인트 객체로 변환 
-															var latlng = new Tmapv2.Point(
-																	geometry.coordinates[j][0],
-																	geometry.coordinates[j][1]);
-															// 포인트 객체를 받아 좌표값으로 변환
-															var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
-																	latlng);
-															// 포인트객체의 정보로 좌표값 변환 객체로 저장
-															var convertChange = new Tmapv2.LatLng(
-																	convertPoint._lat,
-																	convertPoint._lng);
-															// 배열에 담기
-															drawInfoArr
-																	.push(convertChange);
-														}
-														drawLine(drawInfoArr,
-																"0");
-													} else {
-														var markerImg = "";
-														var pType = "";
-
-														if (properties.pointType == "S") { //출발지 마커
-															markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png";
-															pType = "S";
-														} else if (properties.pointType == "E") { //도착지 마커
-															markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_e.png";
-															pType = "E";
-														} else { //각 포인트 마커
-															markerImg = "http://topopen.tmap.co.kr/imgs/point.png";
-															pType = "P"
-														}
-
-														// 경로들의 결과값들을 포인트 객체로 변환 
-														var latlon = new Tmapv2.Point(
-																geometry.coordinates[0],
-																geometry.coordinates[1]);
-														// 포인트 객체를 받아 좌표값으로 다시 변환
-														var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
-																latlon);
-
-														var routeInfoObj = {
-															markerImage : markerImg,
-															lng : convertPoint._lng,
-															lat : convertPoint._lat,
-															pointType : pType
-														};
-
-														// Marker 추가
-														// addMarkers(routeInfoObj);
-													}
-												}//for문 [E]
-											}
-										},
-										error : function(request, status, error) {
-											console.log("code:"
-													+ request.status + "\n"
-													+ "message:"
-													+ request.responseText
-													+ "\n" + "error:" + error);
-										}
-									});//JSON TYPE EDIT [E]
-						});
-
+		$("#btn_select").click(function() {
+			//기존 맵에 있던 정보들 초기화
+			resettingMap();
+			
+			//두 좌표 중심점으로 맵 이동
+			var center_LatLng = new Tmapv2.LatLng((Number(mp_s_lat) + Number(mp_e_lat))/2, (Number(mp_s_lon) + Number(mp_e_lon))/2);
+			map.panTo(center_LatLng);
+			var distance = marker_s.getPosition().distanceTo(marker_e.getPosition());
+			//두 좌표 거리별로 zoomlevel을 다르게 설정
+			if(distance >= 384000){
+				map.setZoom(7);
+			}else if(distance < 384000 && distance >= 192000){
+				map.setZoom(8);
+			}else if(distance < 192000 && distance >= 96000){
+				map.setZoom(9);
+			}else if(distance < 96000 && distance >= 48000){
+				map.setZoom(10);
+			}else if(distance < 48000 && distance >= 24000){
+				map.setZoom(11);
+			}else if(distance < 24000 && distance >= 12000){
+				map.setZoom(12);
+			}else if(distance < 12000 && distance >= 6000){
+				map.setZoom(13);
+			}else if(distance < 6000 && distance >= 3000){
+				map.setZoom(14);
+			}else if(distance < 3000 && distance >= 1500){
+				map.setZoom(15);
+			}else if(distance < 1500 && distance >= 750){
+				map.setZoom(16);
+			}else if(distance < 750 && distance >= 375){
+				map.setZoom(17);
+			}else{
+				map.setZoom(18);
+			}
+			
+			var searchOption = $("#selectLevel").val();
+			var trafficInfochk = $("#year").val();
+			
+			//JSON TYPE EDIT [S]
+			$.ajax({
+				type : "POST",
+				url : "https://apis.openapi.sk.com/tmap/routes?version=1&format=json&callback=result",
+				async : false,
+				data : {
+					"appKey" : "l7xx2620a113105b43f0b794ad5533b36999",
+					"startX" : mp_s_lon,
+					"startY" : mp_s_lat,
+					"endX" : mp_e_lon,
+					"endY" : mp_e_lat,
+					"reqCoordType" : "WGS84GEO",
+					"resCoordType" : "EPSG3857",
+					"searchOption" : searchOption,
+					"trafficInfo" : trafficInfochk
+				},
+				success : function(response) {
+					var resultData = response.features;
+					var tDistance = "총 거리 : " + (resultData[0].properties.totalDistance / 1000).toFixed(1) + "km,";
+					var tTime = " 총 시간 : " + (resultData[0].properties.totalTime / 60).toFixed(0) + "분,";
+					var tFare = " 총 요금 : " + resultData[0].properties.totalFare + "원,";
+					var taxiFare = " 예상 택시 요금 : " + resultData[0].properties.taxiFare + "원";
+					
+					$("#result").text(tDistance + tTime + tFare + taxiFare);
+					
+					//교통정보 표출 옵션값을 체크
+					if (trafficInfochk == "Y") {
+						for ( var i in resultData) { //for문 [S]
+							var geometry = resultData[i].geometry;
+							var properties = resultData[i].properties;
+							
+							if (geometry.type == "LineString") {
+								//교통 정보도 담음
+								chktraffic.push(geometry.traffic);
+								var sectionInfos = [];
+								var trafficArr = geometry.traffic;
+								
+								for ( var j in geometry.coordinates) {
+									// 경로들의 결과값들을 포인트 객체로 변환 
+									var latlng = new Tmapv2.Point(geometry.coordinates[j][0], geometry.coordinates[j][1]);
+									// 포인트 객체를 받아 좌표값으로 변환
+									var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
+									
+									sectionInfos.push(convertPoint);
+								}
+								
+								drawLine(sectionInfos,trafficArr);
+							} else {
+								var markerImg = "";
+								var pType = "";
+								
+								if (properties.pointType == "S") { //출발지 마커
+									markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png";
+									pType = "S";
+								} else if (properties.pointType == "E") { //도착지 마커
+									markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_e.png";
+									pType = "E";
+								} else { //각 포인트 마커
+									markerImg = "http://topopen.tmap.co.kr/imgs/point.png";
+									pType = "P"
+								}
+								
+								// 경로들의 결과값들을 포인트 객체로 변환 
+								var latlon = new Tmapv2.Point(geometry.coordinates[0], geometry.coordinates[1]);
+								// 포인트 객체를 받아 좌표값으로 다시 변환
+								var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlon);
+								
+								var routeInfoObj = {
+									markerImage : markerImg,
+									lng : convertPoint._lng,
+									lat : convertPoint._lat,
+									pointType : pType
+								};
+								
+								// 마커 추가
+								// addMarkers(routeInfoObj);
+							}
+						}//for문 [E]
+					} else {
+						for ( var i in resultData) { //for문 [S]
+							var geometry = resultData[i].geometry;
+							var properties = resultData[i].properties;
+							
+							if (geometry.type == "LineString") {
+								for ( var j in geometry.coordinates) {
+								// 경로들의 결과값들을 포인트 객체로 변환 
+								var latlng = new Tmapv2.Point(geometry.coordinates[j][0], geometry.coordinates[j][1]);
+								// 포인트 객체를 받아 좌표값으로 변환
+								var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
+								// 포인트객체의 정보로 좌표값 변환 객체로 저장
+								var convertChange = new Tmapv2.LatLng(convertPoint._lat, convertPoint._lng);
+								// 배열에 담기
+								drawInfoArr.push(convertChange);
+								}
+								drawLine(drawInfoArr,"0");
+							} else {
+								var markerImg = "";
+								var pType = "";
+								
+								if (properties.pointType == "S") { //출발지 마커
+									markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png";
+									pType = "S";
+								} else if (properties.pointType == "E") { //도착지 마커
+									markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_e.png";
+									pType = "E";
+								} else { //각 포인트 마커
+									markerImg = "http://topopen.tmap.co.kr/imgs/point.png";
+									pType = "P"
+								}
+								
+								// 경로들의 결과값들을 포인트 객체로 변환 
+								var latlon = new Tmapv2.Point(geometry.coordinates[0], geometry.coordinates[1]);
+								// 포인트 객체를 받아 좌표값으로 다시 변환
+								var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlon);
+								
+								var routeInfoObj = {
+									markerImage : markerImg,
+									lng : convertPoint._lng,
+									lat : convertPoint._lat,
+									pointType : pType
+								};
+								
+								// Marker 추가
+								// addMarkers(routeInfoObj);
+							}
+						}//for문 [E]
+					}
+				},
+				error : function(request, status, error) {console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+				}
+			});//JSON TYPE EDIT [E]
+		});
+	
 		$("#btn_reset").click(function() {
 			resettingMap();
-
+			
 			marker_s.setMap(null);
 			marker_e.setMap(null);
 		});
@@ -1160,38 +1070,31 @@ element.style {
   </div>
  -->
  
- <nav class="menu" style="width: 1350px;">
-  <ol style="margin-bottom:0px;">
-    <li class="menu-item"><a href="#0">Okul ve Öncesi</a></li>
-    <li class="menu-item"><a href="#0">Yeni Sezon</a></li>
+ <nav class="menu" style="width: 1665px;">
+  <ol style="margin-bottom:0px; width:129%;">
+    <li class="menu-item"><a href="#0">블랙아이스</a></li>
+    <li class="menu-item"><a href="#0">포트홀</a></li>
     <li class="menu-item">
-      <a href="#0">Kız</a>
-      <ol class="sub-menu">
-        <li class="menu-item"><a href="#0">İlk Adım</a></li>
-        <li class="menu-item"><a href="#0">Bebek</a></li>
-        <li class="menu-item"><a href="#0">Çocuk</a></li>
-        <li class="menu-item"><a href="#0">Genç</a></li>
-      </ol>
+      <a href="#0">낙석</a>
+     
     </li>
     <li class="menu-item">
-      <a href="#0">Erkek</a>
-      <ol class="sub-menu">
-        <li class="menu-item"><a href="#0">İlk Adım</a></li>
-        <li class="menu-item"><a href="#0">Bebek</a></li>
-        <li class="menu-item"><a href="#0">Çocuk</a></li>
-        <li class="menu-item"><a href="#0">Genç</a></li>
-      </ol>
+      <a href="#0">블랙아이스</a>
+   
     </li>
-    <li class="menu-item"><a href="#0">Aksesuar</a>
-      <ol class="sub-menu">
-        <li class="menu-item"><a href="#0">Okul Çantası</a></li>
-        <li class="menu-item"><a href="#0">Anne Bebek Çantası</a></li>
-        <li class="menu-item"><a href="#0">Kalem Kutusu</a></li>
-        <li class="menu-item"><a href="#0">Çorap</a></li>
-      </ol>
+    <li class="menu-item"><a href="#0">블랙아이스</a>
+      
     </li>
-    <li class="menu-item"><a href="#0">Fırsat Garajı</a></li>
+    <li class="menu-item"><a href="#0" style = "color:#3c3c3c;">블랙아이스</a></li>
+    <li class="menu-item"><a href="#0" style = "color:#3c3c3c;">블랙아이스</a></li>
+    <li class="menu-item"><a href="#0" style = "color:#3c3c3c;">블랙아이스</a></li>
+    <li class="menu-item"><a href="#0" style = "color:#3c3c3c;">블랙아이스</a></li>
+    <li class="menu-item"><a href="#0" style = "color:#3c3c3c;">블랙아이스</a></li>
+  	<li class="menu-item"><a href="#0" style = "color:#3c3c3c;">블랙아이스</a></li>
+
   </ol>
+  
+  
 </nav>
 
 
@@ -1253,7 +1156,7 @@ element.style {
 			</div>
 			<div class="rst_wrap">
 				<div class="rst mCustomScrollbar"
-					style="overflow: auto; width: 383px; height: 644px;">
+					style="overflow: auto; width: 383px; height: 560px;">
 					<!-- 항상 스크롤을 표시하고 싶을 때는 auto를 scroll로 변경 -->
 					<ul id="searchResult" name="searchResult"
 						style="font-family: notosanskr, 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', sans-serif;">
@@ -1264,7 +1167,7 @@ element.style {
 		</div>
 
 		<div id="map_div" class="map_wrap"
-			style="float: right; position: absolute; right: 0px; top: 68%; margin-right: 0%;"></div>
+			style="float: right; position: absolute; right: 0px; top: 7%; margin-right: 0%;"></div>
 	</div>
 	<p id="result"></p>
 	
