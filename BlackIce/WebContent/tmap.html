@@ -37,7 +37,7 @@ html, body {
 	transition: all 0.3s ease 0s;
 	cursor: pointer;
 	outline: none;
-	position: ;
+	position: relative;
     right: 48px;
     top: 10px;
     border: 1px solid white;
@@ -1140,11 +1140,11 @@ element.style {
 		<div align="center" style="margin-top: 15px; border-radius: 4px; margin-right: -36px; margin-bottom: -14px;">
 			<span _ngcontent-ecn-c90="" class="icon_route start ng-star-inserted"></span>
 			
-			<input  type="text" placeholder="출발지 입력" class="field"></input>
+			<input  type="text" placeholder="출발지 입력" class="field" id="searchKeyword" name="searchKeyword"></input>
 			<button id="btn_select_s" class="button"><img src = "img/zoomm.PNG" style = "width:29px;"></button>
   			
 		<span _ngcontent-ecn-c90="" class="icon_route start ng-star-inserted"></span>
-			<input type="text" placeholder="도착지 입력" class="field"></input>
+			<input type="text" placeholder="도착지 입력" class="field" id="searchKeyword" name="searchKeyword"></input>
 			<button id="btn_select_s" class="button"><img src = "img/zoomm.PNG" style = "width:29px;"></button>
 			
 
@@ -1194,7 +1194,7 @@ element.style {
 			</div>
 			<div class="rst_wrap">
 				<div class="rst mCustomScrollbar"
-					style="overflow: auto; width: 383px; height: 560px;">
+					style="overflow: auto; width: 374px; height: 543px; margin-left: -57px;">
 					<!-- 항상 스크롤을 표시하고 싶을 때는 auto를 scroll로 변경 -->
 					<ul id="searchResult" name="searchResult"
 						style="font-family: notosanskr, 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', sans-serif;">
