@@ -167,6 +167,64 @@ search:hover:before {
     }
 }
 
+@-moz-keyframes mybg {
+	0% {
+		-moz-transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
+		-ms-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		-moz-transform :translate3d(-2250px,0,0);
+		-webkit-transform :translate3d(-2250px,0,0);
+		-ms-transform :translate3d(-2250px,0,0);
+		transform :translate3d(-2250px,0,0);
+	}
+}
+@-webkit-keyframes mybg {
+	0% {
+		-moz-transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
+		-ms-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		-moz-transform :translate3d(-2250px,0,0);
+		-webkit-transform :translate3d(-2250px,0,0);
+		-ms-transform :translate3d(-2250px,0,0);
+		transform :translate3d(-2250px,0,0);
+	}
+}
+@-ms-keyframes mybg {
+	0% {
+		-moz-transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
+		-ms-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		-moz-transform :translate3d(-2250px,0,0);
+		-webkit-transform :translate3d(-2250px,0,0);
+		-ms-transform :translate3d(-2250px,0,0);
+		transform :translate3d(-2250px,0,0);
+	}
+}
+@keyframes mybg { 
+	0% {
+		-moz-transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
+		-ms-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		-moz-transform :translate3d(-2250px,0,0);
+		-webkit-transform :translate3d(-2250px,0,0);
+		-ms-transform :translate3d(-2250px,0,0);
+		transform :translate3d(-2250px,0,0);
+	}
+}
+
+
 </style>
 </head>
 

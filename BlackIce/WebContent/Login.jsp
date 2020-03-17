@@ -32,6 +32,16 @@
 	-webkit-animation: shockwave-data-v-e2fcb7d8 1s ease-out .5s infinite;
 	animation: shockwave-data-v-e2fcb7d8 1s ease-out .5s infinite;
 } */
+
+@keyframes wrapper { 
+	0% {
+		opacity:0;
+	}
+    100%{
+        opacity:100%;
+    }
+}
+
 </style>
 </head>
 
