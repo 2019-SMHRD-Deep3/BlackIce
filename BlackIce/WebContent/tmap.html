@@ -67,9 +67,9 @@ html, body {
 	letter-spacing: 2.5px;
 	font-weight: 500;
 	color: #000;
-	background-color: #E6E6E6;
+	background-color: #D8D8D8;
 	border: none;
-	border-radius: 12px;
+	border-radius: 25px;
 	align-items: center;
 	transition: all 0.3s ease 0s;
 	cursor: pointer;
@@ -100,9 +100,9 @@ html, body {
 	letter-spacing: 2.5px;
 	font-weight: 500;
 	color: #000;
-	background-color: #E6E6E6;
+	background-color: #D8D8D8;
 	border: none;
-	border-radius: 12px;
+	border-radius: 25px;
 	transition: all 0.3s ease 0s;
 	cursor: pointer;
 	outline: none;
@@ -469,7 +469,7 @@ element.style {
 		map = new Tmapv2.Map("map_div", {
 			center : new Tmapv2.LatLng(37.570028, 126.986072),
 			width : "80%",
-			height : "840px",
+			height : "865px",
 			zoom : 15,
 			zoomControl : true,
 			scrollwheel : true
@@ -545,9 +545,9 @@ element.style {
 						map:map
 						}); */
 						
-						innerHtml += "<li id="+k+" value="+lat+","+lon+"><span><b>" + name + "</b><br>" + "주소 : " + upperAddrName + " " + middleAddrName
+						innerHtml += "<dd id="+k+" value="+lat+","+lon+" style ='width:270px;'><span><b>" + name + "</b><br>" + "주소 : " + upperAddrName + " " + middleAddrName
 									+ " " + lowerAddrName + " " + detailAddrName + "(" + roadName + " " + firstBuildNo + ")" + "<br>업종 : " + middleBizName
-									+ "-" + lowerBizName + "<br>전화번호 : " + telNo + "</span></li><br>";
+									+ "-" + lowerBizName + "<br>전화번호 : " + telNo + "</span></dd><br><hr color='#FBFBFB'; size='6'; width='270px'; align='center';><br>";
 						//<img src='http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png' style='vertical-align:middle;'/> : 검색결과 앞부분에 마커 이미지 표현하고자 할 때 span태그 앞에 넣기
 					}
 					
@@ -662,9 +662,9 @@ element.style {
 						map:map
 						}); */
 						
-						innerHtml += "<li id="+k+" value="+lat+","+lon+"><span><b>" + name + "</b><br>" + "주소 : " + upperAddrName + " " + middleAddrName
+						innerHtml += "<dd id="+k+" value="+lat+","+lon+" style ='width:270px;'><span><b>" + name + "</b><br>" + "주소 : " + upperAddrName + " " + middleAddrName
 									+ " " + lowerAddrName + " " + detailAddrName + "(" + roadName + " " + firstBuildNo + ")" + "<br>업종 : " + middleBizName
-									+ "-" + lowerBizName + "<br>전화번호 : " + telNo + "</span></li><br>";
+									+ "-" + lowerBizName + "<br>전화번호 : " + telNo + "</span></dd><br><hr color='#FBFBFB'; size='6'; width='285px'; align='center';><br>";
 						// <img src='http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png' style='vertical-align:middle;'/> : 검색결과 앞부분에 마커 이미지 표현하고자 할 때 span태그 앞에 넣기
 					}
 					
@@ -766,6 +766,7 @@ element.style {
 				},
 				success : function(response) {
 					var resultData = response.features;
+					
 					var tDistance = "총 거리 : " + (resultData[0].properties.totalDistance / 1000).toFixed(1) + "km,";
 					var tTime = " 총 시간 : " + (resultData[0].properties.totalTime / 60).toFixed(0) + "분,";
 					var tFare = " 총 요금 : " + resultData[0].properties.totalFare + "원,";
@@ -803,7 +804,7 @@ element.style {
 									markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png";
 									pType = "S";
 								} else if (properties.pointType == "E") { //도착지 마커
-									markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_e.png";
+									markerImg = "http://tmapap is.sktelecom.com/upload/tmap/marker/pin_r_m_e.png";
 									pType = "E";
 								} else { //각 포인트 마커
 									markerImg = "http://topopen.tmap.co.kr/imgs/point.png";
@@ -888,7 +889,7 @@ element.style {
 			marker_e.setMap(null);
 			
 			mp_s_lat = null;
-			mp_s_lon = null; 
+			mp_s_lon = null;
 			mp_e_lat = null;
 			mp_e_lon = null;
 		});
@@ -1085,18 +1086,7 @@ element.style {
 		resultMarkerArr = [];
 		resultdrawArr = [];
 	}
-	
-	
-	
 </script>
-
-
-<script>
-
-
-
-</script>
-
 
 	<!-- <div class="to">
     <div class="toto">
@@ -1110,43 +1100,41 @@ element.style {
 
 
 
-<body onload="initTmap();" style = "background: whitesmoke;" >
+<body onload="initTmap();" style = "background: #F2F2F2;" >
 
  <nav class="menu" style="width: 1665px;">
-  <ol style="margin-bottom:0px; width:126%;  margin-top: 1px; " >
-    <li class="menu-item"><a href="#0" align="center">블랙아이스</a></li>
-    <li class="menu-item"><a href="#0" align="center">포트홀</a></li>
+  <ol style="margin-bottom:0px; width:126.7%; font-size:19px; margin-top:0px;" >
+    <li class="menu-item"><a href="#0" align="center"><b>메인</b></a></li>
+    <li class="menu-item"><a href="#0" align="center"><b>결빙</b></a></li>
     <li class="menu-item">
-      <a href="#0" align="center">낙석</a>
+      <a href="#0" align="center"><b>포트홀</b></a>
      
     </li>
     <li class="menu-item">
-      <a href="#0" align="center">블랙아이스</a>
+      <a href="#0" align="center"><b>낙석</b></a>
    
     </li>
-    <li class="menu-item" ><a href="#0" align="center">블랙아이스</a>
+    <li class="menu-item" ><a href="#0" align="center"><b>즐겨찾기</b> </a>
       
     </li>
-    <li class="menu-item"><a href="#0" style = "color:#FBFBFB" align="center">블랙아이스</a></li>
-    <li class="menu-item"><a href="#0" style = "color:#FBFBFB" align="center">LOGIN</a></li>
-    
+    <li class="menu-item"><a href="#0" style = "color:#FBFBFB" align="center"><b>고객센터</b></a></li>
+     <li class="menu-item"><a href="#0" style = "color:#FBFBFB" align="center"><b>로그인</b></a></li>
   </ol>
   
   
 </nav>
 
 
-	<fieldset style="width: 376px; height: 239px; margin-top: 1px;">
-		<div align="center" style="margin-top: 15px; border-radius: 4px; margin-right: -36px; margin-bottom: -14px;">
+	<fieldset style="width: 376px; height: 239px; margin-top: 1px; border:none;">
+		<div align="center" style="margin-top: 15px; border-radius: 5px; margin-right: -36px; margin-bottom: -14px;">
 			<span _ngcontent-ecn-c90="" class="icon_route start ng-star-inserted"></span>
 			
 			<input  type="text" placeholder="출발지 입력" class="field" id="searchKeyword" name="searchKeyword"></input>
 			<button id="btn_select_s" class="button"><img src = "img/zoomm.PNG" style = "width:29px;"></button>
   			
 		<span _ngcontent-ecn-c90="" class="icon_route start ng-star-inserted"></span>
-			<input type="text" placeholder="도착지 입력" class="field" id="searchKeyword" name="searchKeyword"></input>
-			<button id="btn_select_s" class="button"><img src = "img/zoomm.PNG" style = "width:29px;"></button>
-			
+			<input type="text" placeholder="도착지 입력" class="field" id="searchKeyword1" name="searchKeyword"></input>
+			<button id="btn_select_e" class="button"><img src = "img/zoomm.PNG" style = "width:29px;"></button>
 
 			
 
@@ -1155,7 +1143,7 @@ element.style {
 		</div>
 
 				<div class="ft_select"
-					style="    margin-top: 39px; margin-bottom: -11px;border-radius: 5px; height: 30px; font-size: 15px; display: inline-block;
+					style=" margin-top: 39px; margin-bottom: -11px;border-radius: 5px; height: 30px; font-size: 15px; display: inline-block;
 }">
 					<div style="display:inline;">
 						<select id="selectLevel" style = "width: 181px;">
@@ -1187,25 +1175,25 @@ element.style {
 	</fieldset>
 
 	<div>
-		<div style="width: 25%; float: left; margin-left: 4%;">
-			<div align="center" class="title" style="width: 219px; height: 40px; font: 400 13.3333px Arial;">
-				<strong><h2 style = "align:center; color:gray;">검색 결과</h2></strong><br>
+		<div style="width: 25%; float: left; margin-left: 4%; border-top:10px;">
+			<!-- <div align="center" class="title" style="width: 219px; height: 40px; font: 400 13.3333px Arial;">
+				<strong><h2 style = "text-align:left; color:gray; margin-left:66px;">검색 결과</h2></strong><br>
 			
-			</div>
+			</div> -->
 			<div class="rst_wrap">
 				<div class="rst mCustomScrollbar"
-					style="overflow: auto; width: 374px; height: 543px; margin-left: -57px;">
+					style="overflow: auto; width: 374px; height: 622px; margin-left: -57px;">
 					<!-- 항상 스크롤을 표시하고 싶을 때는 auto를 scroll로 변경 -->
-					<ul id="searchResult" name="searchResult"
+					<dt id="searchResult" name="searchResult"
 						style="font-family: notosanskr, 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', sans-serif;">
 						<!-- <li>검색결과</li> -->
-					</ul>
+					</dt>
 				</div>
 			</div>
 		</div>
 
 		<div id="map_div" class="map_wrap"
-			style="float: right; position: absolute; right: 0px; top: 6%; margin-right: 0%;"></div>
+			style="float: right; position: absolute; right: 0px; top: 6.5%; margin-right: 0%;"></div>
 	</div>
 	<p id="result"></p>
 	

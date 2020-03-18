@@ -32,25 +32,26 @@
 <style>
 .login {
 	position: absolute;
-	top: -220px;
-	right: -50px;
+	top: -261px;
+	right: -57px;
 	font-size: 25px;
 }
 
 .search {
+	
 	position: absolute;
-	top: 160%;
-	left: 50%;
+    top: 180%;
+    left: 35%;
 	transform: translate(-50%, -50%);
 	width: 155px; /* 원 너비 */
 	height: 155px; /* 원 높이*/
-	background-color: #6fc0e3; /* 큰 원 색 */
+	background-color: gray; /* 큰 원 색 */
 	border: 8px solid white; /* 테두리 */
 	border-radius: 75px;
 	text-decoration: none;
 	text-align: center; /* 텍스트 수평 중앙 */
 	line-height: 145px; /* 텍스트 수직 중앙 */
-	font-size: 25px;
+	font-size: 26px;
 	color: white; /* 글씨 색 */
 	font-weight: bold;
 	transition: .5s; /* 변환 시간 */
@@ -62,7 +63,7 @@ search:hover {
 
 search:before { /* 클릭시  */
 	content: '';
-	position: absolute; /*절대적 위치로 배치*/
+ 
 	top: -0.1%;
 	left: -0.1%;
 	border-radius: 75px; /* 클릭시 테두리 모서리  */
@@ -75,6 +76,92 @@ search:before { /* 클릭시  */
 }
 
 search:hover:before {
+	color: red; /* 후버시 텍스트 컬러*/
+	transform: scale(1);
+}
+.search2 {
+	
+	
+	position: absolute;
+	top:180%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 155px; /* 원 너비 */
+	height: 155px; /* 원 높이*/
+	background-color: darkgray; /* 큰 원 색 */
+	border: 8px solid white; /* 테두리 */
+	border-radius: 75px;
+	text-decoration: none;
+	text-align: center; /* 텍스트 수평 중앙 */
+	line-height: 145px; /* 텍스트 수직 중앙 */
+	font-size: 27px;
+	color: white; /* 글씨 색 */
+	font-weight: bold;
+	transition: .5s; /* 변환 시간 */
+}
+
+search2:hover {
+	color: red; /* 후버할때 색깔  */
+}
+
+search2:before { /* 클릭시  */
+	content: '';
+	
+	top: -0.1%;
+	left: -0.1%;
+	border-radius: 75px; /* 클릭시 테두리 모서리  */
+	background-color: #fff; /* 클릭시  배경색*/
+	width: 101%;
+	height: 101%;
+	z-index: -1; /* 클릭시 배경색에 가리는 글씨 보이도록함 */
+	transition: .5s; /* 변환 시간 */
+	transform: scale(0);
+}
+
+search2:hover:before {
+	color: red; /* 후버시 텍스트 컬러*/
+	transform: scale(1);
+}
+.search3 {
+	
+	
+	position: absolute;
+    top: 180%;
+    right: 26%;
+	transform: translate(-50%, -50%);
+	width: 155px; /* 원 너비 */
+	height: 155px; /* 원 높이*/
+	background-color: lightslategray; /* 큰 원 색 */
+	border: 8px solid white; /* 테두리 */
+	border-radius: 75px;
+	text-decoration: none;
+	text-align: center; /* 텍스트 수평 중앙 */
+	line-height: 145px; /* 텍스트 수직 중앙 */
+	font-size: 27px;
+	color: white; /* 글씨 색 */
+	font-weight: bold;
+	transition: .5s; /* 변환 시간 */
+}
+
+search3:hover {
+	color: red; /* 후버할때 색깔  */
+}
+
+search3:before { /* 클릭시  */
+	content: '';
+	
+	top: -0.1%;
+	left: -0.1%;
+	border-radius: 75px; /* 클릭시 테두리 모서리  */
+	background-color: #fff; /* 클릭시  배경색*/
+	width: 101%;
+	height: 101%;
+	z-index: -1; /* 클릭시 배경색에 가리는 글씨 보이도록함 */
+	transition: .5s; /* 변환 시간 */
+	transform: scale(0);
+}
+
+search3:hover:before {
 	color: red; /* 후버시 텍스트 컬러*/
 	transform: scale(1);
 }
@@ -258,32 +345,40 @@ search:hover:before {
 				<%
 					}
 				%>
-				<h1>도로안전사고</h1>
+				
+<!-- 				<h1 style = "margin-top: -63px;">세<h6 style = "margin-top: -63px;">이프</h6></h1>
+				 -->
+				
+				
+				<h1 style = "font-size:100px; display:inline-block;">세</h1>이프<h1 style = "font-size:100px; display:inline-block;">로</h1>드<h1 style = "font-size:100px; display:inline-block;">맵</h1>
 				<br>
-				<p style="font-size: 15px;">
+				<p style="font-size: 20px;">
 					위험천만한 도로교통사고 미리 예측해드립니다<br>여러분의 안전을 책임져드리겠습니다<br>
 				</p>
-				<nav>
-					<ul>
-						<input type="text" name="name" class="Name" placeholder="출발">
-						<input type="text" name="name" class="Name" placeholder="도착">
-					</ul>
-				</nav>
-
+			
 				<body>
-					<a class=search href="#">위치 검색</a>
+					<div>
+					<a class=search href="#">블랙아이스</a>
+					<a class=search2 href="#">포트홀</a>
+					<a class=search3 href="#">낙석</a>
+					</div>
 				</body>
-
-
+			
+				
 			</header>
 
 			<!-- Footer -->
+			
 			<footer id="footer">
-				<span class="copyright">&copy; Road safety accident<ahref="http://html5up.net">
-					</a></span>
+			
 			</footer>
-
-		</div>
+			<div style = "bottom: 2px; left: 1520px; font-size: 16px; position: absolute;">
+			<div class="copyright" style = "position: fixed; padding: 38px; margin-left: -19px;">기획 및 개발  : 김준형,이보람,김희조,곽창혁,김찬우</div><br>
+			<div class="copyright" style = "position: fixed; padding: 19px; margin-left: 131px;"> 문의 사항  :  smhrd @ smhrd. or. kr</div><br>
+			<div class="copyright" style = "position: fixed; margin-left: 209px;"> 정보  출처   :  SK   open   API </div><br>
+			</div>
+			
+		
 	</div>
 
 
