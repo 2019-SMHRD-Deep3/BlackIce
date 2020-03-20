@@ -256,38 +256,21 @@ body {
   }
 }
 
-
-
 </style>
-
-
-
-
 
 <nav class="menu" style="width: 1665px;">
   <ol style="margin-bottom:0px; width:126.7%; font-size:19px; margin-top:0px;" >
-    <li class="menu-item"><a href="/BlackIce/Mainpage.jsp" align="center"><b>메인</b></a></li>
-    <li class="menu-item"><a href="/BlackIce/Tmap1.html" align="center"><b>결빙</b></a></li>
-    <li class="menu-item">
-      <a href="/BlackIce/Tmap2.html" align="center"><b>포트홀</b></a>
-     
-    </li>
-    <li class="menu-item">
-      <a href="/BlackIce/Tmap3.html" align="center"><b>샘플</b></a>
-   
-    </li>
-    <li class="menu-item" ><a href="#0" align="center" style="background-color:#C6EA8D;"><b>즐겨찾기</b> </a>
-      
-    </li>
-    <li class="menu-item"><a href="#0" style = "color:#FBFBFB;" align="center"><b>고객센터</b></a></li>
-     <li class="menu-item"><a href="/BlackIce/Login.jsp" style = "color:#FBFBFB" align="center"><b>로그인</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Mainpage.jsp" align="center"><b>메인</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Tmap1.html" align="center"><b>결빙</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Tmap2.html" align="center"><b>포트홀</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Tmap3.html" align="center"><b>샘플</b></a></li>
+	<li class="menu-item" style="background-color:#C6EA8D;"><a href="/BlackIce/bookmark.jsp" align="center"><b>즐겨찾기</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/board.jsp" align="center"><b>고객센터</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Login.jsp" align="center"><b>로그인</b></a></li>
   </ol>
-  
-  
 </nav>
 
-
-<img src = "img/ready.png" style = "display:block; margin:0px auto; margin-top: 250px;">
+	<img src = "img/ready.png" style = "display:block; margin:0px auto; margin-top: 250px;">
 
 </body>
 </html>
