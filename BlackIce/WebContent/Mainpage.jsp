@@ -358,9 +358,9 @@ search3:hover:before {
 			
 				<body>
 					<div>
-					<a class=search href="#">결빙</a>
-					<a class=search2 href="#">포트홀</a>
-					<a class=search3 href="#">낙석</a>
+					<a class=search href="/BlackIce/Tmap_1.html">결빙</a>
+					<a class=search2 href="/BlackIce/Tmap_2.html">포트홀</a>
+					<a class=search3 href="/BlackIce/Tmap_3.html">Sample</a>
 					</div>
 				</body>
 			

@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="assets/js/123.js"></script>
+<link rel="stylesheet" href="assets/css/NewFile.css" />
+<style>
+html, body {
+	height: 100%;
+}
+
+.btn_select_s {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.btn_select_e {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button {
+	width: 30px;
+	height: 20px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: 500;
+	color: #000;
+	background-color: white;
+	border: none;
+	border-radius: 15px;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	position: relative;
+    right: 48px;
+    top: 10px;
+    border: 1px solid white;
+}
+}
+
+.button:hover {
+	background-color: #FBFBFB; 
+	color: #fff;
+	transform: translateY(-7px);
+}
+
+.btn_select {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button2 {
+	width: 100px;
+	height: 30px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: 500;
+	color: #000;
+	background-color: #D8D8D8;
+	border: none;
+	border-radius: 25px;
+	align-items: center;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	
+	
+}
+
+.button2:hover {
+	background-color: #c7d0f8;
+	transform: translateY(-7px);
+	color: #fff;
+}
+
+.btn_reset {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button3 {
+	width: 100px;
+	height: 30px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: 500;
+	color: #000;
+	background-color: #D8D8D8;
+	border: none;
+	border-radius: 25px;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+}
+
+.button3:hover {
+	background-color:#c7d0f8;
+	color: #fff;
+	transform: translateY(-7px);
+}
+
+
+[_nghost-ecn-c90] .search_inner.valued[_ngcontent-ecn-c90] .icon_route.start[_ngcontent-ecn-c90] {
+    border-color: #00c768;
+}
+
+[_nghost-ecn-c90] .search_inner.valued[_ngcontent-ecn-c90] .icon_route[_ngcontent-ecn-c90] {
+    float: left;
+    width: 6px;
+    height: 6px;
+    margin: 15px 0 0 13px;
+    border: 1px solid #999;
+    border-radius: 50%;
+}
+@font-face {
+  font-family: 'Varela Round';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Varela Round Regular'), local('VarelaRound-Regular'), url(https://fonts.gstatic.com/s/varelaround/v12/w8gdH283Tvk__Lua32TysjIfp8uK.ttf) format('truetype');
+}
+* {
+  box-sizing: border-box;
+}
+
+/* 탭 바탕 - 블랙 */
+
+:root {
+  --accent-color: #45494E;
+  --gradient-color: #FBFBFB;
+}
+a:focus {
+  outline: none;
+  position: relative;
+}
+a:focus:after {
+  width: 50px;
+}
+a:after {
+  content: "";
+  /* background: #FBFBFB; */
+  position: absolute;
+  bottom: 5px;
+  left: 15px;
+  height: 3px;
+  width: 0;
+  transition: 0.5s;
+  transition-delay: 0.2s;
+}
+body {
+  font-family: "Varela Round", Nunito, Montserrat, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+}
+.menu {
+  margin: 15px;
+}
+.menu > ol {
+  list-style: none;
+  padding: 0;
+}
+.menu > ol > li {
+  background: #3c3c3c;
+  border-left: 5px solid var(--gradient-color);
+  margin-bottom: 1px;
+  position: relative;
+  transition: 0.5s;
+  
+}
+
+/* 제일 위에 메뉴바 색깔 */
+
+.menu > ol > li:nth-child(1) {
+  --accent-color: #FDA085;
+  --gradient-color: #F6D365;
+}
+.menu > ol > li:nth-child(2) {
+  --accent-color: #BFF098;
+  --gradient-color: #6FD6FF;
+}
+.menu > ol > li:nth-child(3) {
+  --accent-color: #EA8D8D;
+  --gradient-color: #A890FE;
+}
+.menu > ol > li:nth-child(4) {
+  --accent-color: #D8B5FF;
+  --gradient-color: #1EAE98;
+}
+.menu > ol > li:nth-child(5) {
+  --accent-color: #C6EA8D;
+  --gradient-color: #FE90AF;
+}
+.menu > ol > li:nth-child(6) {
+  --accent-color: #DDD600;
+  --gradient-color: #FE90AF;
+}
+
+.menu > ol > li:nth-child(7) {
+  --accent-color: #D8B5FF;
+  --gradient-color: #1EAE98;
+}
+
+
+
+.menu > ol > li a {
+  color: #FBFBFB;
+  display: block;
+  padding: 15px;
+  position: relative;
+  text-decoration: none;
+  z-index: 1;
+}
+.menu > ol > li a:not(:last-child):before {
+  content: "\f078";
+  font-family: fontAwesome;
+  font-size: 0.75em;
+  line-height: 50px;
+  position: absolute;
+  right: 25px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transition: 0.5s;
+}
+.menu > ol > li:focus,
+.menu > ol > li:focus-within,
+.menu > ol > li:hover {
+  z-index: 100;
+}
+.menu > ol > li:focus:after,
+.menu > ol > li:focus-within:after,
+.menu > ol > li:hover:after {
+  background: linear-gradient(to left, var(--accent-color), var(--gradient-color));
+  max-width: 800px;
+}
+.menu > ol > li:focus .sub-menu,
+.menu > ol > li:focus-within .sub-menu {
+  max-height: 500px;
+}
+.menu > ol > li:focus a:before,
+.menu > ol > li:focus-within a:before {
+  transform: rotate(-180deg);
+}
+.menu > ol > li:after {
+  background: #3c3c3c;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: 0.5s;
+  max-width: 0;
+  overflow: hidden;
+}
+.menu > ol .sub-menu {
+  border-left: 1px solid #FBFBFB;
+  margin-left: 22.5px;
+  list-style: none;
+  max-height: 0px;
+  overflow: hidden;
+  padding-left: 7.5px;
+  position: relative;
+  transition: 0.5s;
+  z-index: 1;
+}
+.menu > ol .sub-menu li {
+  font-size: 0.9em;
+}
+.menu > ol .sub-menu li:hover,
+.menu > ol .sub-menu li a:focus {
+  background: rgba(60, 60, 60, 0.3);
+}
+.menu > ol .sub-menu li a:after {
+  bottom: 5px;
+  height: 1px;
+}
+.menu > ol .sub-menu li a:hover:after,
+.menu > ol .sub-menu li a:focus:after {
+  width: 15px;
+}
+@media (min-width: 600px) {
+  a:focus,
+  a:hover {
+    position: relative;
+  }
+  a:focus:after,
+  a:hover:after {
+    width: 50px;
+  }
+  a:after {
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .menu {
+    margin: 0;
+    margin-left:-10%;
+  }
+  .menu > ol {
+    display: block;
+    max-width: none;
+    text-align: right;
+  }
+  .menu > ol > li {
+    border-top: 5px solid var(--accent-color);
+    border-left: 0;
+    display: inline-block;
+    margin-left: -5px;
+    vertical-align: top;
+    width: 120px;
+  }
+  .menu > ol > li:hover:after,
+  .menu > ol > li:focus:after,
+  .menu > ol > li:focus-within:after {
+    background: linear-gradient(to bottom, var(--accent-color), var(--gradient-color));
+    border-radius: 3px;
+    top: -15px;
+    bottom: -15px;
+    left: -15px;
+    right: -15px;
+  }
+  .menu > ol > li:hover .sub-menu,
+  .menu > ol > li:focus .sub-menu,
+  .menu > ol > li:focus-within .sub-menu {
+    max-height: 750px;
+  }
+  .menu > ol > li a:not(:last-child):before {
+    right: 12.5px;
+  }
+  .menu > ol > li:hover a:before {
+    transform: rotate(-180deg);
+  }
+  .menu > ol .sub-menu {
+    border-left: 0;
+    margin: 15px -15px -15px;
+    padding-left: 0;
+  }
+}
+@media (min-width: 775px) {
+  .menu > ol > li {
+    width: 275px;
+  }
+  .menu > ol > li a:not(:last-child):before {
+    right: 25px;
+  }
+}
+
+
+
+
+
+/* IE 10, 11의 네이티브 화살표 숨기기 */ 
+select::-ms-expand { display: none; 
+
+}
+
+select { width: 175px; /* 원하는 너비설정 */
+ padding: .4em .5em; /* 여백으로 높이 설정 */
+  font-family: inherit; /* 폰트 상속 */
+  font-size: 12px;
+   background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 100% 50%; /* 네이티브 화살표 대체 */
+    border: 1px solid lightgrey;
+     border-radius: 6px; /* iOS 둥근모서리 제거 */
+      -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
+      -moz-appearance: none; appearance: none; 
+      
+      }
+
+
+
+
+/* .to {
+    background: #333333;
+    height: 50px;
+    color: white;
+    display: flex;
+    z-index: 123132;
+    position: fixed;
+    width: 100%;
+    justify-content: center;
+    padding: 0 80px;
+    align-items: center;
+}
+
+element.style {
+    top: 15px;
+    font-weight: lighter;
+    font-size: 20px;
+    position: absolute;
+    left: 20px;
+}
+
+
+.glyphicon-menu-hamburger:before {
+    content: "\e236";
+}
+
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+ */
+</style>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>simpleMap</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script
+	src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appkey=l7xx2620a113105b43f0b794ad5533b36999"></script>
+
+<script type="text/javascript">
+	var map;
+	var markerArr_s = [];
+	var markerArr_e = [];
+
+	var markerInfo;
+	// 출발지,도착지 마커
+	var marker_s, marker_e, marker_p;
+	// 경로그림정보
+	var drawInfoArr = [];
+	var drawInfoArr2 = [];
+
+	var chktraffic = [];
+	var resultdrawArr = [];
+	var resultMarkerArr = [];
+
+	var mp_s_lat, mp_s_lon;
+	var mp_e_lat, mp_e_lon;
+
+	function initTmap() {
+		// 1. 지도 띄우기
+		map = new Tmapv2.Map("map_div", {
+			center : new Tmapv2.LatLng(37.570028, 126.986072),
+			width : "80%",
+			height : "865px",
+			zoom : 15,
+			zoomControl : true,
+			scrollwheel : true
+		});
+
+		// 2. POI 통합 검색 API 요청
+		$("#btn_select_s").click(function(){
+			var searchKeyword = $('#searchKeyword').val();
+			
+			$.ajax({
+				method : "GET",
+				url : "https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result",
+				async : false,
+				data : {
+					"appKey" : "l7xx2620a113105b43f0b794ad5533b36999",
+					"searchKeyword" : searchKeyword,
+					"resCoordType" : "EPSG3857",
+					"reqCoordType" : "WGS84GEO",
+					"count" : 20 // 최대 검색 개수 200개
+				},
+				success : function(response) {
+					var resultpoisData = response.searchPoiInfo.pois.poi;
+					
+					// 기존 마커, 팝업 제거
+					if (markerArr_s.length > 0) {
+						for ( var i in markerArr_s) {
+							markerArr_s[i].setMap(null);
+						}
+					}
+					var innerHtml = ""; // Search Reulsts 결과값 노출 위한 변수
+					var positionBounds = new Tmapv2.LatLngBounds(); // 맵에 결과물 확인 하기 위한 LatLngBounds객체 생성
+					
+					for ( var k in resultpoisData) {
+						var noorLat = Number(resultpoisData[k].noorLat); // 중심점 위도 좌표
+						var noorLon = Number(resultpoisData[k].noorLon); // 중심점 경도 좌표
+						var name = resultpoisData[k].name; // 시설물 명칭
+						var telNo = resultpoisData[k].telNo; // 전화번호
+						var upperAddrName = resultpoisData[k].upperAddrName; // 표출 주소 대분류명
+						var middleAddrName = resultpoisData[k].middleAddrName; // 표출 주소 중분류명
+						var lowerAddrName = resultpoisData[k].lowerAddrName; // 표출 주소 소분류명
+						var detailAddrName = resultpoisData[k].detailAddrName; // 표출 주소 세분류명
+						var mlClass = resultpoisData[k].mlClass; // 산/대지구분(구주소)
+						var firstNo = resultpoisData[k].firstNo; // 본번
+						var secondNo = resultpoisData[k].secondNo; // 부번
+						var roadName = resultpoisData[k].roadName; // 도로명에 해당하는 명칭
+						var firstBuildNo = resultpoisData[k].firstBuildNo; // 건물번호1(새주소)
+						var secondBuildNo = resultpoisData[k].secondBuildNo; // 건물번호2(새주소)
+						var radius = resultpoisData[k].radius; // 거리(요청좌표에서 떨어진 거리)단위:km
+						var bizName = resultpoisData[k].bizName; // 대표 업종명
+						var upperBizName = resultpoisData[k].upperBizName; // 업종 대분류명
+						var middleBizName = resultpoisData[k].middleBizName; // 업종 중분류 명
+						var lowerBizName = resultpoisData[k].lowerBizName; // 업종 소분류명
+						var detailBizName = resultpoisData[k].detailBizName; // 업종 상세분류명
+						var rpFlag = resultpoisData[k].rpFlag; // RP_FLAG는 길안내 요청에 필요한 값입니다. - 길안내 목적지 설정 시, 여기서 받은 rpFlag 값을 설정해야 합니다.
+						var parkFlag = resultpoisData[k].parkFlag; // 주차 가능유무입니다. - 0: 주차 불가능 - 1: 주차 가능 - null: 정보없음
+						var detailInfoFlag = resultpoisData[k].detailInfoFlag; // POI 상세정보 유무입니다. 해당 필드가 1로 설정되어 있으면, POI 상세정보 API를 이용하여 상세 정보를 조회할 수 있습니다. - 0: 없음 - 1: 있음 - null: 정보없음
+						var desc = resultpoisData[k].desc; // 소개정보
+						
+						var pointCng = new Tmapv2.Point(noorLon, noorLat);
+						var projectionCng = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(pointCng);
+						
+						var lat = projectionCng._lat;
+						var lon = projectionCng._lng;
+						
+						var markerPosition = new Tmapv2.LatLng(lat, lon);
+						
+						/* marker = new Tmapv2.Marker({
+						position : markerPosition,
+						//icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_a.png",
+						icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png",
+						iconSize : new Tmapv2.Size(24, 38),
+						title : name,
+						map:map
+						}); */
+						
+						innerHtml += "<dd id="+k+" value="+lat+","+lon+" style ='width:270px;'><span><b>" + name + "</b><br>" + "주소 : " + upperAddrName + " " + middleAddrName
+									+ " " + lowerAddrName + " " + detailAddrName + "(" + roadName + " " + firstBuildNo + ")" + "<br>업종 : " + middleBizName
+									+ "-" + lowerBizName + "<br>전화번호 : " + telNo + "</span></dd><br><hr color='#FBFBFB'; size='6'; width='270px'; align='center';><br>";
+						//<img src='http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png' style='vertical-align:middle;'/> : 검색결과 앞부분에 마커 이미지 표현하고자 할 때 span태그 앞에 넣기
+					}
+					
+					$("#searchResult").html(innerHtml); // searchResult 결과값 노출
+					// map.panToBounds(positionBounds);	// 확장된 bounds의 중심으로 이동시키기
+					// map.zoomOut();
+					
+					for ( var k in resultpoisData) {
+						$("#searchResult #" + k).hover(function() {
+							$(this).css("background", "#D8D8D8");
+							}, function() {
+							$(this).css("background", "");
+							}
+						);
+						$("#searchResult #" + k).click(function() {
+							for ( var i in markerArr_s) {
+								markerArr_s[i].setMap(null);
+							}
+							var mp_s = $(this).attr("value");
+							mp_s_lat = mp_s.split(",")[0];
+							mp_s_lon = mp_s.split(",")[1];
+							var mp_s_name = $(this).find('b').text();
+							
+							map.panTo(new Tmapv2.LatLng(mp_s_lat, mp_s_lon));
+							
+							// 시작
+							marker_s = new Tmapv2.Marker({
+								position : new Tmapv2.LatLng(mp_s_lat, mp_s_lon),
+								icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
+								iconSize : new Tmapv2.Size(24, 38),
+								title : mp_s_name,
+								map : map
+								});
+							markerArr_s.push(marker_s);
+							positionBounds.extend(markerPosition); // LatLngBounds의 객체 확장
+							}
+						);
+					}
+				},
+				error : function(request, status, error) {console.log("code:" + request.status + "\n" + "message:" + request.responseText
+						+ "\n" + "error:" + error);
+				}
+			});
+		});
+
+		$("#btn_select_e").click(function() {
+			var searchKeyword = $('#searchKeyword1').val();
+			
+			$.ajax({
+				method : "GET",
+				url : "https://apis.openapi.sk.com/tmap/pois?version=1&format=json&callback=result",
+				async : false,
+				data : {
+					"appKey" : "l7xx2620a113105b43f0b794ad5533b36999",
+					"searchKeyword" : searchKeyword,
+					"resCoordType" : "EPSG3857",
+					"reqCoordType" : "WGS84GEO",
+					"count" : 20 // 최대 검색 개수 200개
+					},
+				success : function(response) {
+					var resultpoisData = response.searchPoiInfo.pois.poi;
+					
+					// 기존 마커, 팝업 제거
+					if (markerArr_e.length > 0) {
+						for ( var i in markerArr_e) {
+							markerArr_e[i].setMap(null);
+						}
+					}
+					var innerHtml = ""; // Search Reulsts 결과값 노출 위한 변수
+					var positionBounds = new Tmapv2.LatLngBounds(); // 맵에 결과물 확인 하기 위한 LatLngBounds객체 생성
+					
+					for ( var k in resultpoisData) {
+						var noorLat = Number(resultpoisData[k].noorLat); // 중심점 위도 좌표
+						var noorLon = Number(resultpoisData[k].noorLon); // 중심점 경도 좌표
+						var name = resultpoisData[k].name; // 시설물 명칭
+						var telNo = resultpoisData[k].telNo; // 전화번호
+						var upperAddrName = resultpoisData[k].upperAddrName; // 표출 주소 대분류명
+						var middleAddrName = resultpoisData[k].middleAddrName; // 표출 주소 중분류명
+						var lowerAddrName = resultpoisData[k].lowerAddrName; // 표출 주소 소분류명
+						var detailAddrName = resultpoisData[k].detailAddrName; // 표출 주소 세분류명
+						var mlClass = resultpoisData[k].mlClass; // 산/대지구분(구주소)
+						var firstNo = resultpoisData[k].firstNo; // 본번
+						var secondNo = resultpoisData[k].secondNo; // 부번
+						var roadName = resultpoisData[k].roadName; // 도로명에 해당하는 명칭
+						var firstBuildNo = resultpoisData[k].firstBuildNo; // 건물번호1(새주소)
+						var secondBuildNo = resultpoisData[k].secondBuildNo; // 건물번호2(새주소)
+						var radius = resultpoisData[k].radius; // 거리(요청좌표에서 떨어진 거리)단위:km
+						var bizName = resultpoisData[k].bizName; // 대표 업종명
+						var upperBizName = resultpoisData[k].upperBizName; // 업종 대분류명
+						var middleBizName = resultpoisData[k].middleBizName; // 업종 중분류 명
+						var lowerBizName = resultpoisData[k].lowerBizName; // 업종 소분류명
+						var detailBizName = resultpoisData[k].detailBizName; // 업종 상세분류명
+						var rpFlag = resultpoisData[k].rpFlag; // RP_FLAG는 길안내 요청에 필요한 값입니다. - 길안내 목적지 설정 시, 여기서 받은 rpFlag 값을 설정해야 합니다.
+						var parkFlag = resultpoisData[k].parkFlag; // 주차 가능유무입니다. - 0: 주차 불가능 - 1: 주차 가능 - null: 정보없음
+						var detailInfoFlag = resultpoisData[k].detailInfoFlag; // POI 상세정보 유무입니다. 해당 필드가 1로 설정되어 있으면, POI 상세정보 API를 이용하여 상세 정보를 조회할 수 있습니다. - 0: 없음 - 1: 있음 - null: 정보없음
+						var desc = resultpoisData[k].desc; // 소개정보
+						
+						var pointCng = new Tmapv2.Point(noorLon, noorLat);
+						var projectionCng = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(pointCng);
+						
+						var lat = projectionCng._lat;
+						var lon = projectionCng._lng;
+						
+						var markerPosition = new Tmapv2.LatLng(lat, lon);
+						
+						/* marker = new Tmapv2.Marker({
+						position : markerPosition,
+						//icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_a.png",
+						icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png",
+						iconSize : new Tmapv2.Size(24, 38),
+						title : name,
+						map:map
+						}); */
+						
+						innerHtml += "<dd id="+k+" value="+lat+","+lon+" style ='width:270px;'><span><b>" + name + "</b><br>" + "주소 : " + upperAddrName + " " + middleAddrName
+									+ " " + lowerAddrName + " " + detailAddrName + "(" + roadName + " " + firstBuildNo + ")" + "<br>업종 : " + middleBizName
+									+ "-" + lowerBizName + "<br>전화번호 : " + telNo + "</span></dd><br><hr color='#FBFBFB'; size='6'; width='285px'; align='center';><br>";
+						// <img src='http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png' style='vertical-align:middle;'/> : 검색결과 앞부분에 마커 이미지 표현하고자 할 때 span태그 앞에 넣기
+					}
+					
+					$("#searchResult").html(innerHtml); // searchResult 결과값 노출, 기존 내용을 없애고 필요한 html구문을 생성함
+					// map.panToBounds(positionBounds);	// 확장된 bounds의 중심으로 이동시키기
+					// map.zoomOut();
+					
+					for ( var k in resultpoisData) {
+						$("#searchResult #" + k).hover(function() {
+							$(this).css("background", "#D8D8D8");
+							}, function() {
+							$(this).css("background", "");
+							}
+						);
+						$("#searchResult #" + k).click(function() {
+							for ( var i in markerArr_e) {
+								markerArr_e[i].setMap(null);
+							}
+							var mp_e = $(this).attr("value");
+							mp_e_lat = mp_e.split(",")[0];
+							mp_e_lon = mp_e.split(",")[1];
+							var mp_e_name = $(this).find('b').text();
+							
+							map.panTo(new Tmapv2.LatLng(mp_e_lat, mp_e_lon));
+							
+							//도착
+							marker_e = new Tmapv2.Marker({
+								position : new Tmapv2.LatLng(mp_e_lat, mp_e_lon),
+								icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
+								iconSize : new Tmapv2.Size(24, 38),
+								title : mp_e_name,
+								map : map
+								});
+							markerArr_e.push(marker_e);
+							positionBounds.extend(markerPosition); // LatLngBounds의 객체 확장
+							}
+						);
+					}
+				},
+				error : function(request, status, error) {console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+				}
+			});
+		});
+
+		// 3. 경로탐색 API 사용요청
+		$("#btn_select").click(function() {
+			//기존 맵에 있던 정보들 초기화
+			resettingMap();
+			
+			//두 좌표 중심점으로 맵 이동
+			var center_LatLng = new Tmapv2.LatLng((Number(mp_s_lat) + Number(mp_e_lat))/2, (Number(mp_s_lon) + Number(mp_e_lon))/2);
+			map.panTo(center_LatLng);
+			var distance = marker_s.getPosition().distanceTo(marker_e.getPosition());
+			//두 좌표 거리별로 zoomlevel을 다르게 설정
+			if(distance >= 384000){
+				map.setZoom(7);
+			}else if(distance < 384000 && distance >= 192000){
+				map.setZoom(8);
+			}else if(distance < 192000 && distance >= 96000){
+				map.setZoom(9);
+			}else if(distance < 96000 && distance >= 48000){
+				map.setZoom(10);
+			}else if(distance < 48000 && distance >= 24000){
+				map.setZoom(11);
+			}else if(distance < 24000 && distance >= 12000){
+				map.setZoom(12);
+			}else if(distance < 12000 && distance >= 6000){
+				map.setZoom(13);
+			}else if(distance < 6000 && distance >= 3000){
+				map.setZoom(14);
+			}else if(distance < 3000 && distance >= 1500){
+				map.setZoom(15);
+			}else if(distance < 1500 && distance >= 750){
+				map.setZoom(16);
+			}else if(distance < 750 && distance >= 375){
+				map.setZoom(17);
+			}else{
+				map.setZoom(18);
+			}
+			
+			var searchOption = $("#selectLevel").val();
+			var trafficInfochk = $("#year").val();
+			
+			//JSON TYPE EDIT [S]
+			$.ajax({
+				type : "POST",
+				url : "https://apis.openapi.sk.com/tmap/routes?version=1&format=json&callback=result",
+				async : false,
+				data : {
+					"appKey" : "l7xx2620a113105b43f0b794ad5533b36999",
+					"startX" : mp_s_lon,
+					"startY" : mp_s_lat,
+					"endX" : mp_e_lon,
+					"endY" : mp_e_lat,
+					"reqCoordType" : "WGS84GEO",
+					"resCoordType" : "EPSG3857",
+					"searchOption" : searchOption,
+					"trafficInfo" : trafficInfochk
+				},
+				success : function(response) {
+					var resultData = response.features;
+					
+					var tDistance = "총 거리 : " + (resultData[0].properties.totalDistance / 1000).toFixed(1) + "km,";
+					var tTime = " 총 시간 : " + (resultData[0].properties.totalTime / 60).toFixed(0) + "분,";
+					var tFare = " 총 요금 : " + resultData[0].properties.totalFare + "원,";
+					var taxiFare = " 예상 택시 요금 : " + resultData[0].properties.taxiFare + "원";
+					
+					$("#result").text(tDistance + tTime + tFare + taxiFare);
+					
+					//교통정보 표출 옵션값을 체크
+					if (trafficInfochk == "Y") {
+						for ( var i in resultData) { //for문 [S]
+							var geometry = resultData[i].geometry;
+							var properties = resultData[i].properties;
+							
+							if (geometry.type == "LineString") {
+								//교통 정보도 담음
+								chktraffic.push(geometry.traffic);
+								var sectionInfos = [];
+								var trafficArr = geometry.traffic;
+								
+								for ( var j in geometry.coordinates) {
+									// 경로들의 결과값들을 포인트 객체로 변환 
+									var latlng = new Tmapv2.Point(geometry.coordinates[j][0], geometry.coordinates[j][1]);
+									// 포인트 객체를 받아 좌표값으로 변환
+									var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
+									
+									sectionInfos.push(convertPoint);
+								}
+								
+								drawLine(sectionInfos,trafficArr);
+							} else {
+								var markerImg = "";
+								var pType = "";
+								
+								if (properties.pointType == "S") { //출발지 마커
+									markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png";
+									pType = "S";
+								} else if (properties.pointType == "E") { //도착지 마커
+									markerImg = "http://tmapap is.sktelecom.com/upload/tmap/marker/pin_r_m_e.png";
+									pType = "E";
+								} else { //각 포인트 마커
+									markerImg = "http://topopen.tmap.co.kr/imgs/point.png";
+									pType = "P"
+								}
+								
+								// 경로들의 결과값들을 포인트 객체로 변환 
+								var latlon = new Tmapv2.Point(geometry.coordinates[0], geometry.coordinates[1]);
+								// 포인트 객체를 받아 좌표값으로 다시 변환
+								var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlon);
+								
+								var routeInfoObj = {
+									markerImage : markerImg,
+									lng : convertPoint._lng,
+									lat : convertPoint._lat,
+									pointType : pType
+								};
+								
+								// 마커 추가
+								// addMarkers(routeInfoObj);
+							}
+						}//for문 [E]
+					} else {
+						for ( var i in resultData) { //for문 [S]
+							var geometry = resultData[i].geometry;
+							var properties = resultData[i].properties;
+							
+							if (geometry.type == "LineString") {
+								for ( var j in geometry.coordinates) {
+								// 경로들의 결과값들을 포인트 객체로 변환 
+								var latlng = new Tmapv2.Point(geometry.coordinates[j][0], geometry.coordinates[j][1]);
+								// 포인트 객체를 받아 좌표값으로 변환
+								var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
+								// 포인트객체의 정보로 좌표값 변환 객체로 저장
+								var convertChange = new Tmapv2.LatLng(convertPoint._lat, convertPoint._lng);
+								// 배열에 담기
+								drawInfoArr.push(convertChange);
+								}
+								drawLine(drawInfoArr,"0");
+							} else {
+								var markerImg = "";
+								var pType = "";
+								
+								if (properties.pointType == "S") { //출발지 마커
+									markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png";
+									pType = "S";
+								} else if (properties.pointType == "E") { //도착지 마커
+									markerImg = "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_e.png";
+									pType = "E";
+								} else { //각 포인트 마커
+									markerImg = "http://topopen.tmap.co.kr/imgs/point.png";
+									pType = "P"
+								}
+								
+								// 경로들의 결과값들을 포인트 객체로 변환 
+								var latlon = new Tmapv2.Point(geometry.coordinates[0], geometry.coordinates[1]);
+								// 포인트 객체를 받아 좌표값으로 다시 변환
+								var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlon);
+								
+								var routeInfoObj = {
+									markerImage : markerImg,
+									lng : convertPoint._lng,
+									lat : convertPoint._lat,
+									pointType : pType
+								};
+								
+								// Marker 추가
+								// addMarkers(routeInfoObj);
+							}
+						}//for문 [E]
+					}
+				},
+				error : function(request, status, error) {console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+				}
+			});//JSON TYPE EDIT [E]
+		});
+	
+		$("#btn_reset").click(function() {
+			resettingMap();
+			
+			marker_s.setMap(null);
+			marker_e.setMap(null);
+			
+			mp_s_lat = null;
+			mp_s_lon = null;
+			mp_e_lat = null;
+			mp_e_lon = null;
+		});
+	}
+
+	function addComma(num) {
+		var regexp = /\B(?=(\d{3})+(?!\d))/g;
+		return num.toString().replace(regexp, ',');
+	}
+
+	//마커 생성하기
+	function addMarkers(infoObj) {
+		var size = new Tmapv2.Size(24, 38);//아이콘 크기 설정합니다.
+
+		if (infoObj.pointType == "P") { //포인트점일때는 아이콘 크기를 줄입니다.
+			size = new Tmapv2.Size(8, 8);
+		}
+
+		marker_p = new Tmapv2.Marker({
+			position : new Tmapv2.LatLng(infoObj.lat, infoObj.lng),
+			icon : infoObj.markerImage,
+			iconSize : size,
+			map : map
+		});
+
+		resultMarkerArr.push(marker_p);
+	}
+
+	//라인그리기
+	function drawLine(arrPoint, traffic) {
+		var polyline_;
+
+		if (chktraffic.length != 0) {
+
+			// 교통정보 혼잡도를 체크
+			// strokeColor는 교통 정보상황에 다라서 변화
+			// traffic :  0-정보없음, 1-원활, 2-서행, 3-지체, 4-정체  (black, green, yellow, orange, red)
+
+			var lineColor = "";
+
+			if (traffic != "0") {
+				if (traffic.length == 0) { //length가 0인것은 교통정보가 없으므로 검은색으로 표시
+
+					lineColor = "#06050D";
+					//라인그리기[S]
+					polyline_ = new Tmapv2.Polyline({
+						path : arrPoint,
+						strokeColor : lineColor,
+						strokeWeight : 6,
+						map : map
+					});
+					resultdrawArr.push(polyline_);
+					//라인그리기[E]
+				} else { //교통정보가 있음
+
+					if (traffic[0][0] != 0) { //교통정보 시작인덱스가 0이 아닌경우
+						var trafficObject = "";
+						var tInfo = [];
+
+						for (var z = 0; z < traffic.length; z++) {
+							trafficObject = {
+								"startIndex" : traffic[z][0],
+								"endIndex" : traffic[z][1],
+								"trafficIndex" : traffic[z][2],
+							};
+							tInfo.push(trafficObject)
+						}
+
+						var noInfomationPoint = [];
+
+						for (var p = 0; p < tInfo[0].startIndex; p++) {
+							noInfomationPoint.push(arrPoint[p]);
+						}
+
+						//라인그리기[S]
+						polyline_ = new Tmapv2.Polyline({
+							path : noInfomationPoint,
+							strokeColor : "#06050D",
+							strokeWeight : 6,
+							map : map
+						});
+						//라인그리기[E]
+						resultdrawArr.push(polyline_);
+
+						for (var x = 0; x < tInfo.length; x++) {
+							var sectionPoint = []; //구간선언
+
+							for (var y = tInfo[x].startIndex; y <= tInfo[x].endIndex; y++) {
+								sectionPoint.push(arrPoint[y]);
+							}
+
+							if (tInfo[x].trafficIndex == 0) {
+								lineColor = "#06050D";
+							} else if (tInfo[x].trafficIndex == 1) {
+								lineColor = "#61AB25";
+							} else if (tInfo[x].trafficIndex == 2) {
+								lineColor = "#FFFF00";
+							} else if (tInfo[x].trafficIndex == 3) {
+								lineColor = "#E87506";
+							} else if (tInfo[x].trafficIndex == 4) {
+								lineColor = "#D61125";
+							}
+
+							//라인그리기[S]
+							polyline_ = new Tmapv2.Polyline({
+								path : sectionPoint,
+								strokeColor : lineColor,
+								strokeWeight : 6,
+								map : map
+							});
+							//라인그리기[E]
+							resultdrawArr.push(polyline_);
+						}
+					} else { //0부터 시작하는 경우
+
+						var trafficObject = "";
+						var tInfo = [];
+
+						for (var z = 0; z < traffic.length; z++) {
+							trafficObject = {
+								"startIndex" : traffic[z][0],
+								"endIndex" : traffic[z][1],
+								"trafficIndex" : traffic[z][2],
+							};
+							tInfo.push(trafficObject)
+						}
+
+						for (var x = 0; x < tInfo.length; x++) {
+							var sectionPoint = []; //구간선언
+
+							for (var y = tInfo[x].startIndex; y <= tInfo[x].endIndex; y++) {
+								sectionPoint.push(arrPoint[y]);
+							}
+
+							if (tInfo[x].trafficIndex == 0) {
+								lineColor = "#06050D";
+							} else if (tInfo[x].trafficIndex == 1) {
+								lineColor = "#61AB25";
+							} else if (tInfo[x].trafficIndex == 2) {
+								lineColor = "#FFFF00";
+							} else if (tInfo[x].trafficIndex == 3) {
+								lineColor = "#E87506";
+							} else if (tInfo[x].trafficIndex == 4) {
+								lineColor = "#D61125";
+							}
+
+							//라인그리기[S]
+							polyline_ = new Tmapv2.Polyline({
+								path : sectionPoint,
+								strokeColor : lineColor,
+								strokeWeight : 6,
+								map : map
+							});
+							//라인그리기[E]
+							resultdrawArr.push(polyline_);
+						}
+					}
+				}
+			} else {
+
+			}
+		} else {
+			polyline_ = new Tmapv2.Polyline({
+				path : arrPoint,
+				strokeColor : "#DD0000",
+				strokeWeight : 6,
+				map : map
+			});
+			resultdrawArr.push(polyline_);
+		}
+
+	}
+
+	//초기화 기능
+	function resettingMap() {
+		//기존마커는 삭제
+		// marker_s.setMap(null);
+		// marker_e.setMap(null);
+
+		if (resultMarkerArr.length > 0) {
+			for (var i = 0; i < resultMarkerArr.length; i++) {
+				resultMarkerArr[i].setMap(null);
+			}
+		}
+
+		if (resultdrawArr.length > 0) {
+			for (var i = 0; i < resultdrawArr.length; i++) {
+				resultdrawArr[i].setMap(null);
+			}
+		}
+
+		chktraffic = [];
+		drawInfoArr = [];
+		resultMarkerArr = [];
+		resultdrawArr = [];
+	}
+</script>
+
+	<!-- <div class="to">
+    <div class="toto">
+      <span style="top: 15px;font-weight: lighter;font-size: 20px;position:absolute;left:20px;" class="slidede glyphicon glyphicon-menu-hamburger"></span>
+      <span class="corona">코로나 맵</span>
+      <div class="coroname" onclick="location.href=&quot;https://maskmap.site&quot;">마스크맵</div>
+    </div>
+  </div>
+ -->
+ 
+
+
+
+<body onload="initTmap();" style = "background: #F2F2F2;" >
+
+ <nav class="menu" style="width: 1665px;">
+  <ol style="margin-bottom:0px; width:126.7%; font-size:19px; margin-top:0px;" >
+    <li class="menu-item"><a href="/BlackIce/Mainpage.jsp" align="center"><b>메인</b></a></li>
+    <li class="menu-item"><a href="/BlackIce/Tmap_1.html" align="center"><b>결빙</b></a></li>
+    <li class="menu-item">
+      <a href="/BlackIce/Tmap_2.html" align="center"><b>포트홀</b></a>
+     
+    </li>
+    <li class="menu-item">
+      <a href="/BlackIce/Tmap_3.html" align="center"><b>Sample</b></a>
+   
+    </li>
+    <li class="menu-item" ><a href="#0" align="center"><b>즐겨찾기</b> </a>
+      
+    </li>
+    <li class="menu-item"><a href="#0" style = "color:#FBFBFB" align="center"><b>고객센터</b></a></li>
+     <li class="menu-item"><a href="#0" style = "color:#FBFBFB" align="center"><b>로그인</b></a></li>
+  </ol>
+  
+  
+</nav>
+
+
+	<fieldset style="width: 376px; height: 239px; margin-top: 1px; border:none;">
+		<div align="center" style="margin-top: 15px; border-radius: 5px; margin-right: -36px; margin-bottom: -14px;">
+			<span _ngcontent-ecn-c90="" class="icon_route start ng-star-inserted"></span>
+			<input  type="text" placeholder="출발지 입력" class="field" id="searchKeyword" name="searchKeyword"></input>
+			<button id="btn_select_s" class="button"><img src = "img/zoomm.PNG" style = "width:29px;"></button>
+  			
+			<span _ngcontent-ecn-c90="" class="icon_route start ng-star-inserted"></span>
+			<input type="text" placeholder="도착지 입력" class="field" id="searchKeyword1" name="searchKeyword" style = "margin-left: 5px;"></input>
+			<button id="btn_select_e" class="button"><img src = "img/zoomm.PNG" style = "width:29px;"></button>
+
+			
+
+			<br>
+		
+		</div>
+
+				<div class="ft_select"
+					style=" margin-top: 39px; margin-bottom: -11px; border-radius: 5px; height: 30px; font-size: 15px; display: inline-block;
+}">
+					<div style="display:inline;">
+						<select id="selectLevel" style = "width: 178px; margin-left:10px;">
+							<option value="0">교통최적+추천</option>
+							<option value="1">교통최적+무료우선</option>
+							<option value="2">교통최적+최소시간</option>
+							<option value="3">교통최적+초보</option>
+							<option value="4" selected="selected">교통최적+고속도로우선</option>
+							<option value="10">최단거리+유/무료</option>
+							<option value="12">이륜차도로우선</option>
+						</select> 
+					</div>
+					<div style="display:inline;">
+						<select id="year" style = "width:155px; margin-left: 0px;">
+							<option value="Y" selected="selected">위험구간 표출 옵션</option>
+							<option value="Y">Y</option>
+							<option value="N">N</option>
+						</select>
+					</div>
+				</div>
+				<div align="center" style="padding: 20px; margin-top: 10px; margin-right: 0; font-color:gray;">
+						<button id="btn_select" class="button2">경로탐색</button>
+						<button id="btn_reset" class="button3">초기화</button>
+				</div>
+
+		<div class="map_act_btn_wrap clear_box"></div>
+		<div class="clear"></div>
+		</div>
+	</fieldset>
+
+	<div>
+		<div style="width: 25%; float: left; margin-left: 4%; border-top:10px;">
+			<!-- <div align="center" class="title" style="width: 219px; height: 40px; font: 400 13.3333px Arial;">
+				<strong><h2 style = "text-align:left; color:gray; margin-left:66px;">검색 결과</h2></strong><br>
+			
+			</div> -->
+			<div class="rst_wrap">
+				<div class="rst mCustomScrollbar"
+					style="overflow: auto; width: 374px; height: 616px; margin-left: -55px; margin-top:10px;">
+					<!-- 항상 스크롤을 표시하고 싶을 때는 auto를 scroll로 변경 -->
+					<dt id="searchResult" name="searchResult"
+						style="font-family: notosanskr, 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', sans-serif;">
+						<!-- <li>검색결과</li> -->
+					</dt>
+				</div>
+			</div>
+		</div>
+
+		<div id="map_div" class="map_wrap"
+			style="float: right; position: absolute; right: 0px; top: 6.5%; margin-right: 0%;"></div>
+	</div>
+	<p id="result"></p>
+	
+	
+
+</body>
+</html>
