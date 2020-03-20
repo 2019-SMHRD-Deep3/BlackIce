@@ -32,7 +32,7 @@
 <style>
 .login {
 	position: absolute;
-	top: -261px;
+	top: -195px;
 	right: -57px;
 	font-size: 25px;
 }
@@ -40,7 +40,7 @@
 .search {
 	
 	position: absolute;
-    top: 180%;
+    top: 170%;
     left: 35%;
 	transform: translate(-50%, -50%);
 	width: 155px; /* 원 너비 */
@@ -83,7 +83,7 @@ search:hover:before {
 	
 	
 	position: absolute;
-	top:180%;
+	top:170%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 155px; /* 원 너비 */
@@ -126,7 +126,7 @@ search2:hover:before {
 	
 	
 	position: absolute;
-    top: 180%;
+    top: 170%;
     right: 26%;
 	transform: translate(-50%, -50%);
 	width: 155px; /* 원 너비 */
@@ -332,7 +332,7 @@ search3:hover:before {
 
 
 			<!-- Header -->
-			<header id="header" style="top: -10%;">
+			<header id="header" style="top: -15%;">
 				<%
 					System.out.println(info);
 					if (info == null) {
@@ -358,7 +358,7 @@ search3:hover:before {
 			
 				<body>
 					<div>
-					<a class=search href="#">블랙아이스</a>
+					<a class=search href="#">결빙</a>
 					<a class=search2 href="#">포트홀</a>
 					<a class=search3 href="#">낙석</a>
 					</div>

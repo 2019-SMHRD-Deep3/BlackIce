@@ -79,7 +79,7 @@ html, body {
 }
 
 .button2:hover {
-	background-color: #c7d0f8; color : #fff;
+	background-color: #c7d0f8;
 	transform: translateY(-7px);
 	color: #fff;
 }
@@ -362,12 +362,7 @@ body {
 }
 
 
-select { -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
--moz-appearance: none; 
-appearance: none; 
-background: url(이미지 경로) no-repeat 95% 50%; /* 화살표 모양의 이미지 */ 
 
-} 
 
 
 /* IE 10, 11의 네이티브 화살표 숨기기 */ 
@@ -379,7 +374,7 @@ select { width: 175px; /* 원하는 너비설정 */
  padding: .4em .5em; /* 여백으로 높이 설정 */
   font-family: inherit; /* 폰트 상속 */
   font-size: 12px;
-   background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; /* 네이티브 화살표 대체 */
+   background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 100% 50%; /* 네이티브 화살표 대체 */
     border: 1px solid lightgrey;
      border-radius: 6px; /* iOS 둥근모서리 제거 */
       -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
@@ -1128,12 +1123,11 @@ element.style {
 	<fieldset style="width: 376px; height: 239px; margin-top: 1px; border:none;">
 		<div align="center" style="margin-top: 15px; border-radius: 5px; margin-right: -36px; margin-bottom: -14px;">
 			<span _ngcontent-ecn-c90="" class="icon_route start ng-star-inserted"></span>
-			
 			<input  type="text" placeholder="출발지 입력" class="field" id="searchKeyword" name="searchKeyword"></input>
 			<button id="btn_select_s" class="button"><img src = "img/zoomm.PNG" style = "width:29px;"></button>
   			
-		<span _ngcontent-ecn-c90="" class="icon_route start ng-star-inserted"></span>
-			<input type="text" placeholder="도착지 입력" class="field" id="searchKeyword1" name="searchKeyword"></input>
+			<span _ngcontent-ecn-c90="" class="icon_route start ng-star-inserted"></span>
+			<input type="text" placeholder="도착지 입력" class="field" id="searchKeyword1" name="searchKeyword" style = "margin-left: 5px;"></input>
 			<button id="btn_select_e" class="button"><img src = "img/zoomm.PNG" style = "width:29px;"></button>
 
 			
@@ -1143,10 +1137,10 @@ element.style {
 		</div>
 
 				<div class="ft_select"
-					style=" margin-top: 39px; margin-bottom: -11px;border-radius: 5px; height: 30px; font-size: 15px; display: inline-block;
+					style=" margin-top: 39px; margin-bottom: -11px; border-radius: 5px; height: 30px; font-size: 15px; display: inline-block;
 }">
 					<div style="display:inline;">
-						<select id="selectLevel" style = "width: 181px;">
+						<select id="selectLevel" style = "width: 178px; margin-left:10px;">
 							<option value="0">교통최적+추천</option>
 							<option value="1">교통최적+무료우선</option>
 							<option value="2">교통최적+최소시간</option>
@@ -1157,8 +1151,8 @@ element.style {
 						</select> 
 					</div>
 					<div style="display:inline;">
-						<select id="year" style = "width:163px;">
-							<option value="N" selected="selected">교통정보 표출 옵션</option>
+						<select id="year" style = "width:155px; margin-left: 0px;">
+							<option value="Y" selected="selected">위험구간 표출 옵션</option>
 							<option value="Y">Y</option>
 							<option value="N">N</option>
 						</select>
@@ -1182,7 +1176,7 @@ element.style {
 			</div> -->
 			<div class="rst_wrap">
 				<div class="rst mCustomScrollbar"
-					style="overflow: auto; width: 374px; height: 622px; margin-left: -57px;">
+					style="overflow: auto; width: 374px; height: 616px; margin-left: -55px; margin-top:10px;">
 					<!-- 항상 스크롤을 표시하고 싶을 때는 auto를 scroll로 변경 -->
 					<dt id="searchResult" name="searchResult"
 						style="font-family: notosanskr, 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', sans-serif;">
