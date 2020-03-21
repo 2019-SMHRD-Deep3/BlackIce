@@ -162,6 +162,7 @@ search3:before { /* 클릭시  */
 }
 
 search3:hover:before {
+
 	color: red; /* 후버시 텍스트 컬러*/
 	transform: scale(1);
 }
@@ -186,21 +187,21 @@ search3:hover:before {
 	color: #fff;
 }
 
-.help-tip:hover p {
+.help-tip:hover ul {
 	display: block;
 	transform-origin: 10% 0%;
 	webkit-animation: fadeIn 0.3s ease-in-out;
 	animation: fadeIn 0.3s ease-in-out;
 }
 
-.help-tip p { /* 말풍선 바디 */
+.help-tip ul { /* 말풍선 바디 */
 	display: none;
 	text-align: left;
 	background-color: rgba(0, 0, 0, 0.3);
 	/* padding: 30%;
  */
 	width: 310px;
-	height: 400px;
+	height: 320px;
 	position: absolute;
 	border-radius: 3px;
 	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -213,7 +214,7 @@ search3:hover:before {
 	position: absolute;
 }
 
-.help-tip p:before { /* 말풍선꼬리부분 */
+.help-tip ul:before { /* 말풍선꼬리부분 */
 	position: absolute;
 	content: '';
 	width: 0;
@@ -224,7 +225,7 @@ search3:hover:before {
 	top: -13px;
 }
 
-.help-tip p:after {
+.help-tip ul:after {
 	width: 50%;
 	height: 40px;
 	content: '';
@@ -232,6 +233,36 @@ search3:hover:before {
 	top: -10px;
 	left: 0;
 }
+
+
+.modal-body__text ul[data-v-cd86f34a] {
+    -webkit-padding-start: 25px;
+    padding-inline-start: 25px;
+    width: 80%;
+    margin:10px;
+    margin-right:20px;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 30px;
+}
+
+
+.modal-body__text li[data-v-cd86f34a] {
+    padding-bottom: 50px;
+    text-align: left;
+}
+.modal-body__text li {
+    line-height: 2;
+}
+
+
 
 @-webkit-keyframes fadeIn { 
 	0% {
@@ -372,10 +403,10 @@ search3:hover:before {
 			<footer id="footer">
 			
 			</footer>
-			<div style = "bottom: 2px; left: 1520px; font-size: 16px; position: absolute;">
-			<div class="copyright" style = "position: fixed; padding: 38px; margin-left: -19px;">기획 및 개발  : 김준형,이보람,김희조,곽창혁,김찬우</div><br>
+			<div style = "bottom: 30px; left: 1520px; font-size: 16px; position: absolute;">
+			<div class="copyright" style = "position: fixed; padding: 38px; margin-left: 30px;">기획 및 개발  : 김준형,이보람,김희조,곽창혁</div><br>
 			<div class="copyright" style = "position: fixed; padding: 19px; margin-left: 131px;"> 문의 사항  :  smhrd @ smhrd. or. kr</div><br>
-			<div class="copyright" style = "position: fixed; margin-left: 209px;"> 정보  출처   :  SK   open   API </div><br>
+			
 			</div>
 			
 		
@@ -402,15 +433,19 @@ search3:hover:before {
 	<div class="help-tip">
 
 		<p>
-			내가 가는 곳에 블랙아이스가 있을까?<br> 도로안전사고 방지를 위해 결빙 구간을 예측해드립니다.<br>
-			출발지와 도착지를 입력해주세요.<br> <br> 내가 가는 곳에 블랙아이스가 있을까?<br>
-			도로안전사고 방지를 위해 결빙 구간을 예측해드립니다.<br> 출발지와 도착지를 입력해주세요.<br> <br>
-			내가 가는 곳에 블랙아이스가 있을까?<br> 도로안전사고 방지를 위해 결빙 구간을 예측해드립니다.<br>
-			출발지와 도착지를 입력해주세요.<br> <br> 내가 가는 곳에 블랙아이스가 있을까?<br>
-			도로안전사고 방지를 위해 결빙 구간을 예측해드립니다.<br> 출발지와 도착지를 입력해주세요.<br>
+			<ul data-v-cd86f34a=""><br><br>
+<li data-v-cd86f34a="" style="font-size: 12.5px; opacity: 1;">
+<strong data-v-cd86f34a=""> 약국 재고 현황은 실시간이 아니며, 부정확할 수 있습니다. 마스크 판매에 힘써주시는 약사 분들의 노고를 생각해주시면 감사하겠습니다. </strong></li><br>
+<li data-v-cd86f34a="" style="font-size: 12.5px; opacity: 1;"><strong data-v-cd86f34a=""> 정보 공개를 원치않으시는 약사분은 한국정보화진흥원 (maskdata@nia.or.kr) 으로 문의해주시기 바랍니다. </strong></li><br>
+<li data-v-cd86f34a=""> 기부해주신 모든 분들께 정말 감사드립니다. 기부금으로 구매한 위생용품을 빠른 시일 내에 전달한 뒤 모든 내역을 투명하게 공개하겠습니다. </li><br>
+<li data-v-cd86f34a=""> 마스크 알리미는 코로나 알리미를 제작했던 <br data-v-cd86f34a="">대학생 4명의 아이디어와 노력에 이두희님의 
+<br data-v-cd86f34a="">데이터 기술 자문이 더해져 만들어졌습니다. </li></ul>
 		</p>
 
 	</div>
+
+
+
 
 
 

@@ -1,14 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Write something else you want</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ 
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+ 
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
-<body>
+<body style = "background-color: #F2F2F2;">
 
 <style>
+
 
 [_nghost-ecn-c90] .search_inner.valued[_ngcontent-ecn-c90] .icon_route.start[_ngcontent-ecn-c90] {
     border-color: #00c768;
@@ -32,7 +42,7 @@
   box-sizing: border-box;
 }
 
-/* ÅÇ ¹ÙÅÁ - ºí·¢ */
+/* íƒ­ ë°”íƒ• - ë¸”ë™ */
 
 :root {
   --accent-color: #45494E;
@@ -78,7 +88,7 @@ body {
   
 }
 
-/* Á¦ÀÏ À§¿¡ ¸Ş´º¹Ù »ö±ò */
+/* ì œì¼ ìœ„ì— ë©”ë‰´ë°” ìƒ‰ê¹” */
 
 .menu > ol > li:nth-child(1) {
   --accent-color: #FDA085;
@@ -260,17 +270,50 @@ body {
 
 <nav class="menu" style="width: 1665px;">
   <ol style="margin-bottom:0px; width:126.7%; font-size:19px; margin-top:0px;" >
-	<li class="menu-item"><a href="/BlackIce/Mainpage.jsp" align="center"><b>¸ŞÀÎ</b></a></li>
-	<li class="menu-item"><a href="/BlackIce/Tmap1.html" align="center"><b>°áºù</b></a></li>
-	<li class="menu-item"><a href="/BlackIce/Tmap2.html" align="center"><b>Æ÷Æ®È¦</b></a></li>
-	<li class="menu-item"><a href="/BlackIce/Tmap3.html" align="center"><b>»ùÇÃ</b></a></li>
-	<li class="menu-item"><a href="/BlackIce/bookmark.jsp" align="center"><b>Áñ°ÜÃ£±â</b></a></li>
-	<li class="menu-item" style="background-color:#DDD600;"><a href="/BlackIce/board.jsp" align="center"><b>°í°´¼¾ÅÍ</b></a></li>
-	<li class="menu-item"><a href="/BlackIce/Login.jsp" align="center"><b>·Î±×ÀÎ</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Mainpage.jsp" align="center"><b>ë©”ì¸</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Tmap1.html" align="center"><b>ê²°ë¹™</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Tmap2.html" align="center"><b>í¬íŠ¸í™€</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Tmap3.html" align="center"><b>ìƒ˜í”Œ</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/bookmark.jsp" align="center"><b>ì¦ê²¨ì°¾ê¸°</b></a></li>
+	<li class="menu-item" style="background-color:#DDD600;"><a href="/BlackIce/board.jsp" align="center"><b>ê²Œì‹œíŒ</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Login.jsp" align="center"><b>ë¡œê·¸ì¸</b></a></li>
   </ol>
 </nav>
 
-<img src = "img/ready.png" style = "display:block; margin:0px auto; margin-top: 250px;">
+
 
 </body>
 </html>
+
+</style>
+
+<div class="container" style = "width: 1070px; padding: 100px; margin-top:62px;">
+<table class="table table-bordered" style = "border: 2px solid #ddd;">
+    <thead>
+        <caption style = "padding-top: 0px; padding-bottom: 9px; color: #777; font-size: 20px; text-align: left; margin-left: 57px;"> < ë°©ëª…ë¡ > </caption>
+    </thead>
+    <tbody>
+        <form action="write_ok.jsp" method="post" encType="multiplart/form-data">
+           
+            <tr>
+                <td><input style = "width:794px; border: 2px solid #ddd;" type="text"  placeholder="ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”." name="subject" class="form-control"/>
+                <input style = "background-color: unset; color: slategray; margin-top: -31px; margin-right: 2px;" type="button" value="ë“±ë¡" onclick="sendData()" class="pull-right"/></td>
+                
+            </tr>
+            <tr>
+                <td style = "height:170px; border: 2px solid #ddd;"><span style = "height:310px;"cols="10" name="content" class="form-control"></span></td>
+            </tr>
+       
+            
+            
+            <img src = "img/post.png" style = "width: 72px; margin-left: -14px; margin-bottom: -32px;">
+            
+            
+        </form>
+   </tbody>
+</table>
+</div>
+</body>
+</html>
+
+
