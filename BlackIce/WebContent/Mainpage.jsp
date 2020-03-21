@@ -200,8 +200,8 @@ search3:hover:before {
 	background-color: rgba(0, 0, 0, 0.3);
 	/* padding: 30%;
  */
-	width: 310px;
-	height: 320px;
+	width: 330px;
+	height: 310px;
 	position: absolute;
 	border-radius: 3px;
 	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -435,10 +435,10 @@ ul {
 		<p>
 			<ul data-v-cd86f34a=""><br><br>
 <li data-v-cd86f34a="" style="font-size: 12.5px; opacity: 1;">
-<strong data-v-cd86f34a=""> 약국 재고 현황은 실시간이 아니며, 부정확할 수 있습니다. 마스크 판매에 힘써주시는 약사 분들의 노고를 생각해주시면 감사하겠습니다. </strong></li><br>
-<li data-v-cd86f34a="" style="font-size: 12.5px; opacity: 1;"><strong data-v-cd86f34a=""> 정보 공개를 원치않으시는 약사분은 한국정보화진흥원 (maskdata@nia.or.kr) 으로 문의해주시기 바랍니다. </strong></li><br>
-<li data-v-cd86f34a=""> 기부해주신 모든 분들께 정말 감사드립니다. 기부금으로 구매한 위생용품을 빠른 시일 내에 전달한 뒤 모든 내역을 투명하게 공개하겠습니다. </li><br>
-<li data-v-cd86f34a=""> 마스크 알리미는 코로나 알리미를 제작했던 <br data-v-cd86f34a="">대학생 4명의 아이디어와 노력에 이두희님의 
+<strong data-v-cd86f34a="">예측 구간은 100% 정확할 순 없습니다.예측 구간을 참고하여 도로안전사고에 유의해주시면 감사하겠습니다.</strong></li><br>
+<li data-v-cd86f34a="" style="font-size: 12.5px; opacity: 1;"><strong data-v-cd86f34a=""> 문의사항이 있으신 분은 스마트 미디어 인재 개발원(smhrd@smhrd.or.kr)으로 보내주시길 바랍니다.</strong></li><br>
+<li data-v-cd86f34a=""> 사이트를 이용해주신 모든분들께 감사드립니다. 여러분의 안전을 위해 많은 노력을 기울이겠습니다. 항상 많은 관심 부탁드립니다. </li><br>
+<li data-v-cd86f34a=""> 세이프 로드 맵은  <br data-v-cd86f34a="">4명의 아이디어와 노력에 황해도,박병관,정형 연구원의 
 <br data-v-cd86f34a="">데이터 기술 자문이 더해져 만들어졌습니다. </li></ul>
 		</p>
 
