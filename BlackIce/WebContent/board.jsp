@@ -294,11 +294,12 @@ body {
         <caption style = "padding-top: 0px; padding-bottom: 9px; color: #777; font-size: 20px; text-align: left; margin-left: 57px;"> < 방명록 > </caption>
     </thead>
     <tbody>
-        <form action="write_ok.jsp" method="post" encType="multiplart/form-data">
+     
            
             <tr>
-                <td><input style = "width:794px; border: 2px solid #ddd;" type="text"  placeholder="내용을 입력하세요." name="subject" class="form-control"/>
-                <input style = "background-color: unset; color: slategray; margin-top: -31px; margin-right: 2px;" type="button" value="등록" onclick="sendData()" class="pull-right"/></td>
+                <td><input style = "width:794px; border: 2px solid #ddd;" type="text"  placeholder="내용을 입력하세요." name="subject" class="form-control" onKeyDown="if(event.keyCode == 13) pressEnter()">
+                
+                <input style = "background-color: unset; color: slategray; margin-top: -31px; margin-right: 2px;" type="button" value="등록" class="pull-right"/></td>
                 
             </tr>
             <tr>
@@ -310,10 +311,44 @@ body {
             <img src = "img/post.png" style = "width: 72px; margin-left: -14px; margin-bottom: -32px;">
             
             
-        </form>
+       
    </tbody>
 </table>
 </div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script>
+
+	
+		
+		function pressEnter(){
+	        if(event.keyCode == 13){
+	        	var ff = $(".form-control").val();
+
+	    		
+	    		
+	    		$(".form-control").append(ff+"<br>");
+	        }
+	    }
+	
+	
+
+	
+	$(".pull-right").on('click',function(){
+		
+		var ff = $(".form-control").val();
+
+		console.log(ff);
+		
+		$(".form-control").append(ff+"<br>");
+		
+		
+	
+		
+	})
+
+</script>
+
 </body>
 </html>
 
