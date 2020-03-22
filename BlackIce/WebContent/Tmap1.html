@@ -820,7 +820,7 @@ element.style {
 					var lon1 = geometry_array2[i][1];
 		 			var lat2 = geometry_array2[i + parseInt(geometry_array2.length/10)][0];
 					var lon2 = geometry_array2[i + parseInt(geometry_array2.length/10)][1];
-		
+					geometry_array3.push([lat1,lon1]);
 	 
 					var obj = {
 							lat1 : lat1,
@@ -890,10 +890,20 @@ element.style {
 				}
 				console.log(resultpredict);
 				console.log("jav의값은" + jav );
+				console.log(geometry_array3);
+				// 노드api접속 및 예측 end
 				
-		
-		// 노드api접속 및 예측 end
-               
+				for(var i in geometry_array3){
+					var marker = new Tmapv2.Marker({
+					position: new Tmapv2.LatLng(geometry_array3[i][0], geometry_array3[i][1]), //Marker의 중심좌표 설정.
+                    icon : "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_0.png",
+                    iconSize : new Tmapv2.Size(24, 38),
+					map: map //Marker가 표시될 Map 설정..
+					});
+				}
+				
+				
+			
                //교통정보 표출 옵션값을 체크
                
                if (trafficInfochk == "Y") {
