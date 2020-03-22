@@ -88,7 +88,7 @@
 									<label for="user" class="label">Email</label> <input name="email" id="user" type="text" class="input">
 								</div>
 								<div class="group">
-									<label for="user" class="label">Password</label> <input name="pw" id="user" type="text" class="input">
+									<label for="user" class="label">Password</label> <input name="pw" id="user" type="password" class="input">
 								</div>
 								<div class="group">
 									<label for="user" class="label">Phone Number</label> <input name="tel" id="user" type="text" class="input">
