@@ -61,7 +61,7 @@
 							<br> <br>
 							<form action="LoginService.do" method="post">
 								<div class="group">
-									<label for="user" class="label">Username or Email</label> <input name="email" id="user" type="text" class="input">
+									<label for="user" class="label">Email</label> <input name="email" id="user" type="text" class="input">
 								</div>
 								<br> <br>
 								<div class="group">

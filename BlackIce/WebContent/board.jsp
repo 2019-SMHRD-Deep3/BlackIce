@@ -317,17 +317,16 @@ body {
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-<script>
+<script type="text/javascript">
 
 	
 		
 		function pressEnter(){
 	        if(event.keyCode == 13){
 	        	var ff = $(".form-control").val();
-
+				console.log(ff);
 	    		
-	    		
-	    		$(".form-control").append(">> "+ff+"<br>");
+	    		$(".form-control").append("이보람 >> "+ff+"<br>");
 	    		var ff = $(".form-control").val("");
 	        }
 	    }
@@ -341,7 +340,7 @@ body {
 
 		console.log(ff);
 		
-		$(".form-control").append(" 김희조  >> "+ff+"<br>");
+		$(".form-control").append("이보람 >> "+ff+"<br>");
 		var ff = $(".form-control").val("");
 		
 		
