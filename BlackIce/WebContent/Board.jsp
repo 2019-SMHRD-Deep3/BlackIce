@@ -273,20 +273,13 @@ body {
 	<li class="menu-item"><a href="/BlackIce/Mainpage.jsp" align="center"><b>메인</b></a></li>
 	<li class="menu-item"><a href="/BlackIce/Tmap1.html" align="center"><b>결빙</b></a></li>
 	<li class="menu-item"><a href="/BlackIce/Tmap2.html" align="center"><b>포트홀</b></a></li>
-	<li class="menu-item"><a href="/BlackIce/Tmap3.html" align="center"><b>샘플</b></a></li>
-	<li class="menu-item"><a href="/BlackIce/bookmark.jsp" align="center"><b>즐겨찾기</b></a></li>
-	<li class="menu-item" style="background-color:#DDD600;"><a href="/BlackIce/board.jsp" align="center"><b>게시판</b></a></li>
-	<li class="menu-item"><a href="/BlackIce/Login.jsp" align="center"><b>로그인</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Tmap3.html" align="center"><b>소성변형</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Bookmark.jsp" align="center"><b>즐겨찾기</b></a></li>
+	<li class="menu-item" style="background-color:#DDD600;"><a href="/BlackIce/Board.jsp" align="center"><b>게시판</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Login.jsp" align="center"><b>로그아웃</b></a></li>
 
   </ol>
 </nav>
-
-
-
-</body>
-</html>
-
-</style>
 
 <div class="container" style = "width: 1070px; padding: 100px; margin-top:62px;">
 <table class="table table-bordered" style = "border: 2px solid #ddd;">

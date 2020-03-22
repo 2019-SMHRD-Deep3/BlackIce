@@ -391,7 +391,7 @@ ul {
 					<div>
 					<a class=search href="/BlackIce/Tmap1.html">결빙</a>
 					<a class=search2 href="/BlackIce/Tmap2.html">포트홀</a>
-					<a class=search3 href="/BlackIce/Tmap3.html">샘플</a>
+					<a class=search3 href="/BlackIce/Tmap3.html">소성변형</a>
 					</div>
 				</body>
 			

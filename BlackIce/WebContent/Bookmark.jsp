@@ -283,7 +283,6 @@ table.type11 td {
 }
 
 * {box-sizing: border-box;}
-body {font-family: Verdana, sans-serif;}
 .mySlides {display: none;}
 img {vertical-align: middle;}
 
@@ -359,10 +358,10 @@ img {vertical-align: middle;}
 	<li class="menu-item"><a href="/BlackIce/Mainpage.jsp" align="center"><b>메인</b></a></li>
 	<li class="menu-item"><a href="/BlackIce/Tmap1.html" align="center"><b>결빙</b></a></li>
 	<li class="menu-item"><a href="/BlackIce/Tmap2.html" align="center"><b>포트홀</b></a></li>
-	<li class="menu-item"><a href="/BlackIce/Tmap3.html" align="center"><b>샘플</b></a></li>
-	<li class="menu-item" style="background-color:#C6EA8D;"><a href="/BlackIce/bookmark.jsp" align="center"><b>최근검색</b></a></li>
-	<li class="menu-item"><a href="/BlackIce/board.jsp" align="center"><b>게시판</b></a></li>
-	<li class="menu-item"><a href="/BlackIce/Login.jsp" align="center"><b>로그인</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Tmap3.html" align="center"><b>소성변형</b></a></li>
+	<li class="menu-item" style="background-color:#C6EA8D;"><a href="/BlackIce/Bookmark.jsp" align="center"><b>최근검색</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Board.jsp" align="center"><b>게시판</b></a></li>
+	<li class="menu-item"><a href="/BlackIce/Login.jsp" align="center"><b>로그아웃</b></a></li>
   </ol>
 </nav>
 
