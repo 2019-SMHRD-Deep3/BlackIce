@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import controller.JoinCon;
 import controller.LoginCon;
+import controller.nodeCon;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -20,6 +21,7 @@ public class FrontController extends HttpServlet {
 	private void putData() {
 		map.put("JoinService.do", new JoinCon());
 		map.put("LoginService.do", new LoginCon());
+		map.put("nodeService.do", new nodeCon());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -35,7 +37,12 @@ public class FrontController extends HttpServlet {
 		ICommand iCommand = map.get(resultURL);
 		
 		moveURL = iCommand.execute(request, response);
-		response.sendRedirect(moveURL);
+		if(iCommand instanceof nodeCon) {
+            response.getWriter().print(moveURL);
+         }else {
+            moveURL = iCommand.execute(request, response);
+            response.sendRedirect(moveURL);
+         }
 	}
 
 }

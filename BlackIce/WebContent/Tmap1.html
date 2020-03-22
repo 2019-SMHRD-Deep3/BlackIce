@@ -441,6 +441,8 @@ element.style {
    src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appkey=l7xx2620a113105b43f0b794ad5533b36999"></script>
 
 <script type="text/javascript">
+	var result_data = [];
+
    var map;
    var markerArr_s = [];
    var markerArr_e = [];
@@ -704,9 +706,15 @@ element.style {
          });
       });
 
+      var tDistance = "";
       // 3. 경로탐색 API 사용요청
       $("#btn_select").click(function() {
-         //기존 맵에 있던 정보들 초기화
+         
+    	  
+         var geometry_array2 = [];
+ 		 var geometry_array3 = [];
+    	  
+    	 //기존 맵에 있던 정보들 초기화 
          resettingMap();
          
          //두 좌표 중심점으로 맵 이동
@@ -762,17 +770,135 @@ element.style {
             success : function(response) {
                var resultData = response.features;
                
-               var tDistance = "총 거리 : " + (resultData[0].properties.totalDistance / 1000).toFixed(1) + "km,";
+               
+               console.log(resultData);
+				console.log(resultData.length);
+				console.log(resultData[3].geometry.coordinates.length);
+				var geometry_array = [];
+				for(var i=0; i <resultData.length ; i++){
+					if(resultData[i].geometry.type == "Point"){
+						geometry_array.push([resultData[i].geometry.coordinates[0], resultData[i].geometry.coordinates[1]]);
+					}else{
+						for(var j=0; j <resultData[i].geometry.coordinates.length ; j++){
+							geometry_array.push(resultData[i].geometry.coordinates[j]);
+						}
+					}
+				}
+				
+				// var geometry_array2 = [];
+				for(var i=0; i < geometry_array.length ; i++){
+					
+					var latlng = new Tmapv2.Point(geometry_array[i][0], geometry_array[i][1]);
+					var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(latlng);
+					// 포인트객체의 정보로 좌표값 변환 객체로 저장
+					geometry_array2.push([convertPoint._lat, convertPoint._lng])
+				}
+				console.log(geometry_array);
+				console.log(geometry_array2);
+				console.log(geometry_array3);
+               
+               
+               
+               
+               
+               
+               
+               tDistance = "총 거리 : " + (resultData[0].properties.totalDistance / 1000).toFixed(1) + "km,";
                var tTime = " 총 시간 : " + (resultData[0].properties.totalTime / 60).toFixed(0) + "분,";
                var tFare = " 총 요금 : " + resultData[0].properties.totalFare + "원,";
                var taxiFare = " 예상 택시 요금 : " + resultData[0].properties.taxiFare + "원";
                
                $("#result").text(tDistance + tTime + tFare + taxiFare);
                
+               
+            // 노드api접속 및 예측 start
+				var jav = 0;
+				for(var i = 0; i < geometry_array2.length - parseInt(geometry_array2.length/10) - 1; i = i + parseInt(geometry_array2.length/10) ){
+					console.log(i);
+					console.log(jav);
+	 				var lat1 = geometry_array2[i][0];
+					var lon1 = geometry_array2[i][1];
+		 			var lat2 = geometry_array2[i + parseInt(geometry_array2.length/10)][0];
+					var lon2 = geometry_array2[i + parseInt(geometry_array2.length/10)][1];
+		
+	 
+					var obj = {
+							lat1 : lat1,
+							lon1 : lon1,
+							lat2 : lat2,
+							lon2 : lon2
+						};
+						
+					 $.ajax({
+				            url : "nodeService.do",
+				            type : "POST",
+				            dataType : "json",
+				            async: false,
+				            data : obj,
+				            success : function(result){
+				            	 console.log("노드있음");
+				            	 if(result == null){
+				            		 result_data.push([0, 104]);
+				            	 }else {
+				            	 	result_data.push([result[0]["road_type_"], result[0]["node_type"]]);
+				            	 }
+				            	 
+				            },
+				            error : function(){
+				               console.log("노드없음");
+				               result_data.push([0, 104]);
+				            }
+				      });
+					 jav = jav+1;
+					
+				}
+				console.log("jav의값은" + jav);
+				console.log(result_data);
+				var jav = 0;
+				resultpredict = [];
+				for(var i = 0; i < geometry_array2.length - parseInt(geometry_array2.length/10) - 1; i = i + parseInt(geometry_array2.length/10)){
+					var lat = geometry_array2[i][0];
+					var lon = geometry_array2[i][1];
+					var road_type = result_data[jav][0];
+					var node_type = result_data[jav][1];
+					jav = jav+1;
+					console.log(lat);
+					console.log(lon);
+					console.log(jav);
+					console.log(road_type);
+					console.log(node_type);
+					
+					$.ajax({
+						url : "http://localhost:9000/re/" + lat + "/" + lon + "/" + road_type + "/" + node_type,
+						method : "POST",
+						async: false,
+						success : function(rs) {
+							if (rs.result == "0") {
+								console.log("안전한지역")
+							} else if (rs.result == "1") {
+								console.log("결빙위험지역")
+							} else {
+								console.log("error")
+							}
+							resultpredict.push(rs.result);
+						},
+						error : function(){
+				               console.log("진짜에러");
+			            }
+					});
+					
+				}
+				console.log(resultpredict);
+				console.log("jav의값은" + jav );
+				
+		
+		// 노드api접속 및 예측 end
+               
                //교통정보 표출 옵션값을 체크
+               
                if (trafficInfochk == "Y") {
                   for ( var i in resultData) { //for문 [S]
-                     var geometry = resultData[i].geometry;
+                  	var geometry = resultData[i].geometry;
                      var properties = resultData[i].properties;
                      
                      if (geometry.type == "LineString") {
