@@ -435,7 +435,7 @@ ul {
 		<p>
 			<ul data-v-cd86f34a=""><br><br>
 <li data-v-cd86f34a="" style="font-size: 12.5px; opacity: 1;">
-<strong data-v-cd86f34a="">예측 구간은 100% 정확할 순 없습니다.예측 구간을 참고하여 도로안전사고에 유의해주시면 감사하겠습니다.</strong></li><br>
+<strong data-v-cd86f34a="">예측 구간은 100% 정확할 순 없습니다. s예측 구간을 참고하여 도로안전사고에 유의해주시면 감사하겠습니다.</strong></li><br>
 <li data-v-cd86f34a="" style="font-size: 12.5px; opacity: 1;"><strong data-v-cd86f34a=""> 문의사항이 있으신 분은 스마트 미디어 인재 개발원(smhrd@smhrd.or.kr)으로 보내주시길 바랍니다.</strong></li><br>
 <li data-v-cd86f34a=""> 사이트를 이용해주신 모든분들께 감사드립니다. 여러분의 안전을 위해 많은 노력을 기울이겠습니다. 항상 많은 관심 부탁드립니다. </li><br>
 <li data-v-cd86f34a=""> 세이프 로드 맵은  <br data-v-cd86f34a="">4명의 아이디어와 노력에 황해도,박병관,정형 연구원의 

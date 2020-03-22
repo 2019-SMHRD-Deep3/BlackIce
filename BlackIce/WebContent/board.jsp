@@ -327,7 +327,8 @@ body {
 
 	    		
 	    		
-	    		$(".form-control").append(ff+"<br>");
+	    		$(".form-control").append(">> "+ff+"<br>");
+	    		var ff = $(".form-control").val("");
 	        }
 	    }
 	
@@ -340,7 +341,8 @@ body {
 
 		console.log(ff);
 		
-		$(".form-control").append(ff+"<br>");
+		$(".form-control").append(" 김희조  >> "+ff+"<br>");
+		var ff = $(".form-control").val("");
 		
 		
 	
